@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ApexAI — On-device spatial AI: ApexVision &amp; Whereabouts</title>
+<meta name="description" content="ApexAI builds on-device spatial AI. ApexVision guides blind and low-vision pedestrians in real time — under 200 ms, fully on-device, in beta on iOS. Whereabouts is a map of your home that knows where everything is.">
+<meta property="og:title" content="ApexAI — ApexVision &amp; Whereabouts">
+<meta property="og:description" content="On-device spatial AI. ApexVision: real-time navigation for blind and low-vision pedestrians, in beta on iOS. Whereabouts: ask where anything is in your home.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://apex-ai.site/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230D2440'/%3E%3Cpath d='M14 50 L32 12 L50 50 H41 L32 29 L23 50 Z' fill='%23FFC72C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --tint:#F2F6FB;
+    --ink:#13263F;
+    --muted:#4A5B72;
+    --navy:#0D2440;
+    --navy-deep:#081527;
+    --yellow:#FFC72C;
+    --link:#1655C0;
+    --line:#D4DCE6;
+    --on-navy:#F2F6FC;
+    --on-navy-soft:#B9CBE4;
+    --focus:#13263F;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#0A1626;
+      --tint:#0F2036;
+      --ink:#E9EEF5;
+      --muted:#A9B9CD;
+      --navy:#0D2440;
+      --navy-deep:#071120;
+      --link:#8FB6F4;
+      --line:#27394F;
+      --focus:#FFC72C;
+    }
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-size:1.125rem;
+    line-height:1.65;
+  }
+  [id]{scroll-margin-top:5.5rem}
+
+  :focus{outline:none}
+  :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+  .hero :focus-visible, .band-navy :focus-visible, .beta-bar :focus-visible, footer.site :focus-visible{outline-color:var(--yellow)}
+  .skip-link{
+    position:absolute;left:-999px;top:0;z-index:100;
+    background:var(--navy);color:#fff;
+    padding:.9rem 1.4rem;font-weight:700;text-decoration:none;
+  }
+  .skip-link:focus{left:0}
+
+  a{color:var(--link);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+  a:hover{text-decoration-thickness:3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding-inline:1.25rem}
+  p{max-width:64ch}
+  img{max-width:100%;height:auto;display:block}
+
+  h1,h2,h3{letter-spacing:-.01em}
+  h2{font-size:clamp(1.8rem,3.6vw,2.5rem);line-height:1.15;max-width:26ch}
+  h2::before{content:"";display:block;width:3rem;height:5px;background:var(--yellow);border-radius:3px;margin-bottom:1.1rem}
+
+  /* ---------- Beta bar ---------- */
+  .beta-bar{background:var(--navy-deep);color:var(--on-navy)}
+  .beta-bar .wrap{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;padding-block:.6rem;font-size:1.02rem}
+  .beta-bar a{color:var(--yellow);font-weight:700}
+
+  /* ---------- Header ---------- */
+  header.site{border-bottom:1px solid var(--line);background:var(--paper)}
+  header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 2rem;padding-block:1.05rem}
+  .wordmark{display:inline-flex;align-items:center;gap:.5rem;font-size:1.45rem;font-weight:700;color:var(--ink);text-decoration:none}
+  .wordmark svg{width:22px;height:22px;flex:none}
+  nav.primary{margin-left:auto}
+  nav.primary ul{display:flex;flex-wrap:wrap;gap:.2rem 1.4rem;list-style:none}
+  nav.primary a{color:var(--ink);font-weight:700;text-decoration:none;padding:.3rem 0;display:inline-block;font-size:1rem}
+  nav.primary a:hover{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--yellow)}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-block;font-weight:700;font-size:1.08rem;
+    padding:.9rem 1.6rem;text-decoration:none;border-radius:8px;
+    min-height:48px;border:2px solid transparent;
+  }
+  .btn-yellow{background:var(--yellow);color:#0D2440;border-color:var(--yellow)}
+  .btn-yellow:hover{background:#FFD35C;border-color:#FFD35C}
+  .btn-navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .btn-navy:hover{background:var(--navy-deep);border-color:var(--navy-deep)}
+  @media (prefers-color-scheme: dark){
+    .btn-navy{background:var(--yellow);color:#0D2440;border-color:var(--yellow)}
+    .btn-navy:hover{background:#FFD35C;border-color:#FFD35C}
+  }
+  .btn-ghost-light{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost-light:hover{background:var(--tint)}
+  .btn-ghost-dark{background:transparent;color:#fff;border-color:#fff}
+  .btn-ghost-dark:hover{background:rgba(255,255,255,.12)}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(180deg,#0C2141,#102C52);
+    background-size:56px 56px,56px 56px,100% 100%;
+    color:var(--on-navy);
+  }
+  .hero .wrap{padding-block:5rem 4.75rem}
+  .hero h1{font-size:clamp(2.5rem,6vw,4rem);line-height:1.07;font-weight:700;max-width:16ch;color:#fff}
+  .hero .lede{margin-top:1.6rem;font-size:clamp(1.15rem,1.9vw,1.35rem);line-height:1.6;max-width:54ch;color:#CFDCEF}
+  .hero .lede strong{color:#fff}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.25rem}
+  .hero .fineprint{margin-top:1.4rem;font-size:.98rem;color:#9FB4D0;max-width:62ch}
+
+  /* ---------- Stat band ---------- */
+  .stats{border-bottom:1px solid var(--line);background:var(--paper)}
+  .stats ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);max-width:1080px;margin:0 auto}
+  .stats li{padding:1.6rem 1.5rem;border-left:1px solid var(--line)}
+  .stats li:first-child{border-left:none}
+  .stats .big{display:block;font-size:1.65rem;font-weight:700;line-height:1.2;color:var(--ink)}
+  .stats .small{display:block;margin-top:.25rem;color:var(--muted);font-size:.98rem}
+  @media(max-width:860px){
+    .stats ul{grid-template-columns:1fr 1fr}
+    .stats li{border-left:none;border-top:1px solid var(--line)}
+    .stats li:nth-child(even){border-left:1px solid var(--line)}
+    .stats li:nth-child(-n+2){border-top:none}
+  }
+  @media(max-width:480px){
+    .stats ul{grid-template-columns:1fr}
+    .stats li{border-left:none!important;border-top:1px solid var(--line)}
+    .stats li:first-child{border-top:none}
+  }
+
+  /* ---------- Sections ---------- */
+  section{padding-block:4.5rem}
+  .band-tint{background:var(--tint);border-block:1px solid var(--line)}
+  .section-intro{margin-top:1.2rem;color:var(--muted);font-size:1.18rem;max-width:60ch}
+
+  /* Why: contrast pairs */
+  .pairs{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:0 3.5rem}
+  .pair{padding-block:1.7rem;border-top:1px solid var(--line)}
+  .pair .problem{color:var(--muted);font-size:1.02rem;max-width:44ch}
+  .pair .answer{margin-top:.55rem;font-size:1.26rem;font-weight:700;line-height:1.4;max-width:30ch}
+  @media(max-width:720px){.pairs{grid-template-columns:1fr}}
+
+  /* Modes with screenshots */
+  .mode{display:grid;grid-template-columns:56px 1fr 232px;gap:1.6rem 2rem;padding-block:2.6rem;border-top:1px solid var(--line);align-items:start}
+  .mode:first-of-type{border-top:none;padding-top:2.5rem}
+  .mode svg{width:48px;height:48px;color:var(--ink)}
+  .mode h3{font-size:1.45rem}
+  .mode .mode-body p{margin-top:.55rem}
+  .mode ul{margin-top:.85rem;padding-left:1.2rem;max-width:56ch}
+  .mode li{margin-top:.35rem}
+  .mode li::marker{color:var(--yellow)}
+  .shot{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .mode .shot{width:232px;justify-self:end}
+  @media(max-width:860px){
+    .mode{grid-template-columns:48px 1fr}
+    .mode .shot{grid-column:2;justify-self:start;width:min(260px,70vw);margin-top:.5rem}
+  }
+  @media(max-width:600px){
+    .mode{grid-template-columns:1fr}
+    .mode .shot{grid-column:1}
+  }
+
+  /* How it works */
+  .steps{margin-top:2.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;counter-reset:step}
+  .step{counter-increment:step;border-top:5px solid var(--yellow);padding-top:1rem}
+  .step h3{font-size:1.15rem}
+  .step h3::before{content:counter(step) ". "}
+  .step p{margin-top:.45rem;font-size:1rem;color:var(--muted)}
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.steps{grid-template-columns:1fr}}
+
+  /* ---------- Whereabouts ---------- */
+  .whereabouts .definition{
+    font-weight:700;font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.35;max-width:30ch;margin-top:1.2rem;
+  }
+  .whereabouts .body{margin-top:1rem;font-size:1.14rem}
+  .wb-banner{margin-top:2.4rem;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .wb-gallery{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .wb-gallery figure{margin:0}
+  .wb-gallery figcaption{margin-top:.6rem;font-size:.95rem;color:var(--muted)}
+  @media(max-width:720px){
+    .wb-gallery{grid-template-columns:1fr}
+    .wb-gallery .shot{max-width:320px}
+  }
+  .whereabouts ul.features{margin-top:2rem;padding-left:1.2rem;max-width:62ch}
+  .whereabouts ul.features li{margin-top:.5rem}
+  .whereabouts ul.features li::marker{color:var(--yellow)}
+  .wb-b2b{margin-top:2.4rem;border-left:5px solid var(--yellow);padding:.4rem 0 .4rem 1.4rem;max-width:62ch}
+  .wb-b2b h3{font-size:1.2rem}
+  .wb-b2b p{margin-top:.45rem;color:var(--muted)}
+  .whereabouts .cta-row{margin-top:2.3rem}
+
+  /* Milestones */
+  .pedigree{margin-top:1.4rem;font-size:1.14rem;max-width:60ch}
+  .timeline{margin-top:2.4rem;list-style:none;border-top:1px solid var(--line)}
+  .timeline li{display:grid;grid-template-columns:5.5rem 1fr;gap:1.25rem;padding-block:1rem;border-bottom:1px solid var(--line)}
+  .timeline .year{font-weight:700}
+  .supporters{margin-top:2.6rem}
+  .supporters h3{font-size:1.05rem;color:var(--muted);font-weight:400}
+  .supporters ul{margin-top:.8rem;list-style:none;display:flex;flex-wrap:wrap;gap:.6rem .8rem}
+  .supporters li{font-weight:700;font-size:.98rem;border:1px solid var(--line);border-radius:6px;padding:.45rem .8rem;background:var(--paper)}
+
+  /* Stories */
+  .quotes{margin-top:2.4rem;display:grid;gap:2.2rem}
+  .quotes blockquote p{
+    font-weight:700;font-size:clamp(1.2rem,2.1vw,1.45rem);line-height:1.5;max-width:40ch;text-indent:-.45em;
+  }
+  .quotes figcaption{margin-top:.55rem;color:var(--muted);font-size:1rem}
+  .community-line{margin-top:2.8rem;padding:1.7rem 1.9rem;background:var(--navy);border-radius:12px;max-width:46rem}
+  .community-line p{font-weight:700;font-size:1.4rem;color:#fff;text-indent:-.45em}
+  .community-line figcaption{margin-top:.45rem;color:var(--on-navy-soft)}
+
+  /* Organizations */
+  .band-navy{background:var(--navy);color:var(--on-navy)}
+  .band-navy h2{color:#fff}
+  .band-navy p{color:inherit}
+  .band-navy .section-intro{color:var(--on-navy-soft)}
+  .band-navy ul{margin-top:1.7rem;padding-left:1.2rem;max-width:62ch}
+  .band-navy li{margin-top:.85rem}
+  .band-navy li::marker{color:var(--yellow)}
+  .band-navy li strong{color:var(--yellow)}
+  .band-navy .cta-row{margin-top:2.2rem}
+  .band-navy a{color:#fff}
+  .band-navy a.btn-yellow{color:#0D2440}
+  .band-navy .email-note{margin-top:1rem;font-size:1.02rem;color:var(--on-navy-soft)}
+
+  /* Team */
+  .people{margin-top:2.4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem 2.5rem}
+  .person{display:grid;grid-template-columns:58px 1fr;gap:1rem;align-items:start}
+  .person .avatar{
+    width:58px;height:58px;border-radius:50%;background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;
+  }
+  .person h3{font-size:1.15rem;line-height:1.3}
+  .person .role{font-weight:700;color:var(--muted);font-size:.98rem}
+  .person p{margin-top:.3rem;font-size:.98rem;color:var(--muted)}
+
+  /* Contact */
+  .contact-grid{margin-top:2.4rem;display:grid;grid-template-columns:1.2fr 1fr;gap:3rem}
+  @media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
+  form label{display:block;font-weight:700;margin-top:1.35rem;margin-bottom:.4rem}
+  form label:first-of-type{margin-top:0}
+  input,select,textarea{
+    width:100%;font:inherit;color:var(--ink);background:var(--paper);
+    border:2px solid var(--muted);border-radius:8px;padding:.75rem .85rem;
+  }
+  input:hover,select:hover,textarea:hover{border-color:var(--ink)}
+  textarea{min-height:8.5rem;resize:vertical}
+  .submit-btn{
+    margin-top:1.6rem;font:inherit;font-weight:700;font-size:1.08rem;cursor:pointer;
+    background:var(--navy);color:#fff;border:2px solid var(--navy);border-radius:8px;
+    padding:.9rem 1.6rem;min-height:48px;
+  }
+  .submit-btn:hover{background:var(--navy-deep);border-color:var(--navy-deep)}
+  @media (prefers-color-scheme: dark){
+    .submit-btn{background:var(--yellow);border-color:var(--yellow);color:#0D2440}
+    .submit-btn:hover{background:#FFD35C;border-color:#FFD35C}
+  }
+  .form-note{margin-top:1rem;font-size:.98rem;color:var(--muted)}
+  .preview-note{display:none;margin-top:1rem;font-weight:700;border:2px solid var(--yellow);padding:.8rem .9rem;border-radius:8px}
+  .direct h3{font-size:1.2rem}
+  .direct p{margin-top:.7rem}
+  .direct .email{font-size:1.15rem;font-weight:700;overflow-wrap:anywhere}
+
+  /* Footer */
+  footer.site{background:var(--navy-deep);color:var(--on-navy);border-top:5px solid var(--yellow)}
+  footer.site .wrap{padding-block:3rem}
+  footer.site p{margin-top:.6rem;font-size:.98rem;max-width:76ch;color:var(--on-navy-soft)}
+  footer.site p:first-child{margin-top:0;font-weight:700;font-size:1.15rem;color:#fff}
+  footer.site a{color:#fff}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="beta-bar">
+  <div class="wrap">
+    <span>ApexVision is in beta on iOS.</span>
+    <a href="#contact">Join the beta</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="#top">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 C7.6 2 4 5.6 4 10 c0 5.6 8 12 8 12 s8-6.4 8-12 c0-4.4-3.6-8-8-8 Z" fill="#FFC72C"/><circle cx="12" cy="10" r="3.2" fill="#0D2440"/></svg>
+      ApexAI
+    </a>
+    <nav class="primary" aria-label="Main">
+      <ul>
+        <li><a href="#modes">Modes</a></li>
+        <li><a href="#why">Why ApexVision</a></li>
+        <li><a href="#whereabouts">Whereabouts</a></li>
+        <li><a href="#milestones">Milestones</a></li>
+        <li><a href="#organizations">For organizations</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="hero" id="top">
+    <div class="wrap">
+      <h1>Navigation at the speed of walking.</h1>
+      <p class="lede">
+        ApexVision turns an iPhone into a real-time guide for blind and low-vision
+        pedestrians — <strong>under 200&nbsp;milliseconds</strong> from camera to spoken cue,
+        with every model running <strong>on the phone</strong>. No cloud, no connection
+        required, and no video ever leaves the device.
+      </p>
+      <div class="cta-row">
+        <!-- When the public TestFlight link exists, point this button straight at it. -->
+        <a class="btn btn-yellow" href="#contact" data-interest="beta">Join the iOS beta</a>
+        <a class="btn btn-ghost-dark" href="#organizations">Pilot it at your organization</a>
+      </div>
+      <p class="fineprint">
+        Free to download during the beta; a premium subscription will unlock full features at launch.
+        iPhone today — Android is on the roadmap.
+      </p>
+    </div>
+  </div>
+
+  <div class="stats" role="region" aria-label="Key facts">
+    <ul>
+      <li><span class="big">&lt;200 ms</span><span class="small">camera to cue, end to end</span></li>
+      <li><span class="big">On-device</span><span class="small">100% local — nothing uploaded, ever</span></li>
+      <li><span class="big">Fully offline</span><span class="small">no Wi-Fi or cell service required</span></li>
+      <li><span class="big">Patent pending</span><span class="small">U.S. Provisional 63/917,447</span></li>
+    </ul>
+  </div>
+
+  <section id="why" class="wrap">
+    <h2>Why ApexVision</h2>
+    <p class="section-intro">
+      Scene-describing AI is now common. ApexVision is built for the moment the others miss:
+      a pedestrian, mid-street, who needs an answer immediately.
+    </p>
+    <div class="pairs">
+      <div class="pair">
+        <p class="problem">Cloud assistants take several seconds to answer. A crosswalk allows less.</p>
+        <p class="answer">ApexVision responds in under 200&nbsp;ms — fast enough to guide a walking pace.</p>
+      </div>
+      <div class="pair">
+        <p class="problem">Camera-streaming apps send footage of your home to servers or to strangers.</p>
+        <p class="answer">Every model runs on the phone. Nothing is uploaded, ever.</p>
+      </div>
+      <div class="pair">
+        <p class="problem">Dedicated assistive wearables cost $3,500–$4,500, out of reach for most who need them.</p>
+        <p class="answer">ApexVision runs on a standard iPhone — no dedicated hardware.</p>
+      </div>
+      <div class="pair">
+        <p class="problem">Most assistive tools stop working where coverage stops — subways, basements, elevators.</p>
+        <p class="answer">ApexVision works fully offline, with no loss of function.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="modes" class="band-tint">
+    <div class="wrap">
+      <h2>Three modes, one tap apart</h2>
+
+      <div class="mode">
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="38" cy="38" r="22"/>
+          <path d="M54 54 L72 72"/>
+          <path d="M38 28 v20 M28 38 h20"/>
+        </svg>
+        <div class="mode-body">
+          <h3>Finder</h3>
+          <p>Name the thing you need — keys, a door, an empty seat — and ApexVision locates it and guides your hand to it.</p>
+          <ul>
+            <li>Voice-activated object search</li>
+            <li>Directional audio guidance, step by step, to the object</li>
+            <li>Works indoors and out — no GPS required</li>
+          </ul>
+        </div>
+        <img class="shot" src="assets/apexvision-finder.webp" width="750" height="1000"
+             alt="A hand holds an iPhone running ApexVision's Finder mode at a desk. The app has identified the monitor and shows the label 'Tvmonitor' above the mode bar.">
+      </div>
+
+      <div class="mode">
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M42 8 L70 18 V42 C70 60 58 70 42 76 C26 70 14 60 14 42 V18 Z"/>
+          <path d="M28 46 C34 38 50 50 56 34"/>
+        </svg>
+        <div class="mode-body">
+          <h3>Safety</h3>
+          <p>ApexVision reads the street in real time: where the walkable path is, what is in it, and what is approaching.</p>
+          <ul>
+            <li>Live walkable-path detection with obstacle alerts</li>
+            <li>Ground-level and overhead hazard warnings</li>
+            <li>Haptic and spatial-audio cues, timed for walking pace</li>
+          </ul>
+        </div>
+        <img class="shot" src="assets/apexvision-safety.webp" width="750" height="1000"
+             alt="ApexVision's Safety mode in a hallway: the floor ahead is overlaid in green with the word 'Walkable', marking the clear path through a doorway.">
+      </div>
+
+      <div class="mode">
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 16 H72 V56 H40 L24 70 V56 H12 Z"/>
+          <path d="M24 30 h36 M24 42 h24"/>
+        </svg>
+        <div class="mode-body">
+          <h3>Describe</h3>
+          <p>One tap, and the scene is spoken aloud: the layout of the room, the people in it, the sign above the counter.</p>
+          <ul>
+            <li>Rich scene descriptions on demand</li>
+            <li>People, objects, signage, and layout</li>
+            <li>Voice follow-ups: &ldquo;What's in front of me?&rdquo; &ldquo;Find the exit.&rdquo;</li>
+          </ul>
+        </div>
+        <img class="shot" src="assets/apexvision-describe.webp" width="750" height="1000"
+             alt="ApexVision's Describe mode pointed at a desk. The spoken description reads: 'This is a photo of a modern computer workstation, likely in an office. The most prominent object is a height-adjustable standing desk…' with a Describe Scene button below.">
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="wrap">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>The phone sees</h3>
+        <p>The camera streams the world through ApexVision's spatial AI at up to 30 frames per second.</p>
+      </div>
+      <div class="step">
+        <h3>The AI maps the space</h3>
+        <p>Objects, hazards, and walkable paths are identified and placed in 3D within milliseconds.</p>
+      </div>
+      <div class="step">
+        <h3>You get guidance</h3>
+        <p>Spatial audio and haptics translate that understanding into directions you can act on mid-stride.</p>
+      </div>
+      <div class="step">
+        <h3>Voice on demand</h3>
+        <p>Ask a question at any time; scene description and object finding answer instantly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="whereabouts" class="whereabouts band-tint">
+    <div class="wrap">
+      <h2>Whereabouts</h2>
+      <p class="definition">Ask where anything is. Scan a room once, then be walked right to it.</p>
+      <p class="body">
+        Whereabouts is a map of your home that knows where everything is. Scan a room with an
+        iPhone&nbsp;Pro — about a minute of walking around it — and it measures the walls, doors,
+        and furniture, recognizes everyday items, and names what's inside each drawer you open.
+        From then on, anyone you share the map with can ask where something is and be walked
+        right to it. Built with blind and low-vision users first, it works end to end by voice
+        and with VoiceOver; finding works on any iPhone with iOS&nbsp;17 or later, and scanning
+        needs a Pro model.
+      </p>
+      <img class="wb-banner" src="assets/whereabouts-guide.webp" width="1600" height="900"
+           alt="A voice query, 'Where are my keys?', answered by Whereabouts: 'Hall chest, top drawer — 4 meters ahead, on your right', shown as a pin on a home floor plan with a dotted path leading to it.">
+      <div class="wb-gallery">
+        <figure>
+          <img class="shot" src="assets/whereabouts-3d.webp" width="640" height="1391"
+               alt="The Whereabouts editor showing a scanned kitchen as a 3D model, with labels on the cabinets, refrigerator, table, chairs, and smaller items.">
+          <figcaption>Every room becomes a labeled 3D model.</figcaption>
+        </figure>
+        <figure>
+          <img class="shot" src="assets/whereabouts-plan.webp" width="640" height="1391"
+               alt="The same kitchen as a measured floor plan — 4.19 by 3.67 meters — with dots marking the position of each recognized item.">
+          <figcaption>And a measured floor plan, down to each item.</figcaption>
+        </figure>
+        <figure>
+          <img class="shot" src="assets/whereabouts-item.webp" width="640" height="1391"
+               alt="An item sheet in Whereabouts: a 'How it feels' note reading 'Smooth glass jar, metal lid, cold', spoken aloud when someone reaches the item, with its size, height, and position measured with LiDAR.">
+          <figcaption>Items carry tactile notes, read aloud on arrival.</figcaption>
+        </figure>
+      </div>
+      <ul class="features">
+        <li>Sizes and positions are measured with LiDAR, down to each item</li>
+        <li>Open a drawer or closet and tap &ldquo;Look inside&rdquo; — everything in it is listed, pinned where it lies</li>
+        <li>Ask by voice and be walked there: turn-by-turn around the furniture, with your hand guided over the last half&nbsp;meter</li>
+        <li>&ldquo;How it feels&rdquo; notes are read aloud on arrival; screens, directions, and voice work in English and Arabic</li>
+      </ul>
+      <p class="body">
+        The app is free, and so is your first room. Whereabouts is coming to open testing on
+        TestFlight, with the App Store release to follow; details and pricing are at
+        <a href="https://whereabout.store">whereabout.store</a>.
+      </p>
+      <div class="wb-b2b">
+        <h3>For kitchen and wardrobe manufacturers</h3>
+        <p>
+          Ship every installation with a searchable map of its storage. When a home is fitted with
+          your kitchens and wardrobes, the family can ask where things are stored and be guided to
+          them — so the space stays as easy to live in as the day it was installed.
+        </p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-navy" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
+        <a class="btn btn-ghost-light" href="https://whereabout.store">Visit whereabout.store</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="milestones" class="wrap">
+    <h2>Milestones</h2>
+    <p class="pedigree">
+      ApexAI's products grew out of peer-reviewed computer-vision research, including work recognized
+      with a Best Paper Award at the IEEE/CVF WACV 2025 Workshops and four top-6 finishes in the
+      NVIDIA AI City Challenge (2021–2024).
+    </p>
+    <ul class="timeline">
+      <li><span class="year">2026</span><span>Pilot deployment underway with a regional accessibility center, with structured outcome measures</span></li>
+      <li><span class="year">2026</span><span>Selected for NobleReach's Science2Venture accelerator (Cohort&nbsp;1) — an NSF-funded program that chose three startups across Tennessee</span></li>
+      <li><span class="year">2026</span><span>CodeStock — Most Impactful Company</span></li>
+      <li><span class="year">2026</span><span>Driving-simulator testing presented at the TRB Annual Meeting</span></li>
+      <li><span class="year">2025</span><span>U.S. provisional patent filed: multimodal real-time pedestrian navigation (63/917,447)</span></li>
+      <li><span class="year">2025</span><span>NSF I-Corps customer discovery — 50+ interviews with blind and low-vision users</span></li>
+      <li><span class="year">2025</span><span>Presented at the Accessibility Awareness Summit and at an IEEE/CVF ICCV 2025 workshop</span></li>
+    </ul>
+    <div class="supporters">
+      <h3>Research and development supported by</h3>
+      <ul>
+        <li>University of Tennessee — UT-ORII</li>
+        <li>UT Chattanooga — CUIP</li>
+        <li>NSF I-Corps</li>
+        <li>Meta Reality Labs</li>
+        <li>NobleReach Foundation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="stories" class="band-tint">
+    <div class="wrap">
+      <h2>Why we're building this</h2>
+      <div class="quotes">
+        <figure>
+          <blockquote><p>&ldquo;Google Maps didn't detect construction work, and I found myself in the middle of the road.&rdquo;</p></blockquote>
+          <figcaption>— Jill Shelton, professor</figcaption>
+        </figure>
+        <figure>
+          <blockquote><p>&ldquo;If I lose my glasses, I can't find them. I want something that doesn't need to be carried or worn.&rdquo;</p></blockquote>
+          <figcaption>— Henna Abbasi, fitness coach</figcaption>
+        </figure>
+        <figure>
+          <blockquote><p>&ldquo;I need something that can read things at a distance and help me find objects.&rdquo;</p></blockquote>
+          <figcaption>— Suzetta May, pedestrian safety specialist</figcaption>
+        </figure>
+      </div>
+      <figure class="community-line">
+        <blockquote><p>&ldquo;Thank you for helping us see.&rdquo;</p></blockquote>
+        <figcaption>— a community member, during pilot testing</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="organizations" class="band-navy">
+    <div class="wrap">
+      <h2>For agencies and organizations</h2>
+      <p class="section-intro">
+        If you run a vocational-rehabilitation program, an accessibility or independent-living center,
+        an O&amp;M practice, or a school district, we run structured pilots with you — training for your
+        staff, defined outcome measures, and a direct line to the founding team.
+      </p>
+      <ul>
+        <li><strong>A short privacy review.</strong> No video or personal data ever leaves the device, so there is no cloud vendor to assess and no footage-retention policy to write.</li>
+        <li><strong>No IT project.</strong> Works fully offline on standard iPhones — nothing to integrate, host, or network.</li>
+        <li><strong>Evidence you can use.</strong> Pilots produce usage data and outcome measures you can take to your own stakeholders.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-yellow" href="mailto:magedshoman@apex-ai.site?subject=Pilot%20inquiry">Email us about a pilot</a>
+      </div>
+      <p class="email-note">Or write directly to <a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a> — it reaches the founder.</p>
+    </div>
+  </section>
+
+  <section id="team" class="wrap">
+    <h2>Team</h2>
+    <div class="people">
+      <div class="person">
+        <div class="avatar" aria-hidden="true">MS</div>
+        <div>
+          <h3>Maged Shoman, PhD</h3>
+          <p class="role">Founder &amp; CEO</p>
+          <p>Architect of ApexVision. 10+ years in computer vision, deep learning, and real-time safety systems; research faculty at UT-ORII.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar" aria-hidden="true">UA</div>
+        <div>
+          <h3>Usman Ahmed, PhD</h3>
+          <p class="role">Chief Development Officer</p>
+          <p>10+ years applying machine learning to real-world navigation and safety challenges.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar" aria-hidden="true">OO</div>
+        <div>
+          <h3>Osama Osman, PhD</h3>
+          <p class="role">Product Strategy &amp; Mobility Technology Advisor</p>
+          <p>20+ years driving mobility, ITS, and connected-vehicle innovation in the U.S. and globally.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar" aria-hidden="true">MS</div>
+        <div>
+          <h3>Mina Sartipi, PhD</h3>
+          <p class="role">Strategic Partnerships Advisor</p>
+          <p>Smart-cities expert; built Chattanooga's MLK Smart Corridor and leads UTC's Center for Urban Informatics and Progress.</p>
+        </div>
+      </div>
+      <div class="person">
+        <div class="avatar" aria-hidden="true">BV</div>
+        <div>
+          <h3>Bob Vanderhoff</h3>
+          <p class="role">Business Advisor</p>
+          <p>Founder &amp; CEO of 35 Advisory Group; 40+ years in go-to-market and M&amp;A.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <h2>Get in touch</h2>
+    <div class="contact-grid">
+      <form name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p hidden aria-hidden="true"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <label for="f-name">Your name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required>
+
+        <label for="f-interest">I'm interested in</label>
+        <select id="f-interest" name="interest">
+          <option value="Joining the iOS beta">Joining the ApexVision iOS beta</option>
+          <option value="Whereabouts">Whereabouts</option>
+          <option value="Piloting at my organization">Piloting ApexVision at my organization</option>
+          <option value="Android waitlist">The Android waitlist</option>
+          <option value="Press">Press</option>
+          <option value="Other">Something else</option>
+        </select>
+
+        <label for="f-message">Message <span style="font-weight:400">(optional)</span></label>
+        <textarea id="f-message" name="message"></textarea>
+
+        <button class="submit-btn" type="submit">Send message</button>
+        <p class="form-note">Every message is read by the team; you'll hear back from a person.</p>
+        <p class="preview-note" id="preview-note" role="status"></p>
+      </form>
+      <div class="direct">
+        <h3>Prefer email?</h3>
+        <p class="email"><a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a></p>
+        <p>For pilot inquiries from agencies and organizations, put &ldquo;Pilot&rdquo; in the subject line and we'll prioritize it.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>ApexAI LLC</p>
+    <p>© 2026 ApexAI LLC. ApexVision is in beta on iOS. U.S. Provisional Patent 63/917,447.</p>
+    <p><a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a></p>
+    <p>This site is set in Atkinson Hyperlegible, a typeface designed by the Braille Institute for low-vision readers, and is built to meet WCAG 2.2 AA. If anything here is hard to use with your screen reader or magnifier, tell us — we'll fix it.</p>
+  </div>
+</footer>
+
+<script>
+  // Preselect the interest field when arriving via a product CTA.
+  document.querySelectorAll('a[data-interest]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var sel = document.getElementById('f-interest');
+      if (!sel) return;
+      if (a.dataset.interest === 'beta') sel.value = 'Joining the iOS beta';
+      if (a.dataset.interest === 'whereabouts') sel.value = 'Whereabouts';
+    });
+  });
+  // GitHub Pages has no form backend, so sending composes an email instead.
+  // (On a *.netlify.app deploy, Netlify Forms handles the POST natively and this is skipped.)
+  (function(){
+    var form = document.querySelector('form[name="contact"]');
+    if (!form) return;
+    if (/\.netlify\.app$/.test(location.hostname)) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var v = function(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+      var subject = '[apex-ai.site] ' + (v('f-interest') || 'Message');
+      var body = 'Name: ' + v('f-name') + '\nEmail: ' + v('f-email') + '\nInterested in: ' + v('f-interest') + '\n\n' + v('f-message');
+      var note = document.getElementById('preview-note');
+      if (note){
+        note.style.display = 'block';
+        note.textContent = 'This opens your email app, addressed to magedshoman@apex-ai.site — or write to us directly.';
+      }
+      location.href = 'mailto:magedshoman@apex-ai.site?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  })();
+</script>
+
+</body>
+</html>
