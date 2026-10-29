@@ -222,7 +222,15 @@
   }
   .quotes figcaption{color:var(--on-card-soft);font-size:.98rem;margin-top:auto}
   @media(max-width:860px){.quotes{grid-template-columns:1fr}}
-  .community-line{margin-top:1.25rem;padding:1.7rem 1.9rem;background:var(--card2);border-radius:18px;max-width:46rem}
+  .photo-strip{margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+  .photo-strip figure{margin:0}
+  .photo-strip img{border-radius:14px;width:100%;object-fit:cover}
+  .photo-strip figure:not(.wide) img{aspect-ratio:4/3}
+  .photo-strip .wide{grid-column:1/-1}
+  .photo-strip figcaption{margin-top:.55rem;font-size:.95rem;color:var(--secondary)}
+  @media(max-width:720px){.photo-strip{grid-template-columns:1fr}}
+
+  .community-line{margin-top:1.5rem;padding:1.7rem 1.9rem;background:var(--card2);border-radius:18px;max-width:46rem}
   .community-line p{font-weight:700;font-size:1.4rem;color:#fff;text-indent:-.45em}
   .community-line figcaption{margin-top:.45rem;color:var(--on-card-soft)}
 
@@ -563,6 +571,28 @@
       <figure class="dark-card">
         <blockquote><p>&ldquo;I need something that can read things at a distance and help me find objects.&rdquo;</p></blockquote>
         <figcaption>— Suzetta May, pedestrian safety specialist</figcaption>
+      </figure>
+    </div>
+    <div class="photo-strip">
+      <figure class="wide">
+        <img src="assets/event-trb.webp" width="800" height="298" loading="lazy"
+             alt="Maged Shoman interviewing Suzetta May, and presenting the ApexAI research poster, at the TRB Annual Meeting.">
+        <figcaption>Interviewing Suzetta May at the 2026 TRB Annual Meeting.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/event-codestock.webp" width="572" height="431" loading="lazy"
+             alt="The ApexAI team on stage at CodeStock 2026.">
+        <figcaption>CodeStock 2026 — Most Impactful Company.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/event-iccv.webp" width="578" height="387" loading="lazy"
+             alt="Maged Shoman presenting ApexAI at IEEE/CVF ICCV 2025.">
+        <figcaption>Presenting ApexAI at IEEE/CVF ICCV 2025.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/event-summit.webp" width="726" height="484" loading="lazy"
+             alt="A panel discussion at the 2025 Accessibility Awareness Summit.">
+        <figcaption>At the 2025 Accessibility Awareness Summit.</figcaption>
       </figure>
     </div>
     <figure class="community-line dark-card">
