@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ApexAI — On-device spatial AI: ApexVision &amp; Whereabouts</title>
-<meta name="description" content="ApexAI builds on-device spatial AI. ApexVision guides blind and low-vision pedestrians in real time — under 200 ms, fully on-device, in beta on iOS. Whereabouts is a map of your home that knows where everything is.">
-<meta property="og:title" content="ApexAI — ApexVision &amp; Whereabouts">
-<meta property="og:description" content="On-device spatial AI. ApexVision: real-time navigation for blind and low-vision pedestrians, in beta on iOS. Whereabouts: ask where anything is in your home.">
+<title>ApexAI - On-device spatial AI: ApexVision &amp; Whereabout</title>
+<meta name="description" content="ApexAI builds on-device spatial AI. ApexVision guides blind and low-vision pedestrians in real time - under 200 ms, fully on-device, in beta on iOS. Whereabout is a map of your home that knows where everything is.">
+<meta property="og:title" content="ApexAI - ApexVision &amp; Whereabout">
+<meta property="og:description" content="On-device spatial AI. ApexVision: real-time navigation for blind and low-vision pedestrians, in beta on iOS. Whereabout: ask where anything is in your home.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://apex-ai.site/">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
@@ -148,29 +148,25 @@
   .pair .answer{margin-top:.6rem;font-size:1.22rem;font-weight:700;line-height:1.4;max-width:30ch;color:var(--ink)}
   @media(max-width:720px){.pairs{grid-template-columns:1fr}}
 
-  /* Modes: panel cards, screenshots on dark tiles */
+  /* Modes: three cards side by side, screenshots on dark tiles */
+  .modes-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
   .mode{
-    background:var(--panel);border-radius:22px;padding:2rem;
-    display:grid;grid-template-columns:52px 1fr 236px;gap:1.5rem 2rem;align-items:start;
-    margin-top:1.5rem;
+    background:var(--panel);border-radius:22px;padding:1.75rem;
+    display:flex;flex-direction:column;gap:1rem;
   }
-  .mode:first-of-type{margin-top:2.5rem}
-  .mode svg{width:44px;height:44px;color:var(--blue)}
+  .mode svg{width:44px;height:44px;color:var(--blue);flex:none}
   .mode h3{font-size:1.4rem}
   .mode .mode-body p{margin-top:.55rem}
-  .mode ul{margin-top:.85rem;padding-left:1.2rem;max-width:56ch}
+  .mode ul{margin-top:.85rem;padding-left:1.2rem}
   .mode li{margin-top:.35rem}
   .mode li::marker{color:var(--blue)}
   .tile{background:var(--card);border-radius:16px;padding:10px}
-  .tile img{border-radius:9px}
-  .mode .tile{width:236px;justify-self:end}
-  @media(max-width:860px){
-    .mode{grid-template-columns:44px 1fr}
-    .mode .tile{grid-column:2;justify-self:start;width:min(260px,70vw);margin-top:.5rem}
-  }
-  @media(max-width:600px){
-    .mode{grid-template-columns:1fr;padding:1.5rem}
-    .mode .tile{grid-column:1}
+  .tile img{border-radius:9px;width:100%}
+  .mode .tile{margin-top:auto}
+  @media(max-width:900px){
+    .modes-grid{grid-template-columns:1fr}
+    .mode{padding:1.5rem}
+    .mode .tile{max-width:320px}
   }
 
   /* How it works: light cards, blue numbers */
@@ -182,10 +178,7 @@
   @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
   @media(max-width:480px){.steps{grid-template-columns:1fr}}
 
-  /* ---------- Whereabouts: panel band ---------- */
-  .whereabouts .definition{
-    font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.35;max-width:30ch;margin-top:1.2rem;color:var(--ink);
-  }
+  /* ---------- Whereabout: panel band ---------- */
   .whereabouts .body{margin-top:1rem;font-size:1.12rem}
   .wb-banner{margin-top:2.4rem;border-radius:22px;overflow:hidden}
   .wb-banner img{width:100%}
@@ -310,7 +303,7 @@
       <ul>
         <li><a href="#modes">Modes</a></li>
         <li><a href="#why">Why ApexVision</a></li>
-        <li><a href="#whereabouts">Whereabouts</a></li>
+        <li><a href="#whereabouts">Whereabout</a></li>
         <li><a href="#milestones">Milestones</a></li>
         <li><a href="#organizations">For organizations</a></li>
         <li><a href="#team">Team</a></li>
@@ -327,7 +320,7 @@
       <h1>Navigation at the speed of walking.</h1>
       <p class="lede">
         ApexVision turns an iPhone into a real-time guide for blind and low-vision
-        pedestrians — <strong>under 200&nbsp;milliseconds</strong> from camera to spoken cue,
+        pedestrians - <strong>under 200&nbsp;milliseconds</strong> from camera to spoken cue,
         with every model running <strong>on the phone</strong>. No cloud, no connection
         required, and no video ever leaves the device.
       </p>
@@ -338,7 +331,7 @@
       </div>
       <p class="fineprint">
         Free to download during the beta; a premium subscription will unlock full features at launch.
-        iPhone today — Android is on the roadmap.
+        iPhone today - Android is on the roadmap.
       </p>
     </div>
   </div>
@@ -347,7 +340,7 @@
     <div class="stats-card dark-card">
       <ul>
         <li><span class="big">&lt;200 ms</span><span class="small">camera to cue, end to end</span></li>
-        <li><span class="big">On-device</span><span class="small">100% local — nothing uploaded, ever</span></li>
+        <li><span class="big">On-device</span><span class="small">100% local - nothing uploaded, ever</span></li>
         <li><span class="big">Fully offline</span><span class="small">no Wi-Fi or cell service required</span></li>
         <li><span class="big">Patent pending</span><span class="small">U.S. Provisional 63/917,447</span></li>
       </ul>
@@ -364,18 +357,18 @@
     <div class="pairs">
       <div class="pair">
         <p class="problem">Cloud assistants take several seconds to answer. A crosswalk allows less.</p>
-        <p class="answer">ApexVision responds in under 200&nbsp;ms — fast enough to guide a walking pace.</p>
+        <p class="answer">ApexVision responds in under 200&nbsp;ms - fast enough to guide a walking pace.</p>
       </div>
       <div class="pair">
         <p class="problem">Camera-streaming apps send footage of your home to servers or to strangers.</p>
         <p class="answer">Every model runs on the phone. Nothing is uploaded, ever.</p>
       </div>
       <div class="pair">
-        <p class="problem">Dedicated assistive wearables cost $3,500–$4,500, out of reach for most who need them.</p>
-        <p class="answer">ApexVision runs on a standard iPhone — no dedicated hardware.</p>
+        <p class="problem">Dedicated assistive wearables cost $3,500-$4,500, out of reach for most who need them.</p>
+        <p class="answer">ApexVision runs on a standard iPhone - no dedicated hardware.</p>
       </div>
       <div class="pair">
-        <p class="problem">Most assistive tools stop working where coverage stops — subways, basements, elevators.</p>
+        <p class="problem">Most assistive tools stop working where coverage stops - subways, basements, elevators.</p>
         <p class="answer">ApexVision works fully offline, with no loss of function.</p>
       </div>
     </div>
@@ -383,8 +376,9 @@
 
   <section id="modes" class="wrap">
     <h2>Three modes, one tap apart</h2>
-    <p class="section-intro">Everything is delivered by audio and haptics — no usable sight is needed.</p>
+    <p class="section-intro">Everything is delivered by audio and haptics - no usable sight is needed.</p>
 
+    <div class="modes-grid">
     <div class="mode">
       <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="38" cy="38" r="22"/>
@@ -393,11 +387,11 @@
       </svg>
       <div class="mode-body">
         <h3>Finder</h3>
-        <p>Name the thing you need — keys, a door, an empty seat — and ApexVision locates it and guides your hand to it.</p>
+        <p>Name the thing you need - keys, a door, an empty seat - and ApexVision locates it and guides your hand to it.</p>
         <ul>
           <li>Voice-activated object search</li>
           <li>Directional audio guidance, step by step, to the object</li>
-          <li>Works indoors and out — no GPS required</li>
+          <li>Works indoors and out - no GPS required</li>
         </ul>
       </div>
       <div class="tile">
@@ -445,6 +439,7 @@
              alt="ApexVision's Describe mode pointed at a desk. The spoken description reads: 'This is a photo of a modern computer workstation, likely in an office. The most prominent object is a height-adjustable standing desk…' with a Describe Scene button below.">
       </div>
     </div>
+    </div>
   </section>
 
   <section id="how" class="wrap">
@@ -471,11 +466,10 @@
 
   <section id="whereabouts" class="whereabouts band-panel">
     <div class="wrap">
-      <h2>Whereabouts</h2>
-      <p class="definition">Ask where anything is. Scan a room once, then be walked right to it.</p>
+      <h2>Whereabout</h2>
       <p class="body">
-        Whereabouts is a map of your home that knows where everything is. Scan a room with an
-        iPhone&nbsp;Pro — about a minute of walking around it — and it measures the walls, doors,
+        Whereabout is a map of your home that knows where everything is. Scan a room with an
+        iPhone&nbsp;Pro - about a minute of walking around it - and it measures the walls, doors,
         and furniture, recognizes everyday items, and names what's inside each drawer you open.
         From then on, anyone you share the map with can ask where something is and be walked
         right to it. Built with blind and low-vision users first, it works end to end by voice
@@ -483,34 +477,34 @@
         needs a Pro model.
       </p>
       <div class="wb-banner dark-card">
-        <img src="assets/whereabouts-guide.webp" width="1600" height="900"
-             alt="A voice query, 'Where are my keys?', answered by Whereabouts: 'Hall chest, top drawer — 4 meters ahead, on your right', shown as a pin on a home floor plan with a dotted path leading to it.">
+        <img src="assets/whereabout-hero.webp" width="1600" height="1067"
+             alt="Ask where anything is. Scan a room once, then be walked right to it. A voice query, 'Where are my keys?', is answered 'Hall chest, top drawer', shown as a pin on a home floor plan with a dotted path leading to it.">
       </div>
       <div class="wb-gallery">
         <figure>
           <div class="tile"><img src="assets/whereabouts-3d.webp" width="640" height="1391"
-               alt="The Whereabouts editor showing a scanned kitchen as a 3D model, with labels on the cabinets, refrigerator, table, chairs, and smaller items."></div>
+               alt="The Whereabout editor showing a scanned kitchen as a 3D model, with labels on the cabinets, refrigerator, table, chairs, and smaller items."></div>
           <figcaption>Every room becomes a labeled 3D model.</figcaption>
         </figure>
         <figure>
           <div class="tile"><img src="assets/whereabouts-plan.webp" width="640" height="1391"
-               alt="The same kitchen as a measured floor plan — 4.19 by 3.67 meters — with dots marking the position of each recognized item."></div>
+               alt="The same kitchen as a measured floor plan - 4.19 by 3.67 meters - with dots marking the position of each recognized item."></div>
           <figcaption>And a measured floor plan, down to each item.</figcaption>
         </figure>
         <figure>
           <div class="tile"><img src="assets/whereabouts-item.webp" width="640" height="1391"
-               alt="An item sheet in Whereabouts: a 'How it feels' note reading 'Smooth glass jar, metal lid, cold', spoken aloud when someone reaches the item, with its size, height, and position measured with LiDAR."></div>
+               alt="An item sheet in Whereabout: a 'How it feels' note reading 'Smooth glass jar, metal lid, cold', spoken aloud when someone reaches the item, with its size, height, and position measured with LiDAR."></div>
           <figcaption>Items carry tactile notes, read aloud on arrival.</figcaption>
         </figure>
       </div>
       <ul class="features">
         <li>Sizes and positions are measured with LiDAR, down to each item</li>
-        <li>Open a drawer or closet and tap &ldquo;Look inside&rdquo; — everything in it is listed, pinned where it lies</li>
+        <li>Open a drawer or closet and tap &ldquo;Look inside&rdquo; - everything in it is listed, pinned where it lies</li>
         <li>Ask by voice and be walked there: turn-by-turn around the furniture, with your hand guided over the last half&nbsp;meter</li>
         <li>&ldquo;How it feels&rdquo; notes are read aloud on arrival; screens, directions, and voice work in English and Arabic</li>
       </ul>
       <p class="body">
-        The app is free, and so is your first room. Whereabouts is coming to open testing on
+        The app is free, and so is your first room. Whereabout is coming to open testing on
         TestFlight, with the App Store release to follow; details and pricing are at
         <a href="https://whereabout.store">whereabout.store</a>.
       </p>
@@ -519,7 +513,7 @@
         <p>
           Ship every installation with a searchable map of its storage. When a home is fitted with
           your kitchens and wardrobes, the family can ask where things are stored and be guided to
-          them — so the space stays as easy to live in as the day it was installed.
+          them - so the space stays as easy to live in as the day it was installed.
         </p>
       </div>
       <div class="cta-row">
@@ -534,22 +528,22 @@
     <p class="pedigree">
       ApexAI's products grew out of peer-reviewed computer-vision research, including work recognized
       with a Best Paper Award at the IEEE/CVF WACV 2025 Workshops and four top-6 finishes in the
-      NVIDIA AI City Challenge (2021–2024).
+      NVIDIA AI City Challenge (2021-2024).
     </p>
     <ul class="timeline">
       <li><span class="year">2026</span><span>Pilot deployment underway with a regional accessibility center, with structured outcome measures</span></li>
-      <li><span class="year">2026</span><span>Selected for NobleReach's Science2Venture accelerator (Cohort&nbsp;1) — an NSF-funded program that chose three startups across Tennessee</span></li>
-      <li><span class="year">2026</span><span>CodeStock — Most Impactful Company</span></li>
+      <li><span class="year">2026</span><span>Selected for NobleReach's Science2Venture accelerator (Cohort&nbsp;1) - an NSF-funded program that chose three startups across Tennessee</span></li>
+      <li><span class="year">2026</span><span>CodeStock - Most Impactful Company</span></li>
       <li><span class="year">2026</span><span>Driving-simulator testing presented at the TRB Annual Meeting</span></li>
       <li><span class="year">2025</span><span>U.S. provisional patent filed: multimodal real-time pedestrian navigation (63/917,447)</span></li>
-      <li><span class="year">2025</span><span>NSF I-Corps customer discovery — 50+ interviews with blind and low-vision users</span></li>
+      <li><span class="year">2025</span><span>NSF I-Corps customer discovery - 50+ interviews with blind and low-vision users</span></li>
       <li><span class="year">2025</span><span>Presented at the Accessibility Awareness Summit and at an IEEE/CVF ICCV 2025 workshop</span></li>
     </ul>
     <div class="supporters">
       <h3>Research and development supported by</h3>
       <ul>
-        <li>University of Tennessee — UT-ORII</li>
-        <li>UT Chattanooga — CUIP</li>
+        <li>University of Tennessee - UT-ORII</li>
+        <li>UT Chattanooga - CUIP</li>
         <li>NSF I-Corps</li>
         <li>Meta Reality Labs</li>
         <li>NobleReach Foundation</li>
@@ -562,15 +556,15 @@
     <div class="quotes">
       <figure class="dark-card">
         <blockquote><p>&ldquo;Google Maps didn't detect construction work, and I found myself in the middle of the road.&rdquo;</p></blockquote>
-        <figcaption>— Jill Shelton, professor</figcaption>
+        <figcaption>- Jill Shelton, professor</figcaption>
       </figure>
       <figure class="dark-card">
         <blockquote><p>&ldquo;If I lose my glasses, I can't find them. I want something that doesn't need to be carried or worn.&rdquo;</p></blockquote>
-        <figcaption>— Henna Abbasi, fitness coach</figcaption>
+        <figcaption>- Henna Abbasi, fitness coach</figcaption>
       </figure>
       <figure class="dark-card">
         <blockquote><p>&ldquo;I need something that can read things at a distance and help me find objects.&rdquo;</p></blockquote>
-        <figcaption>— Suzetta May, pedestrian safety specialist</figcaption>
+        <figcaption>- Suzetta May, pedestrian safety specialist</figcaption>
       </figure>
     </div>
     <div class="photo-strip">
@@ -582,7 +576,7 @@
       <figure>
         <img src="assets/event-codestock.webp" width="572" height="431" loading="lazy"
              alt="The ApexAI team on stage at CodeStock 2026.">
-        <figcaption>CodeStock 2026 — Most Impactful Company.</figcaption>
+        <figcaption>CodeStock 2026 - Most Impactful Company.</figcaption>
       </figure>
       <figure>
         <img src="assets/event-iccv.webp" width="578" height="387" loading="lazy"
@@ -597,7 +591,7 @@
     </div>
     <figure class="community-line dark-card">
       <blockquote><p>&ldquo;Thank you for helping us see.&rdquo;</p></blockquote>
-      <figcaption>— a community member, during pilot testing</figcaption>
+      <figcaption>- a community member, during pilot testing</figcaption>
     </figure>
   </section>
 
@@ -606,18 +600,18 @@
       <h2>For agencies and organizations</h2>
       <p class="section-intro">
         If you run a vocational-rehabilitation program, an accessibility or independent-living center,
-        an O&amp;M practice, or a school district, we run structured pilots with you — training for your
+        an O&amp;M practice, or a school district, we run structured pilots with you - training for your
         staff, defined outcome measures, and a direct line to the founding team.
       </p>
       <ul>
         <li><strong>A short privacy review.</strong> No video or personal data ever leaves the device, so there is no cloud vendor to assess and no footage-retention policy to write.</li>
-        <li><strong>No IT project.</strong> Works fully offline on standard iPhones — nothing to integrate, host, or network.</li>
+        <li><strong>No IT project.</strong> Works fully offline on standard iPhones - nothing to integrate, host, or network.</li>
         <li><strong>Evidence you can use.</strong> Pilots produce usage data and outcome measures you can take to your own stakeholders.</li>
       </ul>
       <div class="cta-row">
         <a class="btn btn-white" href="mailto:magedshoman@apex-ai.site?subject=Pilot%20inquiry">Email us about a pilot</a>
       </div>
-      <p class="email-note">Or write directly to <a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a> — it reaches the founder.</p>
+      <p class="email-note">Or write directly to <a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a> - it reaches the founder.</p>
     </div>
   </section>
 
@@ -683,7 +677,7 @@
         <label for="f-interest">I'm interested in</label>
         <select id="f-interest" name="interest">
           <option value="Joining the iOS beta">Joining the ApexVision iOS beta</option>
-          <option value="Whereabouts">Whereabouts</option>
+          <option value="Whereabout">Whereabout</option>
           <option value="Piloting at my organization">Piloting ApexVision at my organization</option>
           <option value="Android waitlist">The Android waitlist</option>
           <option value="Press">Press</option>
@@ -712,7 +706,7 @@
     <p>ApexAI LLC</p>
     <p>© 2026 ApexAI LLC. ApexVision is in beta on iOS. U.S. Provisional Patent 63/917,447.</p>
     <p><a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a></p>
-    <p>This site is set in Atkinson Hyperlegible, a typeface designed by the Braille Institute for low-vision readers, and is built to meet WCAG 2.2 AA. If anything here is hard to use with your screen reader or magnifier, tell us — we'll fix it.</p>
+    <p>This site is set in Atkinson Hyperlegible, a typeface designed by the Braille Institute for low-vision readers, and is built to meet WCAG 2.2 AA. If anything here is hard to use with your screen reader or magnifier, tell us - we'll fix it.</p>
   </div>
 </footer>
 
@@ -723,7 +717,7 @@
       var sel = document.getElementById('f-interest');
       if (!sel) return;
       if (a.dataset.interest === 'beta') sel.value = 'Joining the iOS beta';
-      if (a.dataset.interest === 'whereabouts') sel.value = 'Whereabouts';
+      if (a.dataset.interest === 'whereabouts') sel.value = 'Whereabout';
     });
   });
   // GitHub Pages has no form backend, so sending composes an email instead.
@@ -740,7 +734,7 @@
       var note = document.getElementById('preview-note');
       if (note){
         note.style.display = 'block';
-        note.textContent = 'This opens your email app, addressed to magedshoman@apex-ai.site — or write to us directly.';
+        note.textContent = 'This opens your email app, addressed to magedshoman@apex-ai.site - or write to us directly.';
       }
       location.href = 'mailto:magedshoman@apex-ai.site?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
