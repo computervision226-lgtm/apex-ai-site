@@ -206,8 +206,10 @@
   .timeline .year{font-weight:700;color:var(--ink)}
   .supporters{margin-top:2.6rem}
   .supporters h3{font-size:1.02rem;color:var(--secondary);font-weight:400}
-  .supporters ul{margin-top:.8rem;list-style:none;display:flex;flex-wrap:wrap;gap:.6rem .8rem}
-  .supporters li{font-weight:700;font-size:.96rem;background:var(--panel);border-radius:999px;padding:.5rem .95rem;color:var(--ink)}
+  .supporters .logo-row{margin-top:.9rem;list-style:none;display:flex;flex-wrap:wrap;gap:.75rem;padding:0;align-items:stretch}
+  .supporters .logo-row li{display:flex;align-items:center}
+  .supporters .logo-row img{height:58px;width:auto;border-radius:10px;display:block}
+  .supporters .logo-text{background:#061229;color:#FFFFFF;border-radius:10px;padding:0 1.1rem;font-weight:700;font-size:.95rem}
 
   /* Stories: dark quote cards */
   .quotes{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -545,12 +547,13 @@
     </ul>
     <div class="supporters">
       <h3>Research and development supported by</h3>
-      <ul>
-        <li>University of Tennessee - UT-ORII</li>
-        <li>UT Chattanooga - CUIP</li>
-        <li>NSF I-Corps</li>
-        <li>Meta Reality Labs</li>
-        <li>NobleReach Foundation</li>
+      <ul class="logo-row">
+        <li><img src="assets/logo-utorii.webp" width="288" height="128" loading="lazy" alt="University of Tennessee - Oak Ridge Innovation Institute"></li>
+        <li><img src="assets/logo-ut.webp" width="288" height="128" loading="lazy" alt="University of Tennessee"></li>
+        <li><img src="assets/logo-utc.webp" width="288" height="128" loading="lazy" alt="University of Tennessee at Chattanooga"></li>
+        <li><img src="assets/logo-nsf.webp" width="288" height="128" loading="lazy" alt="U.S. National Science Foundation - I-Corps"></li>
+        <li><img src="assets/logo-meta.webp" width="288" height="128" loading="lazy" alt="Meta Reality Labs"></li>
+        <li class="logo-text">NobleReach Foundation</li>
       </ul>
     </div>
   </section>
