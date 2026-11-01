@@ -103,7 +103,7 @@
   /* ---------- Buttons ---------- */
   .btn{
     display:inline-block;font-weight:700;font-size:1.06rem;
-    padding:.85rem 1.6rem;text-decoration:none;border-radius:999px;
+    padding:.85rem 1.6rem;text-decoration:none;border-radius:8px;
     min-height:48px;border:2px solid transparent;
   }
   .btn-blue{background:#0062FF;color:#fff;border-color:#0062FF}
@@ -125,7 +125,7 @@
 
   /* ---------- Stats: one dark card ---------- */
   .stats-card{
-    background:var(--card);border-radius:22px;color:var(--on-card);
+    background:var(--card);border-radius:12px;color:var(--on-card);
     margin-top:.5rem;
   }
   .stats-card ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
@@ -145,7 +145,7 @@
 
   /* Why: light panel cards */
   .pairs{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-  .pair{background:var(--panel);border-radius:18px;padding:1.7rem 1.8rem}
+  .pair{background:var(--panel);border-radius:12px;padding:1.5rem 1.7rem}
   .pair .problem{color:var(--secondary);font-size:1rem;max-width:44ch}
   .pair .answer{margin-top:.6rem;font-size:1.22rem;font-weight:700;line-height:1.4;max-width:30ch;color:var(--ink)}
   @media(max-width:720px){.pairs{grid-template-columns:1fr}}
@@ -153,7 +153,7 @@
   /* Modes: three cards side by side, screenshots on dark tiles */
   .modes-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
   .mode{
-    background:var(--panel);border-radius:22px;padding:1.75rem;
+    background:var(--panel);border-radius:12px;padding:1.6rem;
     display:flex;flex-direction:column;gap:1rem;
   }
   .mode svg{width:44px;height:44px;color:var(--blue);flex:none}
@@ -162,8 +162,8 @@
   .mode ul{margin-top:.85rem;padding-left:1.2rem}
   .mode li{margin-top:.35rem}
   .mode li::marker{color:var(--blue)}
-  .tile{background:var(--card);border-radius:16px;padding:10px}
-  .tile img{border-radius:9px;width:100%}
+  .tile{background:var(--card);border-radius:10px;padding:10px}
+  .tile img{border-radius:6px;width:100%}
   .mode .tile{margin-top:auto}
   @media(max-width:900px){
     .modes-grid{grid-template-columns:1fr}
@@ -171,18 +171,9 @@
     .mode .tile{max-width:320px}
   }
 
-  /* How it works: light cards, blue numbers */
-  .steps{margin-top:2.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;counter-reset:step}
-  .step{counter-increment:step;background:var(--panel);border-radius:18px;padding:1.5rem 1.6rem}
-  .step h3{font-size:1.12rem}
-  .step h3::before{content:counter(step);display:block;color:var(--blue);font-size:1.5rem;margin-bottom:.4rem}
-  .step p{margin-top:.45rem;font-size:1rem;color:var(--secondary)}
-  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
-  @media(max-width:480px){.steps{grid-template-columns:1fr}}
-
   /* ---------- Whereabout: panel band ---------- */
   .whereabouts .body{margin-top:1rem;font-size:1.12rem}
-  .wb-banner{margin-top:2.4rem;border-radius:22px;overflow:hidden}
+  .wb-banner{margin-top:2.4rem;border-radius:12px;overflow:hidden}
   .wb-banner img{width:100%}
   .wb-gallery{margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
   .wb-gallery figure{margin:0}
@@ -216,7 +207,7 @@
 
   /* Stories: dark quote cards */
   .quotes{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-  .quotes figure{margin:0;background:var(--card);border-radius:18px;padding:1.7rem 1.8rem;display:flex;flex-direction:column;gap:.8rem}
+  .quotes figure{margin:0;background:var(--card);border-radius:12px;padding:1.6rem 1.7rem;display:flex;flex-direction:column;gap:.8rem}
   .quotes blockquote p{
     font-weight:700;font-size:1.18rem;line-height:1.5;color:#fff;text-indent:-.45em;
   }
@@ -224,13 +215,13 @@
   @media(max-width:860px){.quotes{grid-template-columns:1fr}}
   .photo-strip{margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
   .photo-strip figure{margin:0}
-  .photo-strip img{border-radius:14px;width:100%;object-fit:cover}
+  .photo-strip img{border-radius:10px;width:100%;object-fit:cover}
   .photo-strip figure:not(.wide) img{aspect-ratio:4/3}
   .photo-strip .wide{grid-column:1/-1}
   .photo-strip figcaption{margin-top:.55rem;font-size:.95rem;color:var(--secondary)}
   @media(max-width:720px){.photo-strip{grid-template-columns:1fr}}
 
-  .community-line{margin-top:1.5rem;padding:1.7rem 1.9rem;background:var(--card2);border-radius:18px;max-width:46rem}
+  .community-line{margin-top:1.5rem;padding:1.6rem 1.8rem;background:var(--card2);border-radius:12px;max-width:46rem}
   .community-line p{font-weight:700;font-size:1.4rem;color:#fff;text-indent:-.45em}
   .community-line figcaption{margin-top:.45rem;color:var(--on-card-soft)}
 
@@ -356,13 +347,6 @@
     </div>
   </div>
 
-  <div class="wrap">
-    <div class="wb-banner dark-card">
-      <img src="assets/apexvision-hero.webp" width="1600" height="1067"
-           alt="A voice request, 'Take me to the crosswalk.', answered '12 steps ahead, on your left': a street plan with a green walkable path along the sidewalk and a dotted route around an obstacle, across the zebra crossing, to a destination pin. Every step, guided - hazards, crossings, and clear paths, spoken and felt as you walk.">
-    </div>
-  </div>
-
   <section id="why" class="wrap">
     <h2>Platforms describe. ApexVision navigates.</h2>
     <p class="section-intro">
@@ -372,7 +356,7 @@
     </p>
     <div class="pairs">
       <div class="pair">
-        <p class="problem">Cloud assistants take several seconds to answer. A crosswalk allows less.</p>
+        <p class="problem">Cloud assistants take several seconds to answer.</p>
         <p class="answer">ApexVision responds in under 200&nbsp;ms - fast enough to guide a walking pace.</p>
       </div>
       <div class="pair">
@@ -380,11 +364,11 @@
         <p class="answer">Every model runs on the phone. Nothing is uploaded, ever.</p>
       </div>
       <div class="pair">
-        <p class="problem">Dedicated assistive wearables cost $3,500-$4,500, out of reach for most who need them.</p>
+        <p class="problem">Dedicated assistive wearables cost $3,500-$4,500.</p>
         <p class="answer">ApexVision runs on a standard iPhone - no dedicated hardware.</p>
       </div>
       <div class="pair">
-        <p class="problem">Most assistive tools stop working where coverage stops - subways, basements, elevators.</p>
+        <p class="problem">Most tools stop working where coverage stops.</p>
         <p class="answer">ApexVision works fully offline, with no loss of function.</p>
       </div>
     </div>
@@ -406,7 +390,7 @@
         <p>Name the thing you need - keys, a door, an empty seat - and ApexVision locates it and guides your hand to it.</p>
         <ul>
           <li>Voice-activated object search</li>
-          <li>Directional audio guidance, step by step, to the object</li>
+          <li>Directional audio guidance to the object</li>
           <li>Works indoors and out - no GPS required</li>
         </ul>
       </div>
@@ -458,27 +442,6 @@
     </div>
   </section>
 
-  <section id="how" class="wrap">
-    <h2>How it works</h2>
-    <div class="steps">
-      <div class="step">
-        <h3>The phone sees</h3>
-        <p>The camera streams the world through ApexVision's spatial AI at up to 30 frames per second.</p>
-      </div>
-      <div class="step">
-        <h3>The AI maps the space</h3>
-        <p>Objects, hazards, and walkable paths are identified and placed in 3D within milliseconds.</p>
-      </div>
-      <div class="step">
-        <h3>You get guidance</h3>
-        <p>Spatial audio and haptics translate that understanding into directions you can act on mid-stride.</p>
-      </div>
-      <div class="step">
-        <h3>Voice on demand</h3>
-        <p>Ask a question at any time; scene description and object finding answer instantly.</p>
-      </div>
-    </div>
-  </section>
 
   <section id="whereabouts" class="whereabouts band-panel">
     <div class="wrap">
@@ -707,7 +670,7 @@
         <textarea id="f-message" name="message"></textarea>
 
         <button class="submit-btn" type="submit">Send message</button>
-        <p class="form-note">Every message is read by the team; you'll hear back from a person.</p>
+        <p class="form-note">We respond to every message.</p>
         <p class="preview-note" id="preview-note" role="status"></p>
       </form>
       <div class="direct">
