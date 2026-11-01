@@ -143,6 +143,13 @@
   .band-dark p{color:var(--on-card-soft)}
   .section-intro{margin-top:1.2rem;color:var(--secondary);font-size:1.18rem;max-width:60ch}
 
+  /* Solutions */
+  .sol-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+  .sol{background:var(--panel);border-radius:12px;padding:1.7rem 1.8rem}
+  .sol h3{font-size:1.35rem}
+  .sol p{margin-top:.6rem;font-size:1.05rem;color:var(--secondary)}
+  .sol .sol-link{margin-top:1rem;font-weight:700}
+
   /* Modes: three cards side by side, screenshots on dark tiles */
   .modes-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
   .mode{
@@ -301,9 +308,8 @@
     </a>
     <nav class="primary" aria-label="Main">
       <ul>
-        <li><a href="#modes">Modes</a></li>
+        <li><a href="#solutions">Solutions</a></li>
         <li><a href="#organizations">For organizations</a></li>
-        <li><a href="#whereabouts">Whereabout</a></li>
         <li><a href="#industries">Industries</a></li>
         <li><a href="#milestones">Milestones</a></li>
         <li><a href="#team">Team</a></li>
@@ -317,13 +323,11 @@
 
   <div class="hero" id="top">
     <div class="wrap">
-      <h1>Real-time navigation for everyone - built with blind pedestrians first.</h1>
+      <h1>Real-time navigation for everyone.</h1>
       <p class="lede">
-        Navigation that works without sight is navigation that works for anyone - eyes busy,
-        hands full, new in town, or losing vision with age. ApexVision runs entirely on the
-        iPhone - <strong>under 200&nbsp;milliseconds</strong> from camera to spoken cue, with
-        every model <strong>on the phone</strong>. No cloud, no connection required, and no
-        video ever leaves the device.
+        Navigation that works for anyone - eyes busy, hands full or new in town. Our
+        solutions run entirely on the iPhone - <strong>under 200&nbsp;milliseconds</strong>
+        from camera to spoken cue.
       </p>
       <div class="cta-row">
         <!-- When the public TestFlight link exists, point this button straight at it. -->
@@ -362,9 +366,30 @@
     </div>
   </div>
 
+  <section id="solutions" class="wrap">
+    <h2>Solutions</h2>
+    <p class="section-intro">Two products on one on-device stack.</p>
+    <div class="sol-grid">
+      <div class="sol">
+        <h3>ApexVision</h3>
+        <p>Real-time street navigation for pedestrians. The iPhone becomes a guide at walking
+        pace: under 200 ms from camera to spoken cue, every model on the phone, fully offline.
+        In beta on iOS.</p>
+        <p class="sol-link"><a href="#modes">See the three modes</a></p>
+      </div>
+      <div class="sol">
+        <h3>Whereabout</h3>
+        <p>A map of a place that knows where everything is. Spaces maps venues and events for
+        every visitor; Rooms maps the home, down to what's inside each drawer. Coming to open
+        testing on TestFlight.</p>
+        <p class="sol-link"><a href="#whereabouts">See Spaces and Rooms</a></p>
+      </div>
+    </div>
+  </section>
+
 
   <section id="modes" class="wrap">
-    <h2>Three modes</h2>
+    <h2>ApexVision: three modes</h2>
     <p class="section-intro">Everything is delivered by audio and haptics - no usable sight is needed.</p>
 
     <div class="modes-grid">
@@ -431,26 +456,6 @@
   </section>
 
 
-  <section id="organizations" class="band-dark">
-    <div class="wrap">
-      <h2>For agencies and organizations</h2>
-      <p class="section-intro">
-        If you run a vocational-rehabilitation program, an accessibility or independent-living center,
-        an O&amp;M practice, a school district, or an employer handling accommodation requests, we run structured pilots with you - training for your
-        staff, defined outcome measures, and a direct line to the founding team.
-      </p>
-      <ul>
-        <li><strong>A short privacy review.</strong> No video or personal data ever leaves the device, so there is no cloud vendor to assess and no footage-retention policy to write.</li>
-        <li><strong>No IT project.</strong> Works fully offline on standard iPhones - nothing to integrate, host, or network.</li>
-        <li><strong>Evidence you can use.</strong> Pilots produce usage data and outcome measures you can take to your own stakeholders.</li>
-      </ul>
-      <div class="cta-row">
-        <a class="btn btn-white" href="https://calendar.app.google/ns17ENxNHDFYYfr5A">Book a time with the founder</a>
-        <a class="btn btn-ghost-dark" href="mailto:magedshoman@apex-ai.site?subject=Pilot%20inquiry">Email us about a pilot</a>
-      </div>
-      <p class="email-note">The calendar link books you directly with the founder. Or write to <a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a>.</p>
-    </div>
-  </section>
 
   <section id="whereabouts" class="whereabouts band-panel">
     <div class="wrap">
@@ -532,6 +537,27 @@
         <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
         <a class="btn btn-tint" href="https://whereabout.store">Visit whereabout.store</a>
       </div>
+    </div>
+  </section>
+
+  <section id="organizations" class="band-dark">
+    <div class="wrap">
+      <h2>For agencies and organizations</h2>
+      <p class="section-intro">
+        If you run a vocational-rehabilitation program, an accessibility or independent-living center,
+        an O&amp;M practice, a school district, or an employer handling accommodation requests, we run structured pilots with you - training for your
+        staff, defined outcome measures, and a direct line to the founding team.
+      </p>
+      <ul>
+        <li><strong>A short privacy review.</strong> No video or personal data ever leaves the device, so there is no cloud vendor to assess and no footage-retention policy to write.</li>
+        <li><strong>No IT project.</strong> Works fully offline on standard iPhones - nothing to integrate, host, or network.</li>
+        <li><strong>Evidence you can use.</strong> Pilots produce usage data and outcome measures you can take to your own stakeholders.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-white" href="https://calendar.app.google/ns17ENxNHDFYYfr5A">Book a time with the founder</a>
+        <a class="btn btn-ghost-dark" href="mailto:magedshoman@apex-ai.site?subject=Pilot%20inquiry">Email us about a pilot</a>
+      </div>
+      <p class="email-note">The calendar link books you directly with the founder. Or write to <a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a>.</p>
     </div>
   </section>
 
