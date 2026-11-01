@@ -143,13 +143,6 @@
   .band-dark p{color:var(--on-card-soft)}
   .section-intro{margin-top:1.2rem;color:var(--secondary);font-size:1.18rem;max-width:60ch}
 
-  /* Why: light panel cards */
-  .pairs{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-  .pair{background:var(--panel);border-radius:12px;padding:1.5rem 1.7rem}
-  .pair .problem{color:var(--secondary);font-size:1rem;max-width:44ch}
-  .pair .answer{margin-top:.6rem;font-size:1.22rem;font-weight:700;line-height:1.4;max-width:30ch;color:var(--ink)}
-  @media(max-width:720px){.pairs{grid-template-columns:1fr}}
-
   /* Modes: three cards side by side, screenshots on dark tiles */
   .modes-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
   .mode{
@@ -301,7 +294,6 @@
     </a>
     <nav class="primary" aria-label="Main">
       <ul>
-        <li><a href="#why">Why ApexVision</a></li>
         <li><a href="#modes">Modes</a></li>
         <li><a href="#organizations">For organizations</a></li>
         <li><a href="#whereabouts">Whereabout</a></li>
@@ -361,32 +353,6 @@
     </div>
   </div>
 
-  <section id="why" class="wrap">
-    <h2>Why ApexVision</h2>
-    <p class="section-intro">
-      Even the biggest scene-description tools say themselves that they aren't meant for
-      navigation. ApexVision is built for exactly that job: a pedestrian, mid-street, who
-      needs an answer immediately.
-    </p>
-    <div class="pairs">
-      <div class="pair">
-        <p class="problem">Cloud assistants take several seconds to answer.</p>
-        <p class="answer">ApexVision responds in under 200&nbsp;ms - fast enough to guide a walking pace.</p>
-      </div>
-      <div class="pair">
-        <p class="problem">Camera-streaming apps send footage of your home to servers or to strangers.</p>
-        <p class="answer">Every model runs on the phone. Nothing is uploaded, ever.</p>
-      </div>
-      <div class="pair">
-        <p class="problem">Dedicated assistive wearables cost $3,500-$4,500.</p>
-        <p class="answer">ApexVision runs on a standard iPhone - no dedicated hardware.</p>
-      </div>
-      <div class="pair">
-        <p class="problem">Most tools stop working where coverage stops.</p>
-        <p class="answer">ApexVision works fully offline, with no loss of function.</p>
-      </div>
-    </div>
-  </section>
 
   <section id="modes" class="wrap">
     <h2>Three modes, one tap apart</h2>
