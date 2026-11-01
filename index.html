@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ApexAI - On-device spatial AI: ApexVision &amp; Whereabout</title>
-<meta name="description" content="ApexAI builds on-device spatial AI. ApexVision guides blind and low-vision pedestrians in real time - under 200 ms, fully on-device, in beta on iOS. Whereabout is a map of your home that knows where everything is.">
+<meta name="description" content="ApexAI builds on-device spatial AI. ApexVision: real-time navigation for everyone, built with blind pedestrians first - under 200 ms, fully on-device, in beta on iOS. Whereabout: ask where anything is, at home or in a venue.">
 <meta property="og:title" content="ApexAI - ApexVision &amp; Whereabout">
-<meta property="og:description" content="On-device spatial AI. ApexVision: real-time navigation for blind and low-vision pedestrians, in beta on iOS. Whereabout: ask where anything is in your home.">
+<meta property="og:description" content="On-device spatial AI. ApexVision: real-time navigation for everyone, built with blind pedestrians first. Whereabout: ask where anything is, at home or in a venue.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://apex-ai.site/">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
@@ -184,6 +184,12 @@
   .wb-b2b p{margin-top:.45rem;color:var(--secondary)}
   .whereabouts .cta-row{margin-top:2.3rem}
 
+  /* Industries */
+  .ind-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+  .ind{background:var(--panel);border-radius:12px;padding:1.5rem 1.6rem}
+  .ind h3{font-size:1.15rem}
+  .ind p{margin-top:.5rem;font-size:1rem;color:var(--secondary)}
+
   /* Milestones */
   .pedigree{margin-top:1.4rem;font-size:1.12rem;max-width:60ch}
   .timeline{margin-top:2.4rem;list-style:none;border-top:1px solid var(--hairline)}
@@ -298,6 +304,7 @@
         <li><a href="#modes">Modes</a></li>
         <li><a href="#organizations">For organizations</a></li>
         <li><a href="#whereabouts">Whereabout</a></li>
+        <li><a href="#industries">Industries</a></li>
         <li><a href="#milestones">Milestones</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -310,11 +317,13 @@
 
   <div class="hero" id="top">
     <div class="wrap">
-      <h1>Real-time navigation for blind and low-vision pedestrians.</h1>
+      <h1>Real-time navigation for everyone - built with blind pedestrians first.</h1>
       <p class="lede">
-        ApexVision runs entirely on the iPhone - <strong>under 200&nbsp;milliseconds</strong>
-        from camera to spoken cue, with every model <strong>on the phone</strong>. No cloud,
-        no connection required, and no video ever leaves the device.
+        Navigation that works without sight is navigation that works for anyone - eyes busy,
+        hands full, new in town, or losing vision with age. ApexVision runs entirely on the
+        iPhone - <strong>under 200&nbsp;milliseconds</strong> from camera to spoken cue, with
+        every model <strong>on the phone</strong>. No cloud, no connection required, and no
+        video ever leaves the device.
       </p>
       <div class="cta-row">
         <!-- When the public TestFlight link exists, point this button straight at it. -->
@@ -427,7 +436,7 @@
       <h2>For agencies and organizations</h2>
       <p class="section-intro">
         If you run a vocational-rehabilitation program, an accessibility or independent-living center,
-        an O&amp;M practice, or a school district, we run structured pilots with you - training for your
+        an O&amp;M practice, a school district, or an employer handling accommodation requests, we run structured pilots with you - training for your
         staff, defined outcome measures, and a direct line to the founding team.
       </p>
       <ul>
@@ -447,10 +456,11 @@
     <div class="wrap">
       <h2>Whereabout</h2>
       <p class="body">
-        Whereabout is a map of a place that knows where everything is. Built with blind and
-        low-vision users first, it works end to end by voice and with VoiceOver - and it comes
-        as two options: Spaces for venues, Rooms for homes. With ApexVision, it makes one
-        guidance system - from the street, through the door, to the exact drawer.
+        Whereabout is a map of a place that knows where everything is - for every household
+        and every visitor, built with blind and low-vision users first so everything works by
+        voice and with VoiceOver. It comes as two options: Spaces for venues, Rooms for homes.
+        With ApexVision, it makes one guidance system - from the street, through the door, to
+        the exact drawer.
       </p>
 
       <h3 class="wb-opt">Spaces</h3>
@@ -473,8 +483,10 @@
         Whereabout for the home. Scan a room with an iPhone&nbsp;Pro - about a minute of walking
         around it - and it measures the walls, doors, and furniture, recognizes everyday items,
         and names what's inside each drawer you open. From then on, anyone you share the map
-        with can ask where something is and be walked right to it. Finding works on any iPhone
-        with iOS&nbsp;17 or later; scanning needs a Pro model.
+        with can ask where something is and be walked right to it - a parent, a child, someone
+        who forgets, anyone who loses things. One person keeps the map current; everyone else
+        just asks. Finding works on any iPhone with iOS&nbsp;17 or later; scanning needs a
+        Pro model.
       </p>
       <div class="wb-banner dark-card">
         <img src="assets/whereabout-hero.webp" width="1600" height="1067"
@@ -519,6 +531,40 @@
       <div class="cta-row">
         <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
         <a class="btn btn-tint" href="https://whereabout.store">Visit whereabout.store</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" class="wrap">
+    <h2>Industry applications</h2>
+    <p class="section-intro">
+      One stack - on-device, real-time, voice-first - applied wherever people need to find
+      their way or find a thing.
+    </p>
+    <div class="ind-grid">
+      <div class="ind">
+        <h3>Vocational rehabilitation and veterans' services</h3>
+        <p>Structured ApexVision pilots with training and outcome measures. The privacy review is short: no video or personal data ever leaves the device.</p>
+      </div>
+      <div class="ind">
+        <h3>Transit and aviation</h3>
+        <p>Spaces maps stations and terminals floor by floor - no beacons to install or maintain - and every traveler can ask their way.</p>
+      </div>
+      <div class="ind">
+        <h3>Healthcare and senior care</h3>
+        <p>Wayfinding for clinics and campuses, and Rooms for residents: one person keeps the map current, and someone who forgets just asks.</p>
+      </div>
+      <div class="ind">
+        <h3>Education</h3>
+        <p>Districts and campuses buy seats, not hardware. A student who is blind navigates the building the same way everyone else does.</p>
+      </div>
+      <div class="ind">
+        <h3>Events and conferences</h3>
+        <p>A venue scanned before the doors open, rescanned where a booth moves. Visitors ask their way all week.</p>
+      </div>
+      <div class="ind">
+        <h3>Employers and workplaces</h3>
+        <p>Accommodation requests answered with software on the phone an employee already carries - not a $4,500 device.</p>
       </div>
     </div>
   </section>
