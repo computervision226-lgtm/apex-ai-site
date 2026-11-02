@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ApexAI - On-device spatial AI: ApexVision &amp; Whereabout</title>
-<meta name="description" content="ApexAI develops on-device spatial AI for navigation. ApexVision provides real-time pedestrian guidance processed entirely on the phone. Whereabout provides searchable indoor maps for venues and homes.">
-<meta property="og:title" content="ApexAI - ApexVision &amp; Whereabout">
-<meta property="og:description" content="ApexAI develops on-device spatial AI for navigation. ApexVision provides real-time pedestrian guidance; Whereabout provides searchable indoor maps for venues and homes.">
+<title>ApexAI - Whereabout and ApexVision</title>
+<meta name="description" content="ApexAI develops spatial AI for navigation. Whereabout provides searchable indoor maps for venues and homes; ApexVision provides real-time pedestrian guidance processed entirely on the phone.">
+<meta property="og:title" content="ApexAI - Whereabout and ApexVision">
+<meta property="og:description" content="ApexAI develops spatial AI for navigation. Whereabout: searchable indoor maps for venues and homes. ApexVision: real-time pedestrian guidance, fully on-device.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://apex-ai.site/">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
@@ -121,7 +121,7 @@
   .hero .lede{margin-top:1.6rem;font-size:clamp(1.15rem,1.9vw,1.35rem);line-height:1.6;max-width:54ch;color:var(--body)}
   .hero .lede strong{color:var(--ink)}
   .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.25rem}
-  .hero .fineprint{margin-top:1.4rem;font-size:.98rem;color:var(--secondary);max-width:62ch}
+  .fineprint{margin-top:1.4rem;font-size:.98rem;color:var(--secondary);max-width:62ch}
 
   /* ---------- Stats: one dark card ---------- */
   .stats-card{
@@ -142,6 +142,9 @@
   .band-dark h2{color:#fff}
   .band-dark p{color:var(--on-card-soft)}
   .section-intro{margin-top:1.2rem;color:var(--secondary);font-size:1.18rem;max-width:60ch}
+
+  .modes-stats{margin-top:2rem}
+  .hero + .wrap .supporters{margin-top:0}
 
   /* Solutions */
   .sol-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
@@ -322,31 +325,16 @@
       <h1>Real-time navigation for everyone.</h1>
       <p class="lede">
         Navigation that works for anyone, whether eyes are busy, hands are full, or the
-        surroundings are unfamiliar. Our solutions run entirely on your phone, from camera to
-        spoken cue, in real time.
+        surroundings are unfamiliar. Guidance runs on your phone, from camera to spoken cue,
+        in real time.
       </p>
       <div class="cta-row">
-        <!-- When the public TestFlight link exists, point this button straight at it. -->
-        <a class="btn btn-blue" href="#contact" data-interest="beta">Request beta access</a>
+        <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
         <a class="btn btn-tint" href="#organizations">Request a pilot</a>
       </div>
-      <p class="fineprint">
-        Free during the beta period; a premium subscription will be offered at launch.
-        Available on iPhone, with Android support planned.
-      </p>
     </div>
   </div>
 
-  <div class="wrap" role="region" aria-label="Key facts">
-    <div class="stats-card dark-card">
-      <ul>
-        <li><span class="big">&lt;200 ms</span><span class="small">end-to-end latency, camera to audio cue</span></li>
-        <li><span class="big">On-device</span><span class="small">all processing local; no data uploaded</span></li>
-        <li><span class="big">Fully offline</span><span class="small">operates without Wi-Fi or cellular service</span></li>
-        <li><span class="big">Patent pending</span><span class="small">U.S. 19/760,891; Canada 3,319,882</span></li>
-      </ul>
-    </div>
-  </div>
 
   <div class="wrap">
     <div class="supporters">
@@ -364,8 +352,15 @@
 
   <section id="solutions" class="wrap">
     <h2>Solutions</h2>
-    <p class="section-intro">Two products built on a single on-device spatial AI platform.</p>
+    <p class="section-intro">Two products built on a shared spatial AI platform.</p>
     <div class="sol-grid">
+      <div class="sol">
+        <h3>Whereabout</h3>
+        <p>Searchable indoor maps that locate any destination or item and guide the user to
+        it. Spaces serves venues and events; Rooms serves the home, down to the contents of
+        individual drawers. Open testing on TestFlight is forthcoming.</p>
+        <p class="sol-link"><a href="#whereabouts">Learn about Whereabout</a></p>
+      </div>
       <div class="sol">
         <h3>ApexVision</h3>
         <p>Real-time pedestrian navigation, developed with blind and low-vision users.
@@ -374,83 +369,10 @@
         required. Currently in beta on iOS.</p>
         <p class="sol-link"><a href="#modes">Learn about ApexVision</a></p>
       </div>
-      <div class="sol">
-        <h3>Whereabout</h3>
-        <p>Searchable indoor maps that locate any destination or item and guide the user to
-        it. Spaces serves venues and events; Rooms serves the home, down to the contents of
-        individual drawers. Open testing on TestFlight is forthcoming.</p>
-        <p class="sol-link"><a href="#whereabouts">Learn about Whereabout</a></p>
-      </div>
     </div>
   </section>
 
 
-  <section id="modes" class="wrap">
-    <h2>ApexVision</h2>
-    <p class="section-intro">Three operating modes. All output is delivered through audio and haptics; no usable vision is required.</p>
-
-    <div class="modes-grid">
-    <div class="mode">
-      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="38" cy="38" r="22"/>
-        <path d="M54 54 L72 72"/>
-        <path d="M38 28 v20 M28 38 h20"/>
-      </svg>
-      <div class="mode-body">
-        <h3>Finder</h3>
-        <p>Locates a requested object, such as keys, a doorway, or an available seat.</p>
-        <ul>
-          <li>Voice-initiated object search</li>
-          <li>Directional audio guidance to within arm&rsquo;s reach</li>
-          <li>Operates indoors and outdoors without GPS</li>
-        </ul>
-      </div>
-      <div class="tile">
-        <img src="assets/apexvision-finder.webp" width="750" height="1000"
-             alt="A hand holds an iPhone running ApexVision's Finder mode at a desk. The app has identified the monitor and shows the label 'Tvmonitor' above the mode bar.">
-      </div>
-    </div>
-
-    <div class="mode">
-      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M42 8 L70 18 V42 C70 60 58 70 42 76 C26 70 14 60 14 42 V18 Z"/>
-        <path d="M28 46 C34 38 50 50 56 34"/>
-      </svg>
-      <div class="mode-body">
-        <h3>Safety</h3>
-        <p>Analyzes the pedestrian environment in real time, identifying the walkable path, obstacles within it, and approaching hazards.</p>
-        <ul>
-          <li>Continuous walkable-path detection with obstacle alerts</li>
-          <li>Ground-level and overhead hazard warnings</li>
-          <li>Haptic and spatial-audio cues timed to walking pace</li>
-        </ul>
-      </div>
-      <div class="tile">
-        <img src="assets/apexvision-safety.webp" width="750" height="1000"
-             alt="ApexVision's Safety mode in a hallway: the floor ahead is overlaid in green with the word 'Walkable', marking the clear path through a doorway.">
-      </div>
-    </div>
-
-    <div class="mode">
-      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M12 16 H72 V56 H40 L24 70 V56 H12 Z"/>
-        <path d="M24 30 h36 M24 42 h24"/>
-      </svg>
-      <div class="mode-body">
-        <h3>Describe</h3>
-        <p>Provides a spoken description of the surroundings on request, including layout, people, and signage.</p>
-        <ul>
-          <li>Reads visible signage and text</li>
-          <li>Answers spoken follow-up questions, such as &ldquo;Where is the exit?&rdquo;</li>
-        </ul>
-      </div>
-      <div class="tile">
-        <img src="assets/apexvision-describe.webp" width="750" height="1000"
-             alt="ApexVision's Describe mode pointed at a desk. The spoken description reads: 'This is a photo of a modern computer workstation, likely in an office. The most prominent object is a height-adjustable standing desk…' with a Describe Scene button below.">
-      </div>
-    </div>
-    </div>
-  </section>
 
 
 
@@ -531,6 +453,90 @@
     </div>
   </section>
 
+  <section id="modes" class="wrap">
+    <h2>ApexVision</h2>
+    <p class="section-intro">Three operating modes. All output is delivered through audio and haptics; no usable vision is required.</p>
+
+    <div class="stats-card dark-card modes-stats" role="region" aria-label="ApexVision key facts">
+      <ul>
+        <li><span class="big">&lt;200 ms</span><span class="small">end-to-end latency, camera to audio cue</span></li>
+        <li><span class="big">On-device</span><span class="small">all processing local; no data uploaded</span></li>
+        <li><span class="big">Fully offline</span><span class="small">operates without Wi-Fi or cellular service</span></li>
+        <li><span class="big">Patent pending</span><span class="small">U.S. 19/760,891; Canada 3,319,882</span></li>
+      </ul>
+    </div>
+
+    <div class="modes-grid">
+    <div class="mode">
+      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="38" cy="38" r="22"/>
+        <path d="M54 54 L72 72"/>
+        <path d="M38 28 v20 M28 38 h20"/>
+      </svg>
+      <div class="mode-body">
+        <h3>Finder</h3>
+        <p>Locates a requested object, such as keys, a doorway, or an available seat.</p>
+        <ul>
+          <li>Voice-initiated object search</li>
+          <li>Directional audio guidance to within arm&rsquo;s reach</li>
+          <li>Operates indoors and outdoors without GPS</li>
+        </ul>
+      </div>
+      <div class="tile">
+        <img src="assets/apexvision-finder.webp" width="750" height="1000"
+             alt="A hand holds an iPhone running ApexVision's Finder mode at a desk. The app has identified the monitor and shows the label 'Tvmonitor' above the mode bar.">
+      </div>
+    </div>
+
+    <div class="mode">
+      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M42 8 L70 18 V42 C70 60 58 70 42 76 C26 70 14 60 14 42 V18 Z"/>
+        <path d="M28 46 C34 38 50 50 56 34"/>
+      </svg>
+      <div class="mode-body">
+        <h3>Safety</h3>
+        <p>Analyzes the pedestrian environment in real time, identifying the walkable path, obstacles within it, and approaching hazards.</p>
+        <ul>
+          <li>Continuous walkable-path detection with obstacle alerts</li>
+          <li>Ground-level and overhead hazard warnings</li>
+          <li>Haptic and spatial-audio cues timed to walking pace</li>
+        </ul>
+      </div>
+      <div class="tile">
+        <img src="assets/apexvision-safety.webp" width="750" height="1000"
+             alt="ApexVision's Safety mode in a hallway: the floor ahead is overlaid in green with the word 'Walkable', marking the clear path through a doorway.">
+      </div>
+    </div>
+
+    <div class="mode">
+      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 16 H72 V56 H40 L24 70 V56 H12 Z"/>
+        <path d="M24 30 h36 M24 42 h24"/>
+      </svg>
+      <div class="mode-body">
+        <h3>Describe</h3>
+        <p>Provides a spoken description of the surroundings on request, including layout, people, and signage.</p>
+        <ul>
+          <li>Reads visible signage and text</li>
+          <li>Answers spoken follow-up questions, such as &ldquo;Where is the exit?&rdquo;</li>
+        </ul>
+      </div>
+      <div class="tile">
+        <img src="assets/apexvision-describe.webp" width="750" height="1000"
+             alt="ApexVision's Describe mode pointed at a desk. The spoken description reads: 'This is a photo of a modern computer workstation, likely in an office. The most prominent object is a height-adjustable standing desk…' with a Describe Scene button below.">
+      </div>
+    </div>
+    </div>
+    <div class="cta-row">
+      <!-- When the public TestFlight link exists, point this button straight at it. -->
+      <a class="btn btn-blue" href="#contact" data-interest="beta">Request beta access</a>
+    </div>
+    <p class="fineprint">
+      Free during the beta period; a premium subscription will be offered at launch.
+      Available on iPhone, with Android support planned.
+    </p>
+  </section>
+
   <section id="organizations" class="band-dark">
     <div class="wrap">
       <h2>For agencies and organizations</h2>
@@ -550,8 +556,8 @@
   <section id="industries" class="wrap">
     <h2>Industry applications</h2>
     <p class="section-intro">
-      A single on-device, real-time, voice-first platform, applied wherever people need to
-      find a destination or an item.
+      A real-time, voice-first platform, applied wherever people need to find a destination
+      or an item.
     </p>
     <div class="ind-grid">
       <div class="ind">
@@ -712,8 +718,8 @@
 
         <label for="f-interest">Topic</label>
         <select id="f-interest" name="interest">
-          <option value="Joining the iOS beta">ApexVision beta access</option>
           <option value="Whereabout">Whereabout</option>
+          <option value="Joining the iOS beta">ApexVision beta access</option>
           <option value="Piloting at my organization">Organizational pilot</option>
           <option value="Android waitlist">Android availability</option>
           <option value="Press">Media inquiry</option>
