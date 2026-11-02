@@ -176,7 +176,11 @@
 
   /* ---------- Whereabout: panel band ---------- */
   .whereabouts .body{margin-top:1rem;font-size:1.12rem}
-  .whereabouts .wb-opt{font-size:1.35rem;margin-top:2.4rem}
+  .wb-cards{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+  .wb-card{background:var(--bg);border-radius:12px;padding:1.5rem 1.7rem}
+  .wb-card h3{font-size:1.25rem}
+  .wb-card p{margin-top:.5rem;color:var(--secondary)}
+  @media(max-width:720px){.wb-cards{grid-template-columns:1fr}}
   .wb-banner{margin-top:2.4rem;border-radius:12px;overflow:hidden}
   .wb-banner img{width:100%}
   .wb-gallery{margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
@@ -186,12 +190,6 @@
     .wb-gallery{grid-template-columns:1fr}
     .wb-gallery .tile{max-width:320px}
   }
-  .whereabouts ul.features{margin-top:2rem;padding-left:1.2rem;max-width:62ch}
-  .whereabouts ul.features li{margin-top:.5rem}
-  .whereabouts ul.features li::marker{color:var(--blue)}
-  .wb-b2b{margin-top:2.4rem;border-left:4px solid var(--blue);padding:.4rem 0 .4rem 1.4rem;max-width:62ch}
-  .wb-b2b h3{font-size:1.2rem}
-  .wb-b2b p{margin-top:.45rem;color:var(--secondary)}
   .whereabouts .cta-row{margin-top:2.3rem}
 
   /* Industries */
@@ -352,7 +350,7 @@
 
   <section id="solutions" class="wrap">
     <h2>Solutions</h2>
-    <p class="section-intro">Two products built on a shared spatial AI platform.</p>
+    <p class="section-intro">Two products on a shared spatial AI platform, together providing guidance from the street to a specific item indoors.</p>
     <div class="sol-grid">
       <div class="sol">
         <h3>Whereabout</h3>
@@ -379,33 +377,23 @@
   <section id="whereabouts" class="whereabouts band-panel">
     <div class="wrap">
       <h2>Whereabout</h2>
-      <p class="body">
-        Whereabout creates searchable indoor maps that record where destinations and items are
-        located and guide users to them. Designed first for blind and low-vision users, it is
-        fully operable by voice and with VoiceOver, and it serves households and venue visitors
-        alike. It is offered in two configurations: Spaces for venues and Rooms for homes.
-        Together with ApexVision, it provides continuous guidance from the street, through the
-        entrance, to a specific item indoors.
+      <p class="section-intro">
+        Indoor maps that guide people by voice to any destination or item. Designed first for
+        blind and low-vision users and fully operable with VoiceOver.
       </p>
-
-      <h3 class="wb-opt">Spaces</h3>
-      <p class="body">
-        For venues and events. Venues are mapped floor by floor with an iPhone, with no survey
-        crew or beacon installation, and can be live the same day. Visitors request a
-        destination by voice and receive turn-by-turn guidance. Because guidance draws on the
-        live camera as well as the stored map, it can warn of current obstructions and guide the
-        final half meter. When a layout changes, only the affected area needs to be rescanned.
-      </p>
-
-      <h3 class="wb-opt">Rooms</h3>
-      <p class="body">
-        For the home. A scan of approximately one minute with an iPhone&nbsp;Pro measures walls,
-        doors, and furniture, recognizes everyday items, and catalogs the contents of drawers and
-        cabinets as they are opened. Everyone with whom the map is shared can then locate items
-        by voice and be guided to them, supporting family members, caregivers, and people with
-        memory difficulties. One person maintains the map for the household. Locating items
-        works on any iPhone running iOS&nbsp;17 or later; scanning requires a Pro model.
-      </p>
+      <div class="wb-cards">
+        <div class="wb-card">
+          <h3>Spaces</h3>
+          <p>For venues and events. Mapped floor by floor with an iPhone, without survey crews or
+          beacons. When a layout changes, only that area is rescanned.</p>
+        </div>
+        <div class="wb-card">
+          <h3>Rooms</h3>
+          <p>For the home. A one-minute scan maps each room and catalogs the contents of drawers
+          and cabinets. Anyone the map is shared with can ask where an item is and be guided
+          to it.</p>
+        </div>
+      </div>
       <div class="wb-banner dark-card">
         <img src="assets/whereabout-hero.webp" width="1600" height="1067"
              alt="Ask where anything is. Scan a room once, then be walked right to it. A voice query, 'Where are my keys?', is answered 'Hall chest, top drawer', shown as a pin on a home floor plan with a dotted path leading to it.">
@@ -427,29 +415,18 @@
           <figcaption>Tactile descriptions are read aloud on arrival to confirm the item.</figcaption>
         </figure>
       </div>
-      <ul class="features">
-        <li>Dimensions and positions measured with LiDAR</li>
-        <li>&ldquo;Look inside&rdquo; catalogs the contents of drawers and closets in place</li>
-        <li>Voice requests with turn-by-turn guidance around furniture and hand guidance over the final half&nbsp;meter</li>
-        <li>Interface, directions, and voice commands available in English and Arabic</li>
-      </ul>
       <p class="body">
-        The app is free, including the first room. Open testing on TestFlight will precede the
-        App Store release. Pricing and details are available at
-        <a href="https://whereabout.store">whereabout.store</a>.
+        <strong>For kitchen and wardrobe manufacturers:</strong> a searchable storage map can
+        ship with every installation.
       </p>
-      <div class="wb-b2b">
-        <h3>For kitchen and wardrobe manufacturers</h3>
-        <p>
-          Include a searchable storage map with every installation. Households can locate stored
-          items by voice and be guided to them, extending the value of the installation well
-          beyond handover.
-        </p>
-      </div>
       <div class="cta-row">
         <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
         <a class="btn btn-tint" href="https://whereabout.store">Visit whereabout.store</a>
       </div>
+      <p class="fineprint">
+        The app is free, including the first room. Scanning requires an iPhone&nbsp;Pro;
+        locating items works on any iPhone with iOS&nbsp;17 or later.
+      </p>
     </div>
   </section>
 
