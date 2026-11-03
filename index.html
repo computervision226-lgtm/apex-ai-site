@@ -6,412 +6,50 @@
 <title>ApexAI - Whereabout and ApexVision</title>
 <meta name="description" content="ApexAI develops spatial AI for navigation. Whereabout provides searchable indoor maps for venues and homes; ApexVision provides real-time pedestrian guidance processed entirely on the phone.">
 <meta property="og:title" content="ApexAI - Whereabout and ApexVision">
-<meta property="og:description" content="ApexAI develops spatial AI for navigation. Whereabout: searchable indoor maps for venues and homes. ApexVision: real-time pedestrian guidance, fully on-device.">
+<meta property="og:description" content="ApexAI develops spatial AI for navigation. Whereabout provides searchable indoor maps for venues and homes; ApexVision provides real-time pedestrian guidance processed entirely on the phone.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://apex-ai.site/">
+<link rel="canonical" href="https://apex-ai.site/">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0A1322" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D4EA6'/%3E%3Cpath d='M14 50 L32 12 L50 50 H41 L32 29 L23 50 Z' fill='%23FFFFFF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#FFFFFF;
-    --panel:#F5F5F7;
-    --panel2:#EFEFF1;
-    --card:#10223A;
-    --card2:#1B3150;
-    --card3:#27405F;
-    --ink:#1D1D1F;
-    --body:#48484A;
-    --secondary:#6E6E73;
-    --muted:#86868B;
-    --blue:#0D4EA6;
-    --blue-on-dark:#8FB8E8;
-    --hairline:rgba(0,0,0,.09);
-    --on-card:#F5F5F7;
-    --on-card-soft:#9DB0C7;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#0A1322;
-      --panel:#13233A;
-      --panel2:#1B3150;
-      --card:#10223A;
-      --card2:#1B3150;
-      --card3:#27405F;
-      --ink:#F5F5F7;
-      --body:#C7C7CC;
-      --secondary:#98989D;
-      --muted:#8E8E93;
-      --blue:#8FB8E8;
-      --hairline:rgba(255,255,255,.14);
-    }
-  }
-
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{animation:none!important;transition:none!important}
-  }
-  body{
-    font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
-    background:var(--bg);
-    color:var(--body);
-    font-size:1.125rem;
-    line-height:1.65;
-  }
-  [id]{scroll-margin-top:5.5rem}
-
-  :focus{outline:none}
-  :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-  .dark-card :focus-visible, .band-dark :focus-visible, .beta-bar :focus-visible{outline-color:var(--blue-on-dark)}
-  .skip-link{
-    position:absolute;left:-999px;top:0;z-index:100;
-    background:var(--card);color:#fff;
-    padding:.9rem 1.4rem;font-weight:700;text-decoration:none;
-  }
-  .skip-link:focus{left:0}
-
-  a{color:var(--blue);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
-  a:hover{text-decoration-thickness:3px}
-
-  .wrap{max-width:1080px;margin:0 auto;padding-inline:1.25rem}
-  p{max-width:64ch}
-  img{max-width:100%;height:auto;display:block}
-
-  h1,h2,h3{color:var(--ink);letter-spacing:-.015em}
-  h2{font-size:clamp(1.9rem,3.8vw,2.6rem);line-height:1.12;max-width:26ch}
-
-  /* ---------- Beta bar ---------- */
-  .beta-bar{background:var(--card);color:var(--on-card)}
-  .beta-bar .wrap{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;padding-block:.6rem;font-size:1.02rem}
-  .beta-bar a{color:var(--blue-on-dark);font-weight:700}
-
-  /* ---------- Header ---------- */
-  header.site{border-bottom:1px solid var(--hairline);background:var(--bg)}
-  header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 2rem;padding-block:1.05rem}
-  .wordmark{display:inline-flex;align-items:center;gap:.5rem;font-size:1.45rem;font-weight:700;color:var(--ink);text-decoration:none}
-  .wordmark svg{width:22px;height:22px;flex:none}
-  nav.primary{margin-left:auto}
-  nav.primary ul{display:flex;flex-wrap:wrap;gap:.2rem 1.4rem;list-style:none}
-  nav.primary a{color:var(--ink);font-weight:700;text-decoration:none;padding:.3rem 0;display:inline-block;font-size:1rem}
-  nav.primary a:hover{text-decoration:underline;text-decoration-thickness:2.5px;text-underline-offset:6px;text-decoration-color:var(--blue)}
-
-  /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-block;font-weight:700;font-size:1.06rem;
-    padding:.85rem 1.6rem;text-decoration:none;border-radius:8px;
-    min-height:48px;border:2px solid transparent;
-  }
-  .btn-blue{background:#0D4EA6;color:#fff;border-color:#0D4EA6}
-  .btn-blue:hover{background:#0A3E85;border-color:#0A3E85}
-  .btn-tint{background:var(--panel);color:var(--blue);border-color:var(--panel)}
-  .btn-tint:hover{background:var(--panel2);border-color:var(--panel2)}
-  .btn-white{background:#fff;color:#1D1D1F;border-color:#fff}
-  .btn-white:hover{background:#E8E8EA;border-color:#E8E8EA}
-  .btn-ghost-dark{background:transparent;color:#fff;border-color:#fff}
-  .btn-ghost-dark:hover{background:rgba(255,255,255,.14)}
-
-  /* ---------- Hero ---------- */
-  .hero .wrap{padding-block:5rem 4rem}
-  .hero h1{font-size:clamp(2.6rem,6.2vw,4.2rem);line-height:1.06;font-weight:700;max-width:16ch;letter-spacing:-.02em}
-  .hero .lede{margin-top:1.6rem;font-size:clamp(1.15rem,1.9vw,1.35rem);line-height:1.6;max-width:54ch;color:var(--body)}
-  .hero .lede strong{color:var(--ink)}
-  .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.25rem}
-  .fineprint{margin-top:1.4rem;font-size:.98rem;color:var(--secondary);max-width:62ch}
-
-  /* ---------- Stats: one dark card ---------- */
-  .stats-card{
-    background:var(--card);border-radius:12px;color:var(--on-card);
-    margin-top:.5rem;
-  }
-  .stats-card ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
-  .stats-card li{padding:1.7rem 1.6rem}
-  .stats-card .big{display:block;font-size:1.6rem;font-weight:700;line-height:1.2;color:#fff}
-  .stats-card .small{display:block;margin-top:.25rem;color:var(--on-card-soft);font-size:.96rem}
-  @media(max-width:860px){.stats-card ul{grid-template-columns:1fr 1fr}}
-  @media(max-width:480px){.stats-card ul{grid-template-columns:1fr}.stats-card li{padding-block:1.1rem}}
-
-  /* ---------- Sections ---------- */
-  section{padding-block:4.75rem}
-  .band-panel{background:var(--panel)}
-  .band-dark{background:var(--card)}
-  .band-dark h2{color:#fff}
-  .band-dark p{color:var(--on-card-soft)}
-  .section-intro{margin-top:1.2rem;color:var(--secondary);font-size:1.18rem;max-width:60ch}
-
-  .modes-stats{margin-top:2rem}
-  .hero + .wrap .supporters{margin-top:0}
-
-  /* Solutions */
-  .sol-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
-  .sol{background:var(--panel);border-radius:12px;padding:1.7rem 1.8rem}
-  .sol h3{font-size:1.35rem}
-  .sol p{margin-top:.6rem;font-size:1.05rem;color:var(--secondary)}
-  .sol .sol-link{margin-top:1rem;font-weight:700}
-
-  /* Modes: three cards side by side, screenshots on dark tiles */
-  .modes-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-  .mode{
-    background:var(--panel);border-radius:12px;padding:1.6rem;
-    display:flex;flex-direction:column;gap:1rem;
-  }
-  .mode svg{width:44px;height:44px;color:var(--blue);flex:none}
-  .mode h3{font-size:1.4rem}
-  .mode .mode-body p{margin-top:.55rem}
-  .mode ul{margin-top:.85rem;padding-left:1.2rem}
-  .mode li{margin-top:.35rem}
-  .mode li::marker{color:var(--blue)}
-  .tile{background:var(--card);border-radius:10px;padding:10px}
-  .tile img{border-radius:6px;width:100%}
-  .mode .tile{margin-top:auto}
-  @media(max-width:900px){
-    .modes-grid{grid-template-columns:1fr}
-    .mode{padding:1.5rem}
-    .mode .tile{max-width:320px}
-  }
-
-  /* ---------- Whereabout: panel band ---------- */
-  .whereabouts .body{margin-top:1rem;font-size:1.12rem}
-  .wb-cards{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-  .wb-card{background:var(--bg);border-radius:12px;padding:1.5rem 1.7rem}
-  .wb-card h3{font-size:1.25rem}
-  .wb-card p{margin-top:.5rem;color:var(--secondary)}
-  @media(max-width:720px){.wb-cards{grid-template-columns:1fr}}
-  .wb-banner{margin-top:2.4rem;border-radius:12px;overflow:hidden}
-  .wb-banner img{width:100%}
-  .wb-gallery{margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-  .wb-gallery figure{margin:0}
-  .wb-gallery figcaption{margin-top:.6rem;font-size:.95rem;color:var(--secondary)}
-  @media(max-width:720px){
-    .wb-gallery{grid-template-columns:1fr}
-    .wb-gallery .tile{max-width:320px}
-  }
-  .whereabouts .cta-row{margin-top:2.3rem}
-  .wb-demo{margin-top:2.2rem}
-  .seg[hidden]{display:none}
-  .seg{display:inline-flex;padding:4px;gap:4px;border-radius:10px;background:var(--panel2)}
-  .seg button{font:inherit;font-size:1rem;font-weight:700;color:var(--body);background:transparent;border:0;border-radius:7px;
-    padding:.5rem 1rem;cursor:pointer;min-height:44px}
-  .seg button[aria-pressed="true"]{background:var(--bg);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
-  .demo{margin:1.1rem 0 0}
-  @media(max-width:560px){.seg-sub{display:none}.seg button{padding:.5rem 1.4rem}}
-  .demo video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:10px;background:#EEF1F5;
-    box-shadow:0 0 0 1px var(--hairline)}
-  .demo figcaption{margin-top:.8rem;font-size:1rem;color:var(--secondary);max-width:70ch}
-
-  /* Industries */
-  .ind-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
-  .ind{background:var(--panel);border-radius:12px;padding:1.5rem 1.6rem}
-  .ind svg{width:40px;height:40px;color:var(--blue);margin-bottom:.9rem;display:block}
-  .ind h3{font-size:1.15rem}
-  .ind p{margin-top:.5rem;font-size:1rem;color:var(--secondary)}
-
-  /* Milestones */
-  .pedigree{margin-top:1.4rem;font-size:1.12rem;max-width:60ch}
-  .timeline{margin-top:2.4rem;list-style:none;border-top:1px solid var(--hairline)}
-  .timeline li{display:grid;grid-template-columns:5.5rem 1fr;gap:1.25rem;padding-block:1rem;border-bottom:1px solid var(--hairline)}
-  .timeline .year{font-weight:700;color:var(--ink)}
-  .supporters{margin-top:2.6rem}
-  .supporters h3{font-size:1.02rem;color:var(--secondary);font-weight:400}
-  .supporters .logo-row{margin-top:1.1rem;list-style:none;display:flex;flex-wrap:wrap;gap:1rem 2.25rem;padding:0;align-items:center}
-  .supporters .logo-row li{display:flex;align-items:center}
-  .supporters .logo-row img{height:46px;width:auto;display:block}
-  @media (prefers-color-scheme: dark){
-    .supporters .logo-row{gap:.8rem}
-    .supporters .logo-row li{background:#FFFFFF;border-radius:12px;padding:.6rem .9rem}
-  }
-
-  /* Stories: dark quote cards */
-  .quotes{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-  .quotes figure{margin:0;background:var(--card);border-radius:12px;padding:1.6rem 1.7rem;display:flex;flex-direction:column;gap:.8rem}
-  .quotes blockquote p{
-    font-weight:700;font-size:1.18rem;line-height:1.5;color:#fff;text-indent:-.45em;
-  }
-  .quotes figcaption{color:var(--on-card-soft);font-size:.98rem;margin-top:auto}
-  @media(max-width:860px){.quotes{grid-template-columns:1fr}}
-  .photo-strip{margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-  .photo-strip figure{margin:0}
-  .photo-strip img{border-radius:10px;width:100%;object-fit:cover}
-  .photo-strip figure:not(.wide) img{aspect-ratio:4/3}
-  .photo-strip .wide{grid-column:1/-1}
-  .photo-strip figcaption{margin-top:.55rem;font-size:.95rem;color:var(--secondary)}
-  @media(max-width:720px){.photo-strip{grid-template-columns:1fr}}
-
-  .community-line{margin-top:1.5rem;padding:1.6rem 1.8rem;background:var(--card2);border-radius:12px;max-width:46rem}
-  .community-line p{font-weight:700;font-size:1.4rem;color:#fff;text-indent:-.45em}
-  .community-line figcaption{margin-top:.45rem;color:var(--on-card-soft)}
-
-  /* Organizations: dark band */
-  .band-dark .section-intro{color:var(--on-card-soft)}
-  .band-dark .cta-row{margin-top:2.2rem}
-  .band-dark a{color:var(--blue-on-dark)}
-  .band-dark a.btn-white{color:#1D1D1F}
-
-  /* Team */
-  .people{margin-top:2.4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem 2.5rem}
-  .person{display:grid;grid-template-columns:64px 1fr;gap:1rem;align-items:start}
-  .person .avatar{
-    width:64px;height:64px;border-radius:50%;object-fit:cover;
-    background:var(--panel);
-  }
-  .person h3{font-size:1.15rem;line-height:1.3}
-  .person h3 a{color:inherit;text-decoration-color:var(--hairline)}
-  .person h3 a:hover{text-decoration-color:var(--blue)}
-  .person .role{font-weight:700;color:var(--blue);font-size:.96rem}
-  .person p{margin-top:.3rem;font-size:.98rem;color:var(--secondary)}
-
-  /* Contact */
-  .contact-grid{margin-top:2.4rem;display:grid;grid-template-columns:1.2fr 1fr;gap:3rem}
-  @media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
-  form label{display:block;font-weight:700;color:var(--ink);margin-top:1.35rem;margin-bottom:.4rem}
-  form label:first-of-type{margin-top:0}
-  input,select,textarea{
-    width:100%;font:inherit;color:var(--ink);background:var(--panel);
-    border:2px solid transparent;border-radius:12px;padding:.8rem .95rem;
-  }
-  input:hover,select:hover,textarea:hover{background:var(--panel2)}
-  input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:0;background:var(--bg)}
-  textarea{min-height:8.5rem;resize:vertical}
-  .submit-btn{
-    margin-top:1.6rem;font:inherit;font-weight:700;font-size:1.06rem;cursor:pointer;
-    background:#0D4EA6;color:#fff;border:2px solid #0D4EA6;border-radius:8px;
-    padding:.85rem 1.7rem;min-height:48px;
-  }
-  .submit-btn:hover{background:#0A3E85;border-color:#0A3E85}
-  .form-note{margin-top:1rem;font-size:.98rem;color:var(--secondary)}
-  .preview-note{display:none;margin-top:1rem;font-weight:700;color:var(--ink);background:var(--panel);padding:.9rem 1rem;border-radius:12px}
-  .direct h3{font-size:1.2rem}
-  .direct .book-h{margin-top:2rem}
-  .direct .book-cta{margin-top:1rem}
-  .direct p{margin-top:.7rem}
-  .direct .email{font-size:1.15rem;font-weight:700;overflow-wrap:anywhere}
-
-  /* Footer: light panel */
-  footer.site{background:var(--panel);border-top:1px solid var(--hairline)}
-  footer.site .wrap{padding-block:3rem}
-  footer.site p{margin-top:.6rem;font-size:.96rem;max-width:76ch;color:var(--secondary)}
-  footer.site p:first-child{margin-top:0;font-weight:700;font-size:1.15rem;color:var(--ink)}
-
-  /* ---------- Editorial pass: fewer cards, real artifacts, varied treatments ---------- */
-  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3rem 4rem;align-items:center}
-  .hero-shot{margin:0}
-  .hero-shot img{width:270px;border-radius:34px;border:1px solid var(--hairline)}
-  @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-shot img{width:220px;border-radius:28px}}
-  .hero .wrap{padding-block:3.6rem 3.2rem}
-  .hero-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.4rem 4rem;align-items:end}
-  .hero-top .lede{margin-top:0}
-  .hero-top .cta-row{margin-top:1.4rem}
-  .hero-video{margin:2.6rem 0 0}
-  .hero-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:10px;background:#EEF1F5;box-shadow:0 0 0 1px var(--hairline)}
-  .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  @media(max-width:860px){.hero-top{grid-template-columns:1fr}.hero .wrap{padding-block:2.6rem 2.4rem}.hero-video{margin-top:2rem}}
-
-  .stats-card{background:none;border-radius:0;color:inherit;border-block:1px solid var(--hairline)}
-  .stats-card li{padding:1.15rem 1.5rem 1.15rem 0}
-  .stats-card li + li{border-left:1px solid var(--hairline);padding-left:1.5rem}
-  .stats-card .big{font-size:1.2rem;color:var(--ink)}
-  .stats-card .small{color:var(--secondary);font-size:.94rem}
-  @media(max-width:860px){.stats-card li,.stats-card li + li{border-left:none;padding-left:0}}
-
-  .sol-grid{grid-template-columns:1fr 1fr;gap:2rem 4rem;margin-top:2.2rem}
-  .sol{background:none;border-radius:0;padding:0}
-  .sol h3{font-size:1.7rem}
-  .sol p{font-size:1.08rem;color:var(--body)}
-  @media(max-width:720px){.sol-grid{grid-template-columns:1fr}}
-
-  .modes-grid{gap:2.25rem;margin-top:2.75rem}
-  .mode{background:none;border-radius:0;padding:0;gap:0}
-  .mode > img{border-radius:6px;width:100%;aspect-ratio:3/4;object-fit:cover}
-  .mode h3{margin-top:1.25rem;font-size:1.35rem}
-  @media(max-width:900px){.mode > img{max-width:360px}}
-
-  .wb-banner{border-radius:6px}
-  .wb-split{margin-top:3rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:3rem 4rem;align-items:start}
-  .wb-item{padding-block:1.3rem;border-top:1px solid var(--hairline)}
-  .wb-item:first-child{border-top:none;padding-top:0}
-  .wb-item h3{font-size:1.35rem}
-  .wb-item p{margin-top:.4rem}
-  .wb-text .body{margin-top:1.3rem}
-  .wb-shots{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-  .wb-shots figure{margin:0}
-  .wb-shots img{border-radius:22px;border:1px solid var(--hairline)}
-  .wb-shots figcaption{margin-top:.6rem;font-size:.92rem;color:var(--secondary)}
-  @media(max-width:860px){.wb-split{grid-template-columns:1fr}.wb-shots{max-width:480px}}
-  .wb-cols{margin-top:3rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 3.5rem}
-  .wb-cols .wb-item{padding:0;border:0}
-  .whereabouts .wb-cols + .body{margin-top:1.5rem}
-  .wb-gallery-row{margin-top:2.6rem;display:grid;grid-template-columns:3.26fr 1fr 1fr 1fr;gap:1.1rem;align-items:start}
-  .wb-gallery-row figure{margin:0}
-  .wb-gallery-row img{border:1px solid var(--hairline);border-radius:16px}
-  .wb-gallery-row .g-wide img{border-radius:6px}
-  .wb-gallery-row figcaption{margin-top:.6rem;font-size:.92rem;line-height:1.45;color:var(--secondary)}
-  @media(max-width:720px){
-    .wb-cols{grid-template-columns:1fr}
-    .wb-gallery-row{grid-template-columns:1fr 1fr 1fr}
-    .wb-gallery-row .g-wide{grid-column:1 / -1}
-  }
-  .mode > img{aspect-ratio:1/1;object-position:50% 72%}
-  .mode h3{margin-top:1rem;font-size:1.25rem}
-  .mode p{margin-top:.35rem;font-size:1.02rem}
-  .av-foot{margin-top:2.25rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem}
-  .av-foot .fineprint{margin-top:0}
-  @media(max-width:900px){
-    .modes-grid{gap:1.5rem}
-    .mode{display:grid;grid-template-columns:112px minmax(0,1fr);column-gap:1.1rem;align-items:start}
-    .mode > img{grid-row:1 / span 2;width:112px;max-width:none}
-    .mode h3{margin-top:0}
-  }
-
-  .ind-grid{grid-template-columns:1fr 1fr;gap:0 3.5rem;margin-top:2rem}
-  .ind{background:none;border-radius:0;padding:1.35rem 0;border-top:1px solid var(--hairline);display:grid;grid-template-columns:26px 1fr;column-gap:1rem;align-items:start}
-  .ind svg{width:26px;height:26px;margin:2px 0 0;grid-row:1 / span 2}
-  .ind h3,.ind p{grid-column:2}
-  .ind p{margin-top:.3rem}
-  @media(max-width:720px){.ind-grid{grid-template-columns:1fr}}
-
-  .pull{margin:2.25rem 0 0}
-  .pull p{font-size:clamp(1.6rem,3.2vw,2.35rem);line-height:1.28;font-weight:700;color:var(--ink);max-width:28ch;text-indent:-.42em;letter-spacing:-.01em}
-  .pull figcaption{margin-top:1rem;color:var(--secondary)}
-  .quotes-small{margin-top:2.75rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
-  .quotes-small figure{margin:0}
-  .quotes-small p{font-size:1.08rem;line-height:1.55;color:var(--ink);text-indent:-.42em}
-  .quotes-small figcaption{margin-top:.6rem;font-size:.95rem;color:var(--secondary)}
-  @media(max-width:860px){.quotes-small{grid-template-columns:1fr;gap:1.75rem}}
-  .photo-strip{margin-top:3rem}
-  .photo-strip img{border-radius:6px}
-
-  input,select,textarea,.preview-note{border-radius:8px}
-</style>
+<link rel="stylesheet" href="assets/site.css">
+<script>
+  // Links to the old one-page site (apex-ai.site/#team) open the page that section moved to.
+  (function(){
+    var to = {'#whereabouts':'whereabout/','#modes':'apexvision/','#organizations':'industries/#organizations','#industries':'industries/',
+      '#milestones':'about/#milestones','#stories':'about/#stories','#team':'about/#team','#contact':'contact/'}[location.hash];
+    if (to) location.replace(to);
+  })();
+</script>
 </head>
-<body>
+<body data-page="home">
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <div class="beta-bar">
   <div class="wrap">
     <span>ApexVision is in beta on iOS.</span>
-    <a href="#contact">Request access</a>
+    <a href="contact/?topic=beta">Request access</a>
   </div>
 </div>
 
 <header class="site">
   <div class="wrap">
-    <a class="wordmark" href="#top">
+    <a class="wordmark" href="./" aria-current="page">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 C7.6 2 4 5.6 4 10 c0 5.6 8 12 8 12 s8-6.4 8-12 c0-4.4-3.6-8-8-8 Z" fill="#0D4EA6"/><circle cx="12" cy="10" r="3.2" fill="#FFFFFF"/></svg>
       ApexAI
     </a>
     <nav class="primary" aria-label="Main">
       <ul>
-        <li><a href="#solutions">Solutions</a></li>
-        <li><a href="#organizations">For organizations</a></li>
-        <li><a href="#industries">Industries</a></li>
-        <li><a href="#milestones">Milestones</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="whereabout/">Whereabout</a></li>
+        <li><a href="apexvision/">ApexVision</a></li>
+        <li><a href="industries/">Industries</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="contact/">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -431,7 +69,7 @@
           </p>
           <div class="cta-row">
             <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
-            <a class="btn btn-tint" href="#organizations">Request a pilot</a>
+            <a class="btn btn-tint" href="industries/#organizations">Request a pilot</a>
           </div>
         </div>
       </div>
@@ -475,7 +113,7 @@
         <p>Searchable indoor maps that locate any destination or item and guide the user to
         it. Spaces serves venues and events; Rooms serves the home, down to the contents of
         individual drawers. Open testing on TestFlight is forthcoming.</p>
-        <p class="sol-link"><a href="#whereabouts">Learn about Whereabout</a></p>
+        <p class="sol-link"><a href="whereabout/">Learn about Whereabout</a></p>
       </div>
       <div class="sol">
         <h3>ApexVision</h3>
@@ -483,339 +121,7 @@
         ApexVision detects walkable paths, hazards, and objects, and delivers spoken and haptic
         guidance at walking pace. All processing runs on the device, with no connectivity
         required. Currently in beta on iOS.</p>
-        <p class="sol-link"><a href="#modes">Learn about ApexVision</a></p>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-  <section id="whereabouts" class="whereabouts band-panel">
-    <div class="wrap">
-      <h2>Whereabout</h2>
-      <p class="section-intro">
-        Indoor maps that guide people by voice to any destination or item.
-      </p>
-      <div class="wb-demo" id="whereabout-demos">
-        <div class="seg" role="group" aria-label="Choose a demonstration" hidden>
-            <button type="button" aria-pressed="true" aria-controls="demo-spaces" data-demo="demo-spaces">Spaces<span class="seg-sub">: a conference floor</span></button>
-            <button type="button" aria-pressed="false" aria-controls="demo-rooms" data-demo="demo-rooms">Rooms<span class="seg-sub">: a living room</span></button>
-          </div>
-        <figure class="demo" id="demo-spaces">
-          <video controls playsinline preload="metadata" width="1920" height="1080"
-                 poster="assets/whereabout-spaces-demo.webp" aria-describedby="cap-spaces"
-                 aria-label="Spaces demonstration: mapping a conference floor and asking the way to Room 204">
-            <source src="assets/whereabout-spaces-demo.mp4" type="video/mp4">
-            <a href="assets/whereabout-spaces-demo.mp4">Download the Spaces demonstration (MP4, 48 seconds)</a>
-          </video>
-          <figcaption id="cap-spaces">Organizers map a conference floor with an iPhone and publish it to their event. An
-            attendee joins with the event code and asks the way to Room 204, with no Wi-Fi or cellular signal. The phone screens
-            are illustrations; the editor is a live recording of the public sample venue.</figcaption>
-        </figure>
-        <figure class="demo" id="demo-rooms">
-          <video controls playsinline preload="metadata" width="1920" height="1080"
-                 poster="assets/whereabout-rooms-demo.webp" aria-describedby="cap-rooms"
-                 aria-label="Rooms demonstration: scanning a living room and finding the TV remote">
-            <source src="assets/whereabout-rooms-demo.mp4" type="video/mp4">
-            <a href="assets/whereabout-rooms-demo.mp4">Download the Rooms demonstration (MP4, 47 seconds)</a>
-          </video>
-          <figcaption id="cap-rooms">A living room is scanned once, and every item is measured and named, including the
-            contents of a drawer. Asked where the TV remote is, the app answers and gives directions to it. The phone screens
-            are illustrations; the editor is a live recording of the public sample room.</figcaption>
-        </figure>
-      </div>
-      <div class="wb-cols">
-        <div class="wb-item">
-          <h3>Spaces</h3>
-          <p>For venues and events. Mapped floor by floor with an iPhone, without survey crews or
-          beacons. When a layout changes, only that area is rescanned.</p>
-        </div>
-        <div class="wb-item">
-          <h3>Rooms</h3>
-          <p>For the home. A one-minute scan maps each room and catalogs the contents of drawers
-          and cabinets. Anyone the map is shared with can ask where an item is and be guided
-          to it.</p>
-        </div>
-      </div>
-      <p class="body">
-        <strong>For kitchen and wardrobe manufacturers:</strong> a searchable storage map can
-        ship with every installation.
-      </p>
-      <div class="wb-gallery-row">
-        <figure class="g-wide">
-          <img src="assets/whereabout-hero.webp" width="1600" height="1067"
-             alt="Ask where anything is. Scan a room once, then be walked right to it. A voice query, 'Where are my keys?', is answered 'Hall chest, top drawer', shown as a pin on a home floor plan with a dotted path leading to it.">
-          <figcaption>Asked where the keys are, Whereabout names the drawer and shows the path to it.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/whereabouts-plan.webp" width="640" height="1391"
-             alt="The Whereabout app showing a scanned kitchen as a measured floor plan, with the position of each recognized item marked.">
-          <figcaption>Each room becomes a measured floor plan with every item placed.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/whereabouts-3d.webp" width="640" height="1391"
-               alt="The Whereabout editor showing a scanned kitchen as a 3D model, with labels on the cabinets, refrigerator, table, chairs, and smaller items.">
-          <figcaption>Each room is captured as a labeled 3D model.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/whereabouts-item.webp" width="640" height="1391"
-               alt="An item sheet in Whereabout: a 'How it feels' note reading 'Smooth glass jar, metal lid, cold', spoken aloud when someone reaches the item, with its size, height, and position measured with LiDAR.">
-          <figcaption>Tactile descriptions are read aloud on arrival to confirm the item.</figcaption>
-        </figure>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
-        <a class="btn btn-tint" href="https://whereabout.store">Visit whereabout.store</a>
-      </div>
-      <p class="fineprint">
-        The app is free, including the first room. Scanning requires an iPhone&nbsp;Pro;
-        locating items works on any iPhone with iOS&nbsp;17 or later.
-      </p>
-    </div>
-  </section>
-
-  <section id="modes" class="wrap">
-    <h2>ApexVision</h2>
-    <p class="section-intro">Three operating modes. All output is delivered through audio and haptics.</p>
-
-    <div class="stats-card dark-card modes-stats" role="region" aria-label="ApexVision key facts">
-      <ul>
-        <li><span class="big">&lt;200 ms</span><span class="small">end-to-end latency, camera to audio cue</span></li>
-        <li><span class="big">On-device</span><span class="small">all processing local; no data uploaded</span></li>
-        <li><span class="big">Fully offline</span><span class="small">operates without Wi-Fi or cellular service</span></li>
-        <li><span class="big">Patent pending</span><span class="small">U.S. 19/760,891; Canada 3,319,882</span></li>
-      </ul>
-    </div>
-
-    <div class="modes-grid">
-      <div class="mode">
-        <img src="assets/apexvision-finder.webp" width="750" height="1000"
-             alt="A hand holds an iPhone running ApexVision's Finder mode at a desk. The app has identified the monitor and shows the label 'Tvmonitor' above the mode bar.">
-        <h3>Finder</h3>
-        <p>Locates a requested object, such as keys, a doorway, or an available seat, and guides the user to within arm&rsquo;s reach.</p>
-      </div>
-      <div class="mode">
-        <img src="assets/apexvision-safety.webp" width="750" height="1000"
-             alt="ApexVision's Safety mode in a hallway: the floor ahead is overlaid in green with the word 'Walkable', marking the clear path through a doorway.">
-        <h3>Safety</h3>
-        <p>Identifies the walkable path, obstacles within it, and approaching hazards in real time.</p>
-      </div>
-      <div class="mode">
-        <img src="assets/apexvision-describe.webp" width="750" height="1000"
-             alt="ApexVision's Describe mode pointed at a desk. The spoken description reads: 'This is a photo of a modern computer workstation, likely in an office. The most prominent object is a height-adjustable standing desk…' with a Describe Scene button below.">
-        <h3>Describe</h3>
-        <p>Describes the surroundings on request, including layout, people, and signage, and answers follow-up questions.</p>
-      </div>
-    </div>
-    <div class="av-foot">
-      <!-- When the public TestFlight link exists, point this button straight at it. -->
-      <a class="btn btn-blue" href="#contact" data-interest="beta">Request beta access</a>
-      <p class="fineprint">Free during the beta period; a premium subscription will be offered at launch.
-        Available on iPhone, with Android support planned.</p>
-    </div>
-  </section>
-
-  <section id="organizations" class="band-dark">
-    <div class="wrap">
-      <h2>For agencies and organizations</h2>
-      <p class="section-intro">
-        We conduct structured pilots with vocational rehabilitation programs, accessibility and
-        independent-living centers, orientation and mobility practices, school districts, and
-        employers managing accommodation requests. Each pilot includes staff training, defined
-        outcome measures, and direct access to the founding team.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-white" href="https://calendar.app.google/ns17ENxNHDFYYfr5A">Schedule a meeting</a>
-        <a class="btn btn-ghost-dark" href="mailto:magedshoman@apex-ai.site?subject=Pilot%20inquiry">Inquire about a pilot</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="industries" class="wrap">
-    <h2>Industry applications</h2>
-    <div class="ind-grid">
-      <div class="ind">
-        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="42" cy="34" r="16"/><path d="M34 48 L28 70 L42 62 L56 70 L50 48"/></svg>
-        <h3>Vocational rehabilitation and veterans' services</h3>
-        <p>Structured ApexVision pilots with staff training and outcome measures. Because no video or personal data leaves the device, privacy review is straightforward.</p>
-      </div>
-      <div class="ind">
-        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M42 14 L50 36 L72 46 L50 50 L46 70 L42 62 L38 70 L34 50 L12 46 L34 36 Z"/></svg>
-        <h3>Transit and aviation</h3>
-        <p>Spaces maps stations and terminals floor by floor, without beacons to install or maintain, and gives every traveler voice-guided directions.</p>
-      </div>
-      <div class="ind">
-        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="18" y="18" width="48" height="48" rx="10"/><path d="M42 32 v20 M32 42 h20"/></svg>
-        <h3>Healthcare and senior care</h3>
-        <p>Wayfinding for clinics and medical campuses, and Rooms for residents, with staff or family maintaining the map and residents locating items by voice.</p>
-      </div>
-      <div class="ind">
-        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 34 L42 20 L72 34 L42 48 Z"/><path d="M26 42 V56 C26 62 58 62 58 56 V42"/><path d="M72 34 V48"/></svg>
-        <h3>Education</h3>
-        <p>Districts and campuses license software rather than hardware, so every student and visitor finds their way around buildings with the same tools.</p>
-      </div>
-      <div class="ind">
-        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="22" width="52" height="46" rx="8"/><path d="M16 36 H68 M30 14 V28 M54 14 V28"/><circle cx="30" cy="50" r="2.5" fill="currentColor" stroke="none"/><circle cx="42" cy="50" r="2.5" fill="currentColor" stroke="none"/><circle cx="54" cy="50" r="2.5" fill="currentColor" stroke="none"/></svg>
-        <h3>Events and conferences</h3>
-        <p>Venues are mapped before opening and updated as layouts change, so attendees receive accurate directions throughout the event.</p>
-      </div>
-      <div class="ind">
-        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="30" width="56" height="36" rx="8"/><path d="M32 30 V24 C32 21 36 18 42 18 C48 18 52 21 52 24 V30 M14 46 H70"/></svg>
-        <h3>Employers and workplaces</h3>
-        <p>Workplace accommodations delivered as software on the employee&rsquo;s own phone, at a fraction of the cost of dedicated assistive devices.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="milestones" class="wrap">
-    <h2>Milestones</h2>
-    <p class="pedigree">
-      ApexAI&rsquo;s products are grounded in peer-reviewed computer-vision research, including a
-      Best Paper Award at the IEEE/CVF WACV 2025 Workshops and four top-six finishes in the
-      NVIDIA AI City Challenge (2021-2024).
-    </p>
-    <ul class="timeline">
-      <li><span class="year">2026</span><span>Filed U.S. non-provisional (19/760,891) and Canadian (3,319,882) patent applications for real-time computer-vision navigation assistance</span></li>
-      <li><span class="year">2026</span><span>Began a pilot deployment with a regional accessibility center, with structured outcome measures</span></li>
-      <li><span class="year">2026</span><span>Selected as one of three Tennessee startups for the NobleReach Science2Venture accelerator (Cohort&nbsp;1), an NSF-funded program</span></li>
-      <li><span class="year">2026</span><span>Named Most Impactful Company at CodeStock</span></li>
-      <li><span class="year">2026</span><span>Presented driving-simulator testing at the TRB Annual Meeting</span></li>
-      <li><span class="year">2025</span><span>Filed U.S. provisional patent application 63/917,447 for multimodal real-time pedestrian navigation</span></li>
-      <li><span class="year">2025</span><span>Completed NSF I-Corps customer discovery, including more than 50 customer interviews</span></li>
-      <li><span class="year">2025</span><span>Presented at the Accessibility Awareness Summit and an IEEE/CVF ICCV 2025 workshop</span></li>
-    </ul>
-  </section>
-
-  <section id="stories" class="wrap">
-    <h2>From the community</h2>
-    <figure class="pull">
-      <blockquote><p>&ldquo;Google Maps didn't detect construction work, and I found myself in the middle of the road.&rdquo;</p></blockquote>
-      <figcaption>Jill Shelton, Professor</figcaption>
-    </figure>
-    <div class="quotes-small">
-      <figure>
-        <blockquote><p>&ldquo;If I lose my glasses, I can't find them. I want something that doesn't need to be carried or worn.&rdquo;</p></blockquote>
-        <figcaption>Henna Abbasi, Fitness Coach</figcaption>
-      </figure>
-      <figure>
-        <blockquote><p>&ldquo;I need something that can read things at a distance and help me find objects.&rdquo;</p></blockquote>
-        <figcaption>Suzetta May, Pedestrian Safety Specialist</figcaption>
-      </figure>
-      <figure>
-        <blockquote><p>&ldquo;Thank you for helping us see.&rdquo;</p></blockquote>
-        <figcaption>Community member, during pilot testing</figcaption>
-      </figure>
-    </div>
-    <div class="photo-strip">
-      <figure class="wide">
-        <img src="assets/event-trb.webp" width="800" height="298" loading="lazy"
-             alt="Maged Shoman interviewing Suzetta May, and presenting the ApexAI research poster, at the TRB Annual Meeting.">
-        <figcaption>Interviewing Suzetta May at the 2026 TRB Annual Meeting.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/event-codestock.webp" width="572" height="431" loading="lazy"
-             alt="The ApexAI team on stage at CodeStock 2026.">
-        <figcaption>Recognized as Most Impactful Company at CodeStock 2026.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/event-iccv.webp" width="578" height="387" loading="lazy"
-             alt="Maged Shoman presenting ApexAI at IEEE/CVF ICCV 2025.">
-        <figcaption>Presenting at an IEEE/CVF ICCV 2025 workshop.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/event-summit.webp" width="726" height="484" loading="lazy"
-             alt="A panel discussion at the 2025 Accessibility Awareness Summit.">
-        <figcaption>Panel discussion at the 2025 Accessibility Awareness Summit.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-
-  <section id="team" class="wrap">
-    <h2>Team</h2>
-    <div class="people">
-      <div class="person">
-        <img class="avatar" src="assets/team-maged.webp" alt="" width="320" height="320">
-        <div>
-          <h3><a href="https://www.linkedin.com/in/maged-shoman-phd-2ab012100/">Maged Shoman, PhD</a></h3>
-          <p class="role">Founder &amp; CEO</p>
-          <p>Architect of ApexVision, with more than ten years of experience in computer vision, deep learning, and real-time safety systems. Research Assistant Professor at the UT-Oak Ridge Innovation Institute.</p>
-        </div>
-      </div>
-      <div class="person">
-        <img class="avatar" src="assets/team-usman.webp" alt="" width="320" height="320">
-        <div>
-          <h3><a href="https://www.linkedin.com/in/uahmed16/">Usman Ahmed, PhD</a></h3>
-          <p class="role">Chief Development Officer</p>
-          <p>More than ten years of experience applying machine learning to navigation and safety.</p>
-        </div>
-      </div>
-      <div class="person">
-        <img class="avatar" src="assets/team-osama.webp" alt="" width="320" height="320">
-        <div>
-          <h3><a href="https://www.linkedin.com/in/osama-osman-phd-pe-pmp-2037a862/">Osama Osman, PhD</a></h3>
-          <p class="role">Product Strategy &amp; Mobility Technology Advisor</p>
-          <p>More than twenty years leading mobility, intelligent transportation, and connected-vehicle innovation in the U.S. and internationally.</p>
-        </div>
-      </div>
-      <div class="person">
-        <img class="avatar" src="assets/team-mina.webp" alt="" width="320" height="320">
-        <div>
-          <h3><a href="https://www.linkedin.com/in/mina-sartipi-86267a1/">Mina Sartipi, PhD</a></h3>
-          <p class="role">Strategic Partnerships Advisor</p>
-          <p>Smart-cities expert who built Chattanooga&rsquo;s MLK Smart Corridor and leads the Center for Urban Informatics and Progress at UT Chattanooga.</p>
-        </div>
-      </div>
-      <div class="person">
-        <img class="avatar" src="assets/team-bob.webp" alt="" width="320" height="320">
-        <div>
-          <h3><a href="https://www.linkedin.com/in/bob-vanderhoff/">Bob Vanderhoff</a></h3>
-          <p class="role">Business Advisor</p>
-          <p>Founder and CEO of 35 Advisory Group, with more than forty years of experience in go-to-market strategy and M&amp;A.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="wrap">
-    <h2>Contact</h2>
-    <div class="contact-grid">
-      <form name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
-        <p hidden aria-hidden="true"><label>Don't fill this out: <input name="bot-field"></label></p>
-
-        <label for="f-name">Name</label>
-        <input id="f-name" name="name" type="text" autocomplete="name" required>
-
-        <label for="f-email">Email</label>
-        <input id="f-email" name="email" type="email" autocomplete="email" required>
-
-        <label for="f-interest">Topic</label>
-        <select id="f-interest" name="interest">
-          <option value="Whereabout">Whereabout</option>
-          <option value="Joining the iOS beta">ApexVision beta access</option>
-          <option value="Piloting at my organization">Organizational pilot</option>
-          <option value="Android waitlist">Android availability</option>
-          <option value="Press">Media inquiry</option>
-          <option value="Other">Other</option>
-        </select>
-
-        <label for="f-message">Message <span style="font-weight:400">(optional)</span></label>
-        <textarea id="f-message" name="message"></textarea>
-
-        <button class="submit-btn" type="submit">Send message</button>
-        <p class="form-note">All inquiries receive a response.</p>
-        <p class="preview-note" id="preview-note" role="status"></p>
-      </form>
-      <div class="direct">
-        <h3>Email</h3>
-        <p class="email"><a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a></p>
-        <p>Organizations inquiring about pilots should include &ldquo;Pilot&rdquo; in the subject line.</p>
-        <h3 class="book-h">Schedule a meeting</h3>
-        <p>Select a time directly on the founder&rsquo;s calendar.</p>
-        <p class="book-cta"><a class="btn btn-tint" href="https://calendar.app.google/ns17ENxNHDFYYfr5A">Schedule a meeting</a></p>
+        <p class="sol-link"><a href="apexvision/">Learn about ApexVision</a></p>
       </div>
     </div>
   </section>
@@ -825,66 +131,22 @@
 <footer class="site">
   <div class="wrap">
     <p>ApexAI LLC</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="whereabout/">Whereabout</a></li>
+        <li><a href="apexvision/">ApexVision</a></li>
+        <li><a href="industries/">Industries</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="contact/">Contact</a></li>
+      </ul>
+    </nav>
     <p>&copy; 2026 ApexAI LLC. All rights reserved. Patent pending: U.S. Application 19/760,891; Canadian Application 3,319,882.</p>
     <p><a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a></p>
     <p>Accessibility: this site is set in Atkinson Hyperlegible, a typeface developed by the Braille Institute for legibility, and is designed to conform to WCAG 2.2 Level AA. To report an accessibility issue, contact magedshoman@apex-ai.site.</p>
   </div>
 </footer>
 
-<script>
-  // The hero video plays on its own (muted, with controls to pause it), except for visitors who ask for reduced motion.
-  (function(){
-    var v = document.getElementById('hero-video');
-    if (!v || !window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    v.removeAttribute('autoplay'); v.pause();
-  })();
-  // Whereabout demonstrations: one player at a time, chosen with the switch.
-  (function(){
-    var seg = document.querySelector('#whereabout-demos .seg');
-    if (!seg) return;
-    var buttons = seg.querySelectorAll('button');
-    function show(id){
-      buttons.forEach(function(b){
-        var on = b.dataset.demo === id;
-        b.setAttribute('aria-pressed', on ? 'true' : 'false');
-        var fig = document.getElementById(b.dataset.demo);
-        if (!on){ var v = fig.querySelector('video'); if (v && !v.paused) v.pause(); }
-        fig.hidden = !on;
-      });
-    }
-    buttons.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.demo); }); });
-    seg.hidden = false;
-    show('demo-spaces');
-  })();
-  // Preselect the interest field when arriving via a product CTA.
-  document.querySelectorAll('a[data-interest]').forEach(function(a){
-    a.addEventListener('click', function(){
-      var sel = document.getElementById('f-interest');
-      if (!sel) return;
-      if (a.dataset.interest === 'beta') sel.value = 'Joining the iOS beta';
-      if (a.dataset.interest === 'whereabouts') sel.value = 'Whereabout';
-    });
-  });
-  // GitHub Pages has no form backend, so sending composes an email instead.
-  // (On a *.netlify.app deploy, Netlify Forms handles the POST natively and this is skipped.)
-  (function(){
-    var form = document.querySelector('form[name="contact"]');
-    if (!form) return;
-    if (/\.netlify\.app$/.test(location.hostname)) return;
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var v = function(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; };
-      var subject = '[apex-ai.site] ' + (v('f-interest') || 'Message');
-      var body = 'Name: ' + v('f-name') + '\nEmail: ' + v('f-email') + '\nInterested in: ' + v('f-interest') + '\n\n' + v('f-message');
-      var note = document.getElementById('preview-note');
-      if (note){
-        note.style.display = 'block';
-        note.textContent = 'Your email application will open with this message addressed to magedshoman@apex-ai.site.';
-      }
-      location.href = 'mailto:magedshoman@apex-ai.site?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    });
-  })();
-</script>
-
+<script src="assets/site.js" defer></script>
 </body>
 </html>
