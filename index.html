@@ -191,15 +191,13 @@
     .wb-gallery .tile{max-width:320px}
   }
   .whereabouts .cta-row{margin-top:2.3rem}
-  .wb-demo{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--hairline)}
-  .wb-demo-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem}
-  .wb-demo-head h3{font-size:1.45rem}
+  .wb-demo{margin-top:2.2rem}
   .seg[hidden]{display:none}
   .seg{display:inline-flex;padding:4px;gap:4px;border-radius:10px;background:var(--panel2)}
   .seg button{font:inherit;font-size:1rem;font-weight:700;color:var(--body);background:transparent;border:0;border-radius:7px;
     padding:.5rem 1rem;cursor:pointer;min-height:44px}
   .seg button[aria-pressed="true"]{background:var(--bg);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
-  .demo{margin:1.4rem 0 0}
+  .demo{margin:1.1rem 0 0}
   @media(max-width:560px){.seg-sub{display:none}.seg button{padding:.5rem 1.4rem}}
   .demo video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:10px;background:#EEF1F5;
     box-shadow:0 0 0 1px var(--hairline)}
@@ -335,6 +333,30 @@
   .wb-shots img{border-radius:22px;border:1px solid var(--hairline)}
   .wb-shots figcaption{margin-top:.6rem;font-size:.92rem;color:var(--secondary)}
   @media(max-width:860px){.wb-split{grid-template-columns:1fr}.wb-shots{max-width:480px}}
+  .wb-cols{margin-top:3rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 3.5rem}
+  .wb-cols .wb-item{padding:0;border:0}
+  .whereabouts .wb-cols + .body{margin-top:1.5rem}
+  .wb-gallery-row{margin-top:2.6rem;display:grid;grid-template-columns:3.26fr 1fr 1fr;gap:1.25rem;align-items:start}
+  .wb-gallery-row figure{margin:0}
+  .wb-gallery-row img{border:1px solid var(--hairline);border-radius:16px}
+  .wb-gallery-row .g-wide img{border-radius:6px}
+  .wb-gallery-row figcaption{margin-top:.6rem;font-size:.92rem;line-height:1.45;color:var(--secondary)}
+  @media(max-width:720px){
+    .wb-cols{grid-template-columns:1fr}
+    .wb-gallery-row{grid-template-columns:1fr 1fr}
+    .wb-gallery-row .g-wide{grid-column:1 / -1}
+  }
+  .mode > img{aspect-ratio:1/1;object-position:50% 72%}
+  .mode h3{margin-top:1rem;font-size:1.25rem}
+  .mode p{margin-top:.35rem;font-size:1.02rem}
+  .av-foot{margin-top:2.25rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem}
+  .av-foot .fineprint{margin-top:0}
+  @media(max-width:900px){
+    .modes-grid{gap:1.5rem}
+    .mode{display:grid;grid-template-columns:112px minmax(0,1fr);column-gap:1.1rem;align-items:start}
+    .mode > img{grid-row:1 / span 2;width:112px;max-width:none}
+    .mode h3{margin-top:0}
+  }
 
   .ind-grid{grid-template-columns:1fr 1fr;gap:0 3.5rem;margin-top:2rem}
   .ind{background:none;border-radius:0;padding:1.35rem 0;border-top:1px solid var(--hairline);display:grid;grid-template-columns:26px 1fr;column-gap:1rem;align-items:start}
@@ -458,57 +480,11 @@
         Indoor maps that guide people by voice to any destination or item. Designed first for
         blind and low-vision users and fully operable with VoiceOver.
       </p>
-      <div class="wb-banner dark-card">
-        <img src="assets/whereabout-hero.webp" width="1600" height="1067"
-             alt="Ask where anything is. Scan a room once, then be walked right to it. A voice query, 'Where are my keys?', is answered 'Hall chest, top drawer', shown as a pin on a home floor plan with a dotted path leading to it.">
-      </div>
-      <div class="wb-split">
-        <div class="wb-text">
-          <div class="wb-item">
-            <h3>Spaces</h3>
-            <p>For venues and events. Mapped floor by floor with an iPhone, without survey crews or
-          beacons. When a layout changes, only that area is rescanned.</p>
-          </div>
-          <div class="wb-item">
-            <h3>Rooms</h3>
-            <p>For the home. A one-minute scan maps each room and catalogs the contents of drawers
-          and cabinets. Anyone the map is shared with can ask where an item is and be guided
-          to it.</p>
-          </div>
-      <p class="body">
-        <strong>For kitchen and wardrobe manufacturers:</strong> a searchable storage map can
-        ship with every installation.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
-        <a class="btn btn-tint" href="https://whereabout.store">Visit whereabout.store</a>
-      </div>
-      <p class="fineprint">
-        The app is free, including the first room. Scanning requires an iPhone&nbsp;Pro;
-        locating items works on any iPhone with iOS&nbsp;17 or later.
-      </p>
-        </div>
-        <div class="wb-shots">
-          <figure>
-            <img src="assets/whereabouts-3d.webp" width="640" height="1391"
-               alt="The Whereabout editor showing a scanned kitchen as a 3D model, with labels on the cabinets, refrigerator, table, chairs, and smaller items.">
-            <figcaption>Each room is captured as a labeled 3D model.</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/whereabouts-item.webp" width="640" height="1391"
-               alt="An item sheet in Whereabout: a 'How it feels' note reading 'Smooth glass jar, metal lid, cold', spoken aloud when someone reaches the item, with its size, height, and position measured with LiDAR.">
-            <figcaption>Tactile descriptions are read aloud on arrival to confirm the item.</figcaption>
-          </figure>
-        </div>
-      </div>
       <div class="wb-demo" id="whereabout-demos">
-        <div class="wb-demo-head">
-          <h3>See it in use</h3>
-          <div class="seg" role="group" aria-label="Choose a demonstration" hidden>
+        <div class="seg" role="group" aria-label="Choose a demonstration" hidden>
             <button type="button" aria-pressed="true" aria-controls="demo-spaces" data-demo="demo-spaces">Spaces<span class="seg-sub">: a conference floor</span></button>
             <button type="button" aria-pressed="false" aria-controls="demo-rooms" data-demo="demo-rooms">Rooms<span class="seg-sub">: a living room</span></button>
           </div>
-        </div>
         <figure class="demo" id="demo-spaces">
           <video controls playsinline preload="metadata" width="1920" height="1080"
                  poster="assets/whereabout-spaces-demo.webp" aria-describedby="cap-spaces"
@@ -532,6 +508,48 @@
             are illustrations; the editor is a live recording of the public sample room.</figcaption>
         </figure>
       </div>
+      <div class="wb-cols">
+        <div class="wb-item">
+          <h3>Spaces</h3>
+          <p>For venues and events. Mapped floor by floor with an iPhone, without survey crews or
+          beacons. When a layout changes, only that area is rescanned.</p>
+        </div>
+        <div class="wb-item">
+          <h3>Rooms</h3>
+          <p>For the home. A one-minute scan maps each room and catalogs the contents of drawers
+          and cabinets. Anyone the map is shared with can ask where an item is and be guided
+          to it.</p>
+        </div>
+      </div>
+      <p class="body">
+        <strong>For kitchen and wardrobe manufacturers:</strong> a searchable storage map can
+        ship with every installation.
+      </p>
+      <div class="wb-gallery-row">
+        <figure class="g-wide">
+          <img src="assets/whereabout-hero.webp" width="1600" height="1067"
+             alt="Ask where anything is. Scan a room once, then be walked right to it. A voice query, 'Where are my keys?', is answered 'Hall chest, top drawer', shown as a pin on a home floor plan with a dotted path leading to it.">
+          <figcaption>Asked where the keys are, Whereabout names the drawer and shows the path to it.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/whereabouts-3d.webp" width="640" height="1391"
+               alt="The Whereabout editor showing a scanned kitchen as a 3D model, with labels on the cabinets, refrigerator, table, chairs, and smaller items.">
+          <figcaption>Each room is captured as a labeled 3D model.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/whereabouts-item.webp" width="640" height="1391"
+               alt="An item sheet in Whereabout: a 'How it feels' note reading 'Smooth glass jar, metal lid, cold', spoken aloud when someone reaches the item, with its size, height, and position measured with LiDAR.">
+          <figcaption>Tactile descriptions are read aloud on arrival to confirm the item.</figcaption>
+        </figure>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
+        <a class="btn btn-tint" href="https://whereabout.store">Visit whereabout.store</a>
+      </div>
+      <p class="fineprint">
+        The app is free, including the first room. Scanning requires an iPhone&nbsp;Pro;
+        locating items works on any iPhone with iOS&nbsp;17 or later.
+      </p>
     </div>
   </section>
 
@@ -549,55 +567,31 @@
     </div>
 
     <div class="modes-grid">
-    <div class="mode">
-      <img src="assets/apexvision-finder.webp" width="750" height="1000"
+      <div class="mode">
+        <img src="assets/apexvision-finder.webp" width="750" height="1000"
              alt="A hand holds an iPhone running ApexVision's Finder mode at a desk. The app has identified the monitor and shows the label 'Tvmonitor' above the mode bar.">
-      <div class="mode-body">
         <h3>Finder</h3>
-        <p>Locates a requested object, such as keys, a doorway, or an available seat.</p>
-        <ul>
-          <li>Voice-initiated object search</li>
-          <li>Directional audio guidance to within arm&rsquo;s reach</li>
-          <li>Operates indoors and outdoors without GPS</li>
-        </ul>
+        <p>Locates a requested object, such as keys, a doorway, or an available seat, and guides the user to within arm&rsquo;s reach.</p>
       </div>
-    </div>
-
-    <div class="mode">
-      <img src="assets/apexvision-safety.webp" width="750" height="1000"
+      <div class="mode">
+        <img src="assets/apexvision-safety.webp" width="750" height="1000"
              alt="ApexVision's Safety mode in a hallway: the floor ahead is overlaid in green with the word 'Walkable', marking the clear path through a doorway.">
-      <div class="mode-body">
         <h3>Safety</h3>
-        <p>Analyzes the pedestrian environment in real time, identifying the walkable path, obstacles within it, and approaching hazards.</p>
-        <ul>
-          <li>Continuous walkable-path detection with obstacle alerts</li>
-          <li>Ground-level and overhead hazard warnings</li>
-          <li>Haptic and spatial-audio cues timed to walking pace</li>
-        </ul>
+        <p>Identifies the walkable path, obstacles within it, and approaching hazards in real time.</p>
       </div>
-    </div>
-
-    <div class="mode">
-      <img src="assets/apexvision-describe.webp" width="750" height="1000"
+      <div class="mode">
+        <img src="assets/apexvision-describe.webp" width="750" height="1000"
              alt="ApexVision's Describe mode pointed at a desk. The spoken description reads: 'This is a photo of a modern computer workstation, likely in an office. The most prominent object is a height-adjustable standing desk…' with a Describe Scene button below.">
-      <div class="mode-body">
         <h3>Describe</h3>
-        <p>Provides a spoken description of the surroundings on request, including layout, people, and signage.</p>
-        <ul>
-          <li>Reads visible signage and text</li>
-          <li>Answers spoken follow-up questions, such as &ldquo;Where is the exit?&rdquo;</li>
-        </ul>
+        <p>Describes the surroundings on request, including layout, people, and signage, and answers follow-up questions.</p>
       </div>
     </div>
-    </div>
-    <div class="cta-row">
+    <div class="av-foot">
       <!-- When the public TestFlight link exists, point this button straight at it. -->
       <a class="btn btn-blue" href="#contact" data-interest="beta">Request beta access</a>
+      <p class="fineprint">Free during the beta period; a premium subscription will be offered at launch.
+        Available on iPhone, with Android support planned.</p>
     </div>
-    <p class="fineprint">
-      Free during the beta period; a premium subscription will be offered at launch.
-      Available on iPhone, with Android support planned.
-    </p>
   </section>
 
   <section id="organizations" class="band-dark">
