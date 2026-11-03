@@ -191,6 +191,19 @@
     .wb-gallery .tile{max-width:320px}
   }
   .whereabouts .cta-row{margin-top:2.3rem}
+  .wb-demo{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--hairline)}
+  .wb-demo-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem}
+  .wb-demo-head h3{font-size:1.45rem}
+  .seg[hidden]{display:none}
+  .seg{display:inline-flex;padding:4px;gap:4px;border-radius:10px;background:var(--panel2)}
+  .seg button{font:inherit;font-size:1rem;font-weight:700;color:var(--body);background:transparent;border:0;border-radius:7px;
+    padding:.5rem 1rem;cursor:pointer;min-height:44px}
+  .seg button[aria-pressed="true"]{background:var(--bg);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+  .demo{margin:1.4rem 0 0}
+  @media(max-width:560px){.seg-sub{display:none}.seg button{padding:.5rem 1.4rem}}
+  .demo video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:10px;background:#EEF1F5;
+    box-shadow:0 0 0 1px var(--hairline)}
+  .demo figcaption{margin-top:.8rem;font-size:1rem;color:var(--secondary);max-width:70ch}
 
   /* Industries */
   .ind-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
@@ -488,6 +501,37 @@
           </figure>
         </div>
       </div>
+      <div class="wb-demo" id="whereabout-demos">
+        <div class="wb-demo-head">
+          <h3>See it in use</h3>
+          <div class="seg" role="group" aria-label="Choose a demonstration" hidden>
+            <button type="button" aria-pressed="true" aria-controls="demo-spaces" data-demo="demo-spaces">Spaces<span class="seg-sub">: a conference floor</span></button>
+            <button type="button" aria-pressed="false" aria-controls="demo-rooms" data-demo="demo-rooms">Rooms<span class="seg-sub">: a living room</span></button>
+          </div>
+        </div>
+        <figure class="demo" id="demo-spaces">
+          <video controls playsinline preload="metadata" width="1920" height="1080"
+                 poster="assets/whereabout-spaces-demo.webp" aria-describedby="cap-spaces"
+                 aria-label="Spaces demonstration: mapping a conference floor and asking the way to Room 204">
+            <source src="assets/whereabout-spaces-demo.mp4" type="video/mp4">
+            <a href="assets/whereabout-spaces-demo.mp4">Download the Spaces demonstration (MP4, 48 seconds)</a>
+          </video>
+          <figcaption id="cap-spaces">Organizers map a conference floor with an iPhone and publish it to their event. An
+            attendee joins with the event code and asks the way to Room 204, with no Wi-Fi or cellular signal. The phone screens
+            are illustrations; the editor is a live recording of the public sample venue. 48 seconds, no audio.</figcaption>
+        </figure>
+        <figure class="demo" id="demo-rooms">
+          <video controls playsinline preload="metadata" width="1920" height="1080"
+                 poster="assets/whereabout-rooms-demo.webp" aria-describedby="cap-rooms"
+                 aria-label="Rooms demonstration: scanning a living room and finding the TV remote">
+            <source src="assets/whereabout-rooms-demo.mp4" type="video/mp4">
+            <a href="assets/whereabout-rooms-demo.mp4">Download the Rooms demonstration (MP4, 47 seconds)</a>
+          </video>
+          <figcaption id="cap-rooms">A living room is scanned once, and every item is measured and named, including the
+            contents of a drawer. Asked where the TV remote is, the app answers and gives directions to it. The phone screens
+            are illustrations; the editor is a live recording of the public sample room. 47 seconds, no audio.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -771,6 +815,24 @@
 </footer>
 
 <script>
+  // Whereabout demonstrations: one player at a time, chosen with the switch.
+  (function(){
+    var seg = document.querySelector('#whereabout-demos .seg');
+    if (!seg) return;
+    var buttons = seg.querySelectorAll('button');
+    function show(id){
+      buttons.forEach(function(b){
+        var on = b.dataset.demo === id;
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        var fig = document.getElementById(b.dataset.demo);
+        if (!on){ var v = fig.querySelector('video'); if (v && !v.paused) v.pause(); }
+        fig.hidden = !on;
+      });
+    }
+    buttons.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.demo); }); });
+    seg.hidden = false;
+    show('demo-spaces');
+  })();
   // Preselect the interest field when arriving via a product CTA.
   document.querySelectorAll('a[data-interest]').forEach(function(a){
     a.addEventListener('click', function(){
