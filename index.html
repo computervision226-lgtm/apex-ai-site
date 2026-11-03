@@ -301,6 +301,14 @@
   .hero-shot{margin:0}
   .hero-shot img{width:270px;border-radius:34px;border:1px solid var(--hairline)}
   @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-shot img{width:220px;border-radius:28px}}
+  .hero .wrap{padding-block:3.6rem 3.2rem}
+  .hero-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.4rem 4rem;align-items:end}
+  .hero-top .lede{margin-top:0}
+  .hero-top .cta-row{margin-top:1.4rem}
+  .hero-video{margin:2.6rem 0 0}
+  .hero-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:10px;background:#EEF1F5;box-shadow:0 0 0 1px var(--hairline)}
+  .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  @media(max-width:860px){.hero-top{grid-template-columns:1fr}.hero .wrap{padding-block:2.6rem 2.4rem}.hero-video{margin-top:2rem}}
 
   .stats-card{background:none;border-radius:0;color:inherit;border-block:1px solid var(--hairline)}
   .stats-card li{padding:1.15rem 1.5rem 1.15rem 0}
@@ -336,14 +344,14 @@
   .wb-cols{margin-top:3rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 3.5rem}
   .wb-cols .wb-item{padding:0;border:0}
   .whereabouts .wb-cols + .body{margin-top:1.5rem}
-  .wb-gallery-row{margin-top:2.6rem;display:grid;grid-template-columns:3.26fr 1fr 1fr;gap:1.25rem;align-items:start}
+  .wb-gallery-row{margin-top:2.6rem;display:grid;grid-template-columns:3.26fr 1fr 1fr 1fr;gap:1.1rem;align-items:start}
   .wb-gallery-row figure{margin:0}
   .wb-gallery-row img{border:1px solid var(--hairline);border-radius:16px}
   .wb-gallery-row .g-wide img{border-radius:6px}
   .wb-gallery-row figcaption{margin-top:.6rem;font-size:.92rem;line-height:1.45;color:var(--secondary)}
   @media(max-width:720px){
     .wb-cols{grid-template-columns:1fr}
-    .wb-gallery-row{grid-template-columns:1fr 1fr}
+    .wb-gallery-row{grid-template-columns:1fr 1fr 1fr}
     .wb-gallery-row .g-wide{grid-column:1 / -1}
   }
   .mode > img{aspect-ratio:1/1;object-position:50% 72%}
@@ -412,22 +420,33 @@
 <main id="main">
 
   <div class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-      <h1>Real-time navigation for everyone.</h1>
-      <p class="lede">
-        Navigation that works for anyone, whether eyes are busy, hands are full, or the
-        surroundings are unfamiliar. Guidance runs on your phone, from camera to spoken cue,
-        in real time.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
-        <a class="btn btn-tint" href="#organizations">Request a pilot</a>
+    <div class="wrap">
+      <div class="hero-top">
+        <h1>Real-time navigation for everyone.</h1>
+        <div class="hero-copy">
+          <p class="lede">
+            Navigation that works for anyone, whether eyes are busy, hands are full, or the
+            surroundings are unfamiliar. Guidance runs on your phone, from camera to spoken cue,
+            in real time.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-blue" href="https://whereabout.store/editor/#sample">Explore a sample room</a>
+            <a class="btn btn-tint" href="#organizations">Request a pilot</a>
+          </div>
+        </div>
       </div>
-      </div>
-      <figure class="hero-shot">
-        <img src="assets/whereabouts-plan.webp" width="640" height="1391"
-             alt="The Whereabout app showing a scanned kitchen as a measured floor plan, with the position of each recognized item marked.">
+      <figure class="hero-video">
+        <video id="hero-video" autoplay muted loop playsinline controls preload="auto" width="1600" height="900"
+               poster="assets/whereabout-navigation-demo.webp" aria-describedby="hero-video-desc"
+               aria-label="Whereabout demonstration: an attendee finds Booth 42 at a conference">
+          <source src="assets/whereabout-navigation-demo.mp4" type="video/mp4">
+          <a href="assets/whereabout-navigation-demo.mp4">Download the Whereabout demonstration (MP4)</a>
+        </video>
+        <figcaption id="hero-video-desc" class="visually-hidden">An attendee at a conference stands by the elevators,
+          tells the Whereabout app where they are, and asks the way to Booth 42. With the phone in airplane mode, the
+          app gives spoken directions one stretch at a time: past the registration desk, along the corridor, and into
+          Exhibit Hall B. For the last few meters the phone's camera guides them to the booth's table, and the app
+          confirms the arrival. The video has no sound; the spoken directions appear as on-screen text.</figcaption>
       </figure>
     </div>
   </div>
@@ -460,7 +479,7 @@
       </div>
       <div class="sol">
         <h3>ApexVision</h3>
-        <p>Real-time pedestrian navigation, developed with blind and low-vision users.
+        <p>Real-time pedestrian navigation.
         ApexVision detects walkable paths, hazards, and objects, and delivers spoken and haptic
         guidance at walking pace. All processing runs on the device, with no connectivity
         required. Currently in beta on iOS.</p>
@@ -477,8 +496,7 @@
     <div class="wrap">
       <h2>Whereabout</h2>
       <p class="section-intro">
-        Indoor maps that guide people by voice to any destination or item. Designed first for
-        blind and low-vision users and fully operable with VoiceOver.
+        Indoor maps that guide people by voice to any destination or item.
       </p>
       <div class="wb-demo" id="whereabout-demos">
         <div class="seg" role="group" aria-label="Choose a demonstration" hidden>
@@ -532,6 +550,11 @@
           <figcaption>Asked where the keys are, Whereabout names the drawer and shows the path to it.</figcaption>
         </figure>
         <figure>
+          <img src="assets/whereabouts-plan.webp" width="640" height="1391"
+             alt="The Whereabout app showing a scanned kitchen as a measured floor plan, with the position of each recognized item marked.">
+          <figcaption>Each room becomes a measured floor plan with every item placed.</figcaption>
+        </figure>
+        <figure>
           <img src="assets/whereabouts-3d.webp" width="640" height="1391"
                alt="The Whereabout editor showing a scanned kitchen as a 3D model, with labels on the cabinets, refrigerator, table, chairs, and smaller items.">
           <figcaption>Each room is captured as a labeled 3D model.</figcaption>
@@ -555,7 +578,7 @@
 
   <section id="modes" class="wrap">
     <h2>ApexVision</h2>
-    <p class="section-intro">Three operating modes. All output is delivered through audio and haptics; no usable vision is required.</p>
+    <p class="section-intro">Three operating modes. All output is delivered through audio and haptics.</p>
 
     <div class="stats-card dark-card modes-stats" role="region" aria-label="ApexVision key facts">
       <ul>
@@ -631,7 +654,7 @@
       <div class="ind">
         <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 34 L42 20 L72 34 L42 48 Z"/><path d="M26 42 V56 C26 62 58 62 58 56 V42"/><path d="M72 34 V48"/></svg>
         <h3>Education</h3>
-        <p>Districts and campuses license software rather than hardware, so students who are blind navigate buildings with the same tools as their peers.</p>
+        <p>Districts and campuses license software rather than hardware, so every student and visitor finds their way around buildings with the same tools.</p>
       </div>
       <div class="ind">
         <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="22" width="52" height="46" rx="8"/><path d="M16 36 H68 M30 14 V28 M54 14 V28"/><circle cx="30" cy="50" r="2.5" fill="currentColor" stroke="none"/><circle cx="42" cy="50" r="2.5" fill="currentColor" stroke="none"/><circle cx="54" cy="50" r="2.5" fill="currentColor" stroke="none"/></svg>
@@ -660,7 +683,7 @@
       <li><span class="year">2026</span><span>Named Most Impactful Company at CodeStock</span></li>
       <li><span class="year">2026</span><span>Presented driving-simulator testing at the TRB Annual Meeting</span></li>
       <li><span class="year">2025</span><span>Filed U.S. provisional patent application 63/917,447 for multimodal real-time pedestrian navigation</span></li>
-      <li><span class="year">2025</span><span>Completed NSF I-Corps customer discovery, including more than 50 interviews with blind and low-vision users</span></li>
+      <li><span class="year">2025</span><span>Completed NSF I-Corps customer discovery, including more than 50 customer interviews</span></li>
       <li><span class="year">2025</span><span>Presented at the Accessibility Awareness Summit and an IEEE/CVF ICCV 2025 workshop</span></li>
     </ul>
   </section>
@@ -804,11 +827,17 @@
     <p>ApexAI LLC</p>
     <p>&copy; 2026 ApexAI LLC. All rights reserved. Patent pending: U.S. Application 19/760,891; Canadian Application 3,319,882.</p>
     <p><a href="mailto:magedshoman@apex-ai.site">magedshoman@apex-ai.site</a></p>
-    <p>Accessibility: this site is set in Atkinson Hyperlegible, a typeface developed by the Braille Institute for low-vision readers, and is designed to conform to WCAG 2.2 Level AA. To report an accessibility issue, contact magedshoman@apex-ai.site.</p>
+    <p>Accessibility: this site is set in Atkinson Hyperlegible, a typeface developed by the Braille Institute for legibility, and is designed to conform to WCAG 2.2 Level AA. To report an accessibility issue, contact magedshoman@apex-ai.site.</p>
   </div>
 </footer>
 
 <script>
+  // The hero video plays on its own (muted, with controls to pause it), except for visitors who ask for reduced motion.
+  (function(){
+    var v = document.getElementById('hero-video');
+    if (!v || !window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    v.removeAttribute('autoplay'); v.pause();
+  })();
   // Whereabout demonstrations: one player at a time, chosen with the switch.
   (function(){
     var seg = document.querySelector('#whereabout-demos .seg');
