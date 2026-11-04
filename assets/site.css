@@ -378,3 +378,6 @@
   .footer-nav a:hover{text-decoration:underline}
   .next-link{margin-top:2.5rem;font-weight:700}
   @media(max-width:860px){.page-head{padding-top:3rem}}
+  .about-intro{margin-top:1.6rem;max-width:64ch}
+  .about-intro p{font-size:clamp(1.12rem,1.6vw,1.28rem);line-height:1.6;color:var(--body);max-width:none}
+  .about-intro p + p{margin-top:1rem}
