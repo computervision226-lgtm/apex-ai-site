@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maged Shoman</title>
+<meta name="description" content="Maged Shoman, Ph.D., founder of ApexAI and Research Assistant Professor in Intelligent Transportation Systems at the University of Tennessee-Oak Ridge Innovation Institute. Computer vision and machine learning for road safety and assistive navigation.">
+<meta name="author" content="Maged Shoman">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Maged Shoman">
+<meta property="og:url" content="https://apex-ai.site/maged/">
+<link rel="canonical" href="https://apex-ai.site/maged/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D4EA6'/%3E%3Cpath d='M14 50 L32 12 L50 50 H41 L32 29 L23 50 Z' fill='%23FFFFFF'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --text:#1b1b1b;
+  --soft:#565656;
+  --bg:#ffffff;
+  --rule:#dcdcdc;
+  --link:#1a4480;
+  --link-visited:#54278f;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0 auto;
+  padding:0 1.5rem 5rem;
+  max-width:40rem;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:1.0625rem;
+  line-height:1.6;
+  font-optical-sizing:auto;
+}
+
+h1,h2,h3{font-weight:600;line-height:1.25;margin:0}
+h1{font-size:1.85rem;margin-bottom:1.5rem}
+h2{font-size:1.2rem;margin-bottom:.9rem;padding-bottom:.3rem;border-bottom:1px solid var(--rule)}
+h3{font-size:1.0625rem;margin-bottom:.1rem}
+
+p{margin:0 0 1rem}
+a{color:var(--link)}
+a:visited{color:var(--link-visited)}
+a:hover{color:#102a4c}
+:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+
+ul{margin:0;padding:0;list-style:none}
+
+.skip{
+  position:absolute;left:0;top:-3rem;
+  background:var(--text);color:#fff;padding:.5rem .9rem;text-decoration:none;
+}
+.skip:focus{top:0;color:#fff}
+
+/* ---- header ---- */
+header{padding:3rem 0 0}
+nav{margin-bottom:2.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--rule)}
+nav ul{display:flex;flex-wrap:wrap;gap:1.1rem}
+nav a{color:var(--link);text-decoration:none}
+nav a:hover{text-decoration:underline}
+
+/* ---- sections ---- */
+section{margin-bottom:2.75rem}
+
+.links li{margin-bottom:.3rem}
+.links .label{display:inline-block;min-width:7.5rem;color:var(--soft)}
+
+/* generic entry list: news, talks, research, awards */
+.entries li{margin-bottom:1.1rem}
+.entries li:last-child{margin-bottom:0}
+.meta{color:var(--soft);font-size:.95rem}
+.entries p{margin:.15rem 0 0}
+
+/* publications */
+.pubgroup{margin:1.9rem 0 .8rem}
+.pubs li{margin-bottom:.95rem;padding-left:1.6rem;text-indent:-1.6rem}
+.pubs .venue{color:var(--soft)}
+
+/* figures */
+figure{margin:1.2rem 0 1.5rem}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--rule)}
+figcaption{margin-top:.45rem;color:var(--soft);font-size:.9rem}
+
+.portrait{
+  float:right;width:140px;height:auto;display:block;
+  margin:.25rem 0 1rem 1.6rem;
+}
+.shots{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:.7rem;margin:1.3rem 0 1.5rem;
+}
+.shots figure{margin:0}
+.shots figcaption{margin-top:.4rem;font-size:.85rem}
+@media (max-width:30rem){
+  .portrait{float:none;width:120px;margin:0 0 1.1rem}
+}
+
+/* education */
+.edu li{margin-bottom:.7rem}
+
+@media (max-width:30rem){
+  body{font-size:1rem}
+  h1{font-size:1.6rem}
+  .links .label{min-width:0;display:block;margin-bottom:-.15rem}
+}
+
+@media print{
+  .skip,nav{display:none}
+  body{max-width:none;font-size:10.5pt;padding:0}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <h1>Maged Shoman</h1>
+
+  <nav aria-label="Sections">
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#apexai">ApexAI</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#awards">Awards and service</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<section id="about">
+  <img class="portrait" src="../assets/team-maged.webp" width="320" height="320" alt="Maged Shoman">
+  <p>
+    I am the founder and CEO of ApexAI, where we develop real-time spatial navigation software that
+    runs entirely on a consumer handset. Our systems perform perception and localization on-device,
+    which removes the network round trip from the guidance loop and permits operation with no
+    connectivity and no transmission of imagery off the device.
+  </p>
+  <p>
+    I am also a Research Assistant Professor in Intelligent Transportation Systems at the University
+    of Tennessee-Oak Ridge Innovation Institute, within the Transportation Convergent Research
+    Initiative. My research applies computer vision and machine learning to road safety: modeling
+    driver and pedestrian behavior under conflict conditions, detecting and characterizing hazards
+    in video and multi-sensor data, and constraining model architectures to the latency and compute
+    budgets that field deployment imposes.
+  </p>
+  <p>
+    This work has been supported by the National Science Foundation, the U.S. Department of
+    Transportation, Meta Reality Labs, and several state departments of transportation and
+    municipalities. I serve as a reviewer for IEEE CVPR, the ASCE Journal of Transportation
+    Engineering Part A, Transportation Research Record, and IEEE ITSC. Outside of work I run and
+    ski.
+  </p>
+
+  <ul class="links">
+    <li><span class="label">Google Scholar</span><a href="https://scholar.google.com/citations?user=5BEc5RcAAAAJ&amp;hl=en">scholar.google.com</a></li>
+    <li><span class="label">ORCID</span><a href="https://orcid.org/0000-0002-4265-071X">0000-0002-4265-071X</a></li>
+    <li><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/maged-shoman-Ph.D.-2ab012100">maged-shoman</a></li>
+    <li><span class="label">ApexAI</span><a href="https://apex-ai.site/">apex-ai.site</a></li>
+    <!-- Add when a CV PDF is hosted:
+    <li><span class="label">CV</span><a href="cv.pdf">PDF</a></li> -->
+  </ul>
+</section>
+
+<section id="news">
+  <h2>News</h2>
+  <ul class="entries">
+    <li>
+      <span class="meta">2026.</span>
+      ApexAI selected for Cohort 1 of the NSF-funded NobleReach Science2Venture accelerator, one of
+      three Tennessee startups.
+    </li>
+    <li>
+      <span class="meta">2026.</span>
+      Filed U.S. non-provisional (19/760,891) and Canadian (3,319,882) patent applications covering
+      real-time computer-vision navigation assistance.
+    </li>
+    <li>
+      <span class="meta">2026.</span>
+      Began a pilot deployment of ApexVision with a regional accessibility center under structured
+      outcome measures.
+    </li>
+    <li>
+      <span class="meta">2026.</span>
+      Two papers accepted at the Transportation Research Board Annual Meeting, on assistive
+      navigation for visually impaired pedestrians and on tracking of unlabeled radar point clouds.
+    </li>
+    <li>
+      <span class="meta">2026.</span>
+      Named Most Impactful Company at CodeStock.
+    </li>
+    <li>
+      <span class="meta">2025.</span>
+      Keynote at IEEE/CVF ICCV, Honolulu, and opening keynote at IEEE/CVF WACV, Tucson.
+    </li>
+    <li>
+      <span class="meta">2025.</span>
+      Completed NSF I-Corps customer discovery, comprising more than 50 structured customer
+      interviews.
+    </li>
+  </ul>
+</section>
+
+<section id="research">
+  <h2>Research</h2>
+
+  <p>
+    My research interests are edge-AI deployment, autonomous vehicle safety, pedestrian behavior
+    modeling, cooperative driving automation, computer vision for transportation, assistive
+    technology, and digital twins for smart cities.
+  </p>
+
+  <ul class="entries">
+    <li>
+      <h3>Driver and pedestrian attention allocation</h3>
+      <p class="meta">With Meta Reality Labs</p>
+      <p>
+        Characterizing how drivers and pedestrians allocate visual attention during conflict events,
+        instrumented with AI-equipped glasses for naturalistic gaze capture. Ensemble models
+        quantify the contribution of ambient lighting, intersection complexity, and traffic density
+        to attention allocation, with the objective of producing human-behavior benchmarks against
+        which autonomous vehicle planners can be evaluated.
+      </p>
+      <!-- figure slot: driver/pedestrian gaze capture -->
+    </li>
+    <li>
+      <h3>PRISM: real-time mapping for autonomous vehicle operation</h3>
+      <p class="meta">Co-Principal Investigator, USDOT ARPA-I</p>
+      <p>
+        Dynamic map generation combining live environmental sensing with learned hazard prediction
+        to support adaptive route planning and cooperative perception under changing road
+        conditions.
+      </p>
+      <!-- figure slot: PRISM mapping output -->
+    </li>
+    <li>
+      <h3>Cooperative driving automation testbed</h3>
+      <p>
+        A 1/10th-scale connected and automated vehicle fleet running V2X communication stacks,
+        cooperative perception algorithms, and platooning protocols. The platform supports
+        multi-vehicle coordination experiments that are infeasible to instrument at full scale.
+      </p>
+      <!-- figure slot: scale vehicle fleet -->
+    </li>
+    <li>
+      <h3>Real-time traffic safety analysis</h3>
+      <p class="meta">Smart Intersection team lead, NSF CS3 Street Scapes</p>
+      <p>
+        Keypoint and dense-pose estimation models for pedestrian crossing-intention prediction, and
+        a parallel dense video captioning framework for end-to-end traffic safety event analysis.
+        The captioning system placed sixth in Track 2 of the NVIDIA AI City Challenge at CVPR 2024,
+        with a score of 29.01.
+      </p>
+      <!-- figure slot: dense pose / captioning output -->
+    </li>
+    <li>
+      <h3>Autonomous vehicle and pedestrian interaction modeling</h3>
+      <p>
+        A transformer-based trajectory prediction model trained on more than 1,500 hours of nuPlan
+        driving data, reducing displacement error to 2.07 m against a 5.89 m baseline. A companion
+        multi-agent inverse reinforcement learning platform simulates vehicle-pedestrian conflict
+        resolution across Boston, Las Vegas, Pittsburgh, and Singapore, predicting evasive maneuvers
+        including swerving and braking at 81 to 84 percent accuracy. Cross-city comparison
+        identified Las Vegas as the most adversarial interaction environment and Singapore the most
+        cooperative.
+      </p>
+      <!-- figure slot: trajectory prediction / four-city comparison -->
+    </li>
+    <li>
+      <h3>Interactive traffic prediction platform</h3>
+      <p class="meta">Doctoral research, University of Missouri</p>
+      <p>
+        A graph convolutional gated recurrent unit architecture for network-level traffic forecasting
+        from connected vehicle data, with GPU-accelerated ETL pipelines built on RAPIDS achieving a
+        50-fold throughput improvement on Missouri's statewide dataset. The platform includes NOCONS,
+        a speech-driven interface through which planners query predicted congestion states by voice.
+      </p>
+      <!-- figure slot: GC-GRU architecture or NOCONS interface -->
+    </li>
+    <li>
+      <h3>Transportation network companies and urban mobility</h3>
+      <p class="meta">Master's research, Technical University of Munich</p>
+      <p>
+        Quantifying the effect of ride-hailing services on mode choice in Munich, using a
+        stated-preference survey of 500 respondents and agent-based simulation in MATSim. Larger
+        fleet sizes reduced passenger wait times without a corresponding increase in trip duration,
+        while smaller fleets operated more efficiently under peak demand.
+      </p>
+      <!-- figure slot: MATSim simulation output -->
+    </li>
+  </ul>
+</section>
+
+<section id="apexai">
+  <h2>ApexAI</h2>
+  <p>
+    ApexAI develops real-time navigation software that runs on a standard smartphone, requiring no
+    beacons, survey crews, or fixed infrastructure installed in the environment. I founded the
+    company in 2025 and serve as CEO. Two products are in development.
+  </p>
+
+  <h3 class="pubgroup">ApexVision</h3>
+  <p>
+    ApexVision addresses outdoor pedestrian navigation for blind and low-vision users. The governing
+    constraint is latency: a scene description delivered two seconds after capture describes a state
+    the user has already left. The system therefore executes its full perception stack on the
+    handset, achieving end-to-end latency from camera frame to audio cue of under 200 milliseconds,
+    with guidance delivered through synthesized speech and haptics. Four transformer models run in
+    sequence, performing semantic segmentation of the walkable surface, monocular depth estimation,
+    object detection and localization, and vision-language scene description. Because inference is
+    entirely local, the system operates without Wi-Fi or cellular service and no imagery is
+    transmitted off the device.
+  </p>
+  <p>
+    Three operating modes are exposed. Finder localizes a requested object and guides the user to
+    within arm's reach. Safety segments the walkable path and identifies obstacles on it and hazards
+    approaching it. Describe generates a scene description covering layout, people, and signage, and
+    accepts follow-up queries. The application is in free beta on iOS, with Android support planned.
+  </p>
+  <div class="shots">
+    <figure>
+      <img src="../assets/apexvision-finder.webp" width="750" height="1000" loading="lazy"
+           alt="ApexVision Finder mode: the app locating a requested object and guiding the user to it.">
+      <figcaption>Finder</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/apexvision-safety.webp" width="750" height="1000" loading="lazy"
+           alt="ApexVision Safety mode: the walkable path segmented, with obstacles and approaching hazards identified.">
+      <figcaption>Safety</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/apexvision-describe.webp" width="750" height="1000" loading="lazy"
+           alt="ApexVision Describe mode: a generated description of the surrounding scene.">
+      <figcaption>Describe</figcaption>
+    </figure>
+  </div>
+
+  <h3 class="pubgroup">Whereabout</h3>
+  <p>
+    Whereabout addresses indoor navigation. A single iPhone scan produces a measured floor plan and
+    a labeled 3D model, with object extent, height, and position captured by LiDAR. Queries are
+    issued by voice and resolved to a pin on the floor plan with a routed path to the target. The
+    Spaces edition maps venues and events one floor at a time and supports partial rescanning when a
+    layout changes. The Rooms edition maps domestic interiors, cataloguing the contents of drawers
+    and cabinets, with a tactile description read aloud on arrival to confirm the item.
+  </p>
+  <div class="shots">
+    <figure>
+      <img src="../assets/whereabouts-plan.webp" width="640" height="1391" loading="lazy"
+           alt="Whereabout floor plan view, showing a scanned room with items placed and a routed path to the target.">
+      <figcaption>Measured floor plan</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/whereabouts-3d.webp" width="640" height="1391" loading="lazy"
+           alt="Whereabout 3D editor, showing the labeled model generated from a single iPhone scan.">
+      <figcaption>Labeled 3D model</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/whereabouts-item.webp" width="640" height="1391" loading="lazy"
+           alt="Whereabout item sheet, showing a catalogued object with its measured size, height and tactile description.">
+      <figcaption>Item sheet</figcaption>
+    </figure>
+  </div>
+
+  <p>
+    Patent applications covering the navigation architecture are pending in the United States
+    (19/760,891) and Canada (3,319,882).
+  </p>
+</section>
+
+<section id="publications">
+  <h2>Publications</h2>
+  <p>
+    Links go to the publisher DOI where one exists, otherwise to the arXiv preprint. The profile on
+    <a href="https://scholar.google.com/citations?user=5BEc5RcAAAAJ&amp;hl=en">Google Scholar</a>
+    carries citation counts.
+  </p>
+
+  <h3 class="pubgroup">Journal articles</h3>
+  <ul class="pubs">
+    <li>
+      Hatami, P., Shoman, M., and Sartipi, M.
+      Graph-based spatial-velocity clustering and tracking of unlabeled radar point clouds for
+      autonomous vehicles with a novel temporal precision metric.
+      <span class="venue">Transportation Research Record, 2026. Accepted.</span>
+    </li>
+    <li>
+      Sapkota, R., Flores-Calero, M., Qureshi, R., and others, including Shoman, M.
+      <a href="https://doi.org/10.1007/s10462-025-11253-3">YOLO advances to its genesis: a decadal
+      and comprehensive review of the You Only Look Once (YOLO) series.</a>
+      <span class="venue">Artificial Intelligence Review, 2025.</span>
+    </li>
+    <li>
+      Sapkota, R., Qureshi, R., Hadi, M. U., and others, including Shoman, M.
+      <a href="https://doi.org/10.1109/TASE.2025.3612154">Multi-modal LLMs in agriculture: a
+      comprehensive review.</a>
+      <span class="venue">IEEE Transactions on Automation Science and Engineering, 2025.</span>
+    </li>
+    <li>
+      Shoman, M., Ghoul, T., Lanzaro, G., Alsharif, T., Gargoum, S., and Sayed, T.
+      <a href="https://doi.org/10.3390/a17050202">Enforcing traffic safety: a deep learning approach
+      for detecting motorcyclists' helmet violations using YOLOv8 and deep convolutional generative
+      adversarial network-generated images.</a>
+      <span class="venue">Algorithms, 17(5):202, 2024.</span>
+    </li>
+    <li>
+      Shoman, M., Aboah, A., Daud, A., and Adu-Gyamfi, Y.
+      <a href="https://doi.org/10.1142/S2424922X24500013">Graph convolutional gated recurrent unit
+      network for traffic prediction using loop detector data.</a>
+      <span class="venue">Advances in Data Science and Adaptive Analysis, 2024.</span>
+    </li>
+    <li>
+      Shoman, M., Gargoum, S., and Sayed, T.
+      Transformer-based model for predicting trajectories in autonomous vehicle-pedestrian
+      conflicts: a proactive approach to road safety.
+      <span class="venue">Canadian Journal of Civil Engineering, 2024.</span>
+    </li>
+    <li>
+      Shoman, M., Lanzaro, G., Gargoum, S., and Sayed, T.
+      AV-pedestrian interaction modeling platform for urban environments: a case study in four major
+      cities.
+      <span class="venue">ASCE Journal of Transportation Engineering, Part A: Systems, 2023.</span>
+    </li>
+    <li>
+      Shoman, M., Amo-Boateng, M., and Adu-Gyamfi, Y.
+      <a href="https://doi.org/10.1142/S2424922X22500103">Multi-purpose, multi-step deep learning
+      framework for network-level traffic flow prediction.</a>
+      <span class="venue">Advances in Data Science and Adaptive Analysis, 14(3&ndash;4):2250010, 2022.</span>
+    </li>
+    <li>
+      Shoman, M., and Moreno, A. T.
+      Exploring preferences for transportation modes in Munich after the recent incorporation of
+      ride-hailing companies.
+      <span class="venue">Transportation Research Record, 2675(5), 2021.</span>
+    </li>
+    <li>
+      Shoman, M., Aboah, A., and Adu-Gyamfi, Y.
+      Deep learning framework for predicting bus delays on multiple routes using heterogeneous
+      datasets.
+      <span class="venue">Journal of Big Data Analytics in Transportation, 2(3):275&ndash;290, 2020.</span>
+    </li>
+  </ul>
+
+  <h3 class="pubgroup">Conference papers</h3>
+  <ul class="pubs">
+    <li>
+      AlShami, A., Rabinowitz, R., Shoman, M., and others.
+      <a href="https://doi.org/10.1109/ICCVW69036.2025.00084">2COOOL: 2nd workshop on the challenge
+      of out-of-label hazards in autonomous driving.</a>
+      <span class="venue">IEEE/CVF ICCV Workshops, 2025.</span>
+    </li>
+    <li>
+      Hatami, P., Shoman, M., and Sartipi, M.
+      <a href="https://doi.org/10.1109/WACVW65960.2025.00078">Open-world hazard detection and
+      captioning for autonomous driving with a unified multimodal pipeline.</a>
+      <span class="venue">IEEE/CVF WACV Workshops, pp. 686&ndash;694, 2025.</span>
+    </li>
+    <li>
+      Shoman, M., and others.
+      <a href="https://doi.org/10.1109/WACVW65960.2025.00076">Interpreting the unexpected: a
+      multimodal framework for out-of-label hazard detection and explanation in autonomous
+      driving.</a>
+      <span class="venue">IEEE/CVF WACV Workshops, pp. 621&ndash;628, 2025.</span>
+    </li>
+    <li>
+      Shoman, M., Wang, D., Aboah, A., and Abdel-Aty, M.
+      <a href="https://doi.org/10.1109/CVPRW63382.2024.00707">Enhancing traffic safety with parallel
+      dense video captioning for end-to-end event analysis.</a>
+      <span class="venue">IEEE/CVF CVPR Workshops, 2024. Sixth place, NVIDIA AI City Challenge Track 2.</span>
+    </li>
+    <li>
+      Tran, D. Q., Aboah, A., Jeon, Y., Shoman, M., Park, M., and Park, S.
+      <a href="https://doi.org/10.1109/CVPRW63382.2024.00699">Low-light image enhancement framework
+      for improved object detection in fisheye lens datasets.</a>
+      <span class="venue">IEEE/CVF CVPR Workshops, pp. 7056&ndash;7065, 2024.</span>
+    </li>
+    <li>
+      Shoman, M., Aboah, A., Morehead, A., Duan, Y., Daud, A., and Adu-Gyamfi, Y.
+      <a href="https://doi.org/10.1109/CVPRW56347.2022.00362">A region-based deep learning approach
+      to automated retail checkout.</a>
+      <span class="venue">IEEE/CVF CVPR Workshops, pp. 3209&ndash;3214, 2022. Fourth place, NVIDIA AI City Challenge.</span>
+    </li>
+    <li>
+      Aboah, A., Shoman, M., Mandal, V., Davami, S., Adu-Gyamfi, Y., and Sharma, A.
+      <a href="https://arxiv.org/abs/2104.06856">A vision-based system for traffic anomaly detection
+      using deep learning and decision trees.</a>
+      <span class="venue">IEEE/CVF CVPR Workshops, pp. 4207&ndash;4212, 2021.</span>
+    </li>
+  </ul>
+
+  <h3 class="pubgroup">Preprints and work under review</h3>
+  <ul class="pubs">
+    <li>
+      Qureshi, R., Sapkota, R., Shah, A., and others, including Shoman, M.
+      <a href="https://arxiv.org/abs/2507.00951">Thinking beyond tokens: from brain-inspired
+      intelligence to cognitive foundations for artificial general intelligence and its societal
+      impact.</a>
+      <span class="venue">arXiv:2507.00951, 2025.</span>
+    </li>
+    <li>
+      Dahri, T., Memon, Z. A., Yu, Z., Idris, M. Y. I., Khan, S., Ahmad, S., Shoman, M., Aziz, S.,
+      and Qureshi, R.
+      <a href="https://arxiv.org/abs/2506.07055">A layered self-supervised knowledge distillation
+      framework for efficient multimodal learning on the edge.</a>
+      <span class="venue">arXiv:2506.07055, 2025.</span>
+    </li>
+    <li>
+      Raza, S., Qureshi, R., Zahid, A., and others, including Shoman, M.
+      <a href="https://arxiv.org/abs/2502.08650">Who is responsible? The data, models, users or
+      regulations? Responsible generative AI for a sustainable future.</a>
+      <span class="venue">arXiv:2502.08650, 2025. Under review, ACM Computing Surveys.</span>
+    </li>
+    <li>
+      Sapkota, R., Raza, S., Shoman, M., and others.
+      <a href="https://arxiv.org/abs/2501.18648">Image, text, and speech data augmentation using
+      multimodal LLMs for deep learning: a survey.</a>
+      <span class="venue">arXiv:2501.18648, 2025.</span>
+    </li>
+    <li>
+      Mussah, A. R., Shoman, M., Amo-Boateng, M., and Adu-Gyamfi, Y.
+      <a href="https://arxiv.org/abs/2305.07454">Accelerating statewide connected vehicle big sensor
+      fusion data ETL pipelines on GPUs.</a>
+      <span class="venue">arXiv:2305.07454. Under review, IEEE Transactions on Intelligent Transportation Systems.</span>
+    </li>
+    <li>
+      Shohoud, Y., Shoman, M., and Abdelazim, S.
+      <a href="https://arxiv.org/abs/2311.05120">Quranic conversations: developing a semantic search
+      tool for the Quran using Arabic NLP techniques.</a>
+      <span class="venue">arXiv:2311.05120, 2023.</span>
+    </li>
+    <li>
+      Asamoah, J., Kyem, B., Aboah, A., Shoman, M., and Abdel-Aty, M.
+      A comprehensive survey on lane change intention and vehicle trajectory prediction for
+      autonomous driving.
+      <span class="venue">Under review, IEEE Transactions on Intelligent Vehicles.</span>
+    </li>
+    <li>
+      Hadi, M. U., and others, including Shoman, M.
+      A survey on large language models: applications, challenges, limitations and practical usage.
+      <span class="venue">Under review, Artificial Intelligence Review.</span>
+    </li>
+  </ul>
+
+  <h3 class="pubgroup">Theses</h3>
+  <ul class="pubs">
+    <li>
+      Shoman, M.
+      <a href="https://mospace.umsystem.edu/xmlui/handle/10355/94252">Interactive, multi-purpose
+      traffic prediction platform using connected vehicles dataset.</a>
+      <span class="venue">Ph.D. dissertation, University of Missouri, 2022.</span>
+    </li>
+    <li>
+      Shoman, M., Moreno, A. T., and Moeckel, R.
+      The impact of TNC services on urban mobility.
+      <span class="venue">M.Sc. thesis, Technical University of Munich, 2019.</span>
+    </li>
+  </ul>
+</section>
+
+<section id="talks">
+  <h2>Talks</h2>
+  <ul class="entries">
+    <li>
+      <h3>Research, Develop, Deploy</h3>
+      <p class="meta">Keynote. ICCV, Honolulu, October 2025.</p>
+      <figure>
+        <img src="../assets/event-iccv.webp" width="578" height="387" loading="lazy"
+             alt="Maged Shoman presenting the keynote at IEEE/CVF ICCV 2025.">
+      </figure>
+    </li>
+    <li>
+      <h3>Are We Ready to Deploy Agents on the Grid or Plant?</h3>
+      <p class="meta">Invited talk. AIRES-6 Workshop, Oak Ridge National Laboratory, September 2025.</p>
+    </li>
+    <li>
+      <h3>Innovations in Challenging the Unexpected in Dashcam Videos</h3>
+      <p class="meta">Opening keynote. IEEE/CVF WACV, Tucson, March 2025.</p>
+    </li>
+    <li>
+      <h3>VisionAssist: assistive navigation for visually impaired pedestrians</h3>
+      <p class="meta">Transportation Research Board Annual Meeting, 2026.</p>
+    </li>
+    <li>
+      <h3>Synchronizing sky and street: UAV and CCTV integration for traffic monitoring</h3>
+      <p class="meta">Transportation Research Board Annual Meeting, 2025.</p>
+    </li>
+    <li>
+      <h3>Enhancing traffic safety with dense video captioning</h3>
+      <p class="meta">Transportation Research Board Annual Meeting, 2025.</p>
+    </li>
+    <li>
+      <h3>Evaluation of connected vehicle data for congestion and incident detection</h3>
+      <p class="meta">Transportation Research Board Annual Meeting, 2022.</p>
+    </li>
+    <li>
+      <h3>Development and visualization of winter severity impact using multisource data</h3>
+      <p class="meta">Transportation Research Board Annual Meeting, 2021.</p>
+    </li>
+    <li>
+      <h3>Visualizing transit system performance impacted by COVID-19: St. Louis, Missouri</h3>
+      <p class="meta">ITS Heartland, 2020.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="awards">
+  <h2>Awards and service</h2>
+
+  <ul class="entries">
+    <li>
+      Best Paper Award, IEEE/CVF WACV Workshops, 2025.
+    </li>
+    <li>
+      Four top-six finishes in the NVIDIA AI City Challenge, 2021 to 2024.
+    </li>
+    <li>
+      Most Impactful Company, CodeStock, 2026, for ApexAI.
+    </li>
+    <li>
+      Outstanding Ph.D. Student, University of Missouri College of Engineering, 2021. One of five
+      conferred annually across all engineering departments.
+    </li>
+    <li>
+      First place, ITS Heartland research competition, 2021, for work applying connected vehicle
+      data to real-time congestion detection.
+    </li>
+    <li>
+      Research on the effect of COVID-19 on St. Louis transit service was featured by NPR St. Louis,
+      2020.
+    </li>
+    <li>
+      Fourth place, World Red Bull Can Car Racing Competition, 2011, with a team from the American
+      University of Sharjah.
+    </li>
+  </ul>
+
+  <p style="margin-top:1.25rem">
+    I serve as a reviewer for IEEE CVPR, the ASCE Journal of Transportation Engineering Part A,
+    Transportation Research Record, and IEEE ITSC, and have held leadership positions in the
+    Institute of Transportation Engineers and the American Society of Civil Engineers. I served as
+    president of the ASCE student chapter at the American University of Sharjah from 2014 to 2015,
+    and was the first student chapter president to host the ASCE Global President, Dr. Robert
+    Stevens. I have supervised several doctoral and master's students.
+  </p>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <ul class="edu">
+    <li>
+      Ph.D., Civil Engineering, University of Missouri, 2022.
+      <span class="meta">Dissertation: Interactive, multi-purpose traffic prediction platform using
+      connected vehicles data.</span>
+    </li>
+    <li>
+      M.Sc., Transportation Engineering, Technical University of Munich, 2019.
+    </li>
+    <li>
+      B.Sc., Civil and Environmental Engineering, American University of Sharjah, 2015.
+    </li>
+  </ul>
+
+  <p style="margin-top:1.25rem">
+    I work primarily in Python with PyTorch, TensorFlow, OpenCV, and RAPIDS for model development
+    and large-scale data processing, and in VISSIM, Synchro, and CARLA for traffic and driving
+    simulation.
+  </p>
+</section>
+
+</main>
+
+</body>
+</html>
