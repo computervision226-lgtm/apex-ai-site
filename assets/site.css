@@ -381,3 +381,5 @@
   .about-intro{margin-top:1.6rem;max-width:64ch}
   .about-intro p{font-size:clamp(1.12rem,1.6vw,1.28rem);line-height:1.6;color:var(--body);max-width:none}
   .about-intro p + p{margin-top:1rem}
+  .stats-card.three ul{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){.stats-card.three ul{grid-template-columns:1fr}}
