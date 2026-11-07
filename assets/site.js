@@ -1,8 +1,16 @@
   // The hero video plays on its own (muted, with controls to pause it), except for visitors who ask for reduced motion.
+  // A button offers the narration: it restarts the video with sound and stops the loop.
   (function(){
-    var v = document.getElementById('hero-video');
-    if (!v || !window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    v.removeAttribute('autoplay'); v.pause();
+    var v = document.getElementById('hero-video'), btn = document.getElementById('hero-sound');
+    if (!v) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); }
+    if (!btn) return;
+    btn.hidden = false;
+    btn.addEventListener('click', function(){
+      v.muted = false; v.loop = false; v.currentTime = 0; btn.hidden = true;
+      var p = v.play(); if (p && p.catch) p.catch(function(){});
+    });
+    v.addEventListener('volumechange', function(){ if (!v.muted && v.volume > 0) btn.hidden = true; });
   })();
   // Whereabout demonstrations: one player at a time, chosen with the switch.
   (function(){
