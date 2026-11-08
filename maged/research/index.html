@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maged Shoman · Research</title>
+<meta name="description" content="Maged Shoman, Ph.D., founder and CEO of ApexAI and Research Assistant Professor in Intelligent Transportation Systems at the University of Tennessee-Oak Ridge Innovation Institute.">
+<meta name="author" content="Maged Shoman">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Maged Shoman · Research">
+<meta property="og:url" content="https://apex-ai.site/maged/research/">
+<link rel="canonical" href="https://apex-ai.site/maged/research/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D4EA6'/%3E%3Cpath d='M14 50 L32 12 L50 50 H41 L32 29 L23 50 Z' fill='%23FFFFFF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <h1><a href="../" class="namelink">Maged Shoman</a></h1>
+
+  <nav aria-label="Primary">
+    <ul>
+        <li><a href="../">About</a></li>
+        <li><a href="../research/" aria-current="page">Research</a></li>
+        <li><a href="../apexai/">ApexAI</a></li>
+        <li><a href="../publications/">Publications</a></li>
+        <li><a href="../talks/">Talks</a></li>
+        <li><a href="../awards/">Awards and service</a></li>
+        <li><a href="../education/">Education</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<section id="research">
+  <h2>Research</h2>
+
+  <p>
+    My research interests are edge-AI deployment, autonomous vehicle safety, pedestrian behavior
+    modeling, cooperative driving automation, computer vision for transportation, assistive
+    technology, and digital twins for smart cities.
+  </p>
+
+  <ul class="entries">
+    <li>
+      <h3>Driver and pedestrian attention allocation</h3>
+      <p class="meta">With Meta Reality Labs</p>
+      <p>
+        Characterizing how drivers and pedestrians allocate visual attention during conflict events,
+        instrumented with AI-equipped glasses for naturalistic gaze capture. Ensemble models
+        quantify the contribution of ambient lighting, intersection complexity, and traffic density
+        to attention allocation, with the objective of producing human-behavior benchmarks against
+        which autonomous vehicle planners can be evaluated.
+      </p>
+      <!-- figure slot: driver/pedestrian gaze capture -->
+    </li>
+    <li>
+      <h3>Predicting driver distraction</h3>
+      <p class="meta">Center for Urban Informatics and Progress, University of Tennessee at Chattanooga</p>
+      <p>
+        Predicting the onset of driver distraction early enough to warn the driver before it becomes
+        dangerous. The models fuse seating posture, facial expression, steering-wheel grip and eye
+        movement with road context such as intersection type, weather and the presence of
+        pedestrians. Participants drive an instrumented simulator fitted with cockpit cameras and
+        wearable sensors, on scenarios reconstructed from anonymized sensor data drawn from
+        Chattanooga's smart corridor, which covers more than 100 signalized intersections. The
+        intended deployment is a single dashboard camera paired with a small inference module that
+        issues real-time alerts and logs incident data. Moving from the simulator to the live
+        corridor requires domain adaptation across lighting, weather and driver variation.
+      </p>
+      <figure>
+        <img src="../../assets/research-distraction.webp" width="1280" height="708" loading="lazy"
+             alt="A composite research figure. On the left, five simulated driving scenarios showing intersections, pedestrians, cyclists and other vehicles. On the right, the instrumented cockpit: an infrared eye-tracking view, hand and steering-wheel cameras, gaze traces, and simulator footage in which drivers are detected and their body pose estimated.">
+      </figure>
+    </li>
+    <li>
+      <h3>PRISM: AI-powered platform for real-time intelligence in shared mobility</h3>
+      <p class="meta">Co-Principal Investigator. University of Tennessee at Chattanooga, with Audi and Volkswagen Group of America. USDOT ARPA-I.</p>
+      <p>
+        Dynamic map generation combining live environmental sensing with learned hazard prediction
+        to support adaptive route planning and cooperative perception under changing road
+        conditions. Selected as one of four finalists in the ARPA-I Ideas and Innovation Challenge
+        from 448 submissions nationwide, and awarded third place with a $150,000 Stage 2 prize.
+      </p>
+      <!-- figure slot: PRISM mapping output -->
+    </li>
+    <li>
+      <h3>Cooperative driving automation testbed</h3>
+      <p>
+        A 1/10th-scale, high-fidelity connected and automated vehicle platform for cooperative
+        driving research, running V2X communication stacks, cooperative perception algorithms, and
+        platooning protocols. The testbed is built to bridge the simulation-to-reality gap,
+        supporting multi-vehicle coordination experiments that are infeasible to instrument at full
+        scale.
+      </p>
+      <figure>
+        <img src="../../assets/research-cda-testbed.webp" width="1278" height="717" loading="lazy"
+             alt="The cooperative driving automation testbed: a scale model city laid out on the floor with a road network, intersections and buildings, scale autonomous vehicles driving on it, and visitors watching a demonstration beside a monitor showing the vehicles' sensor views.">
+      </figure>
+    </li>
+    <li>
+      <h3>Real-time traffic safety analysis</h3>
+      <p class="meta">Smart Intersection team lead, NSF CS3 Street Scapes</p>
+      <p>
+        Keypoint and dense-pose estimation models for pedestrian crossing-intention prediction, and
+        a parallel dense video captioning framework for end-to-end traffic safety event analysis.
+        The captioning system placed sixth in Track 2 of the NVIDIA AI City Challenge at CVPR 2024,
+        with a score of 29.01.
+      </p>
+      <!-- figure slot: dense pose / captioning output -->
+    </li>
+    <li>
+      <h3>Autonomous vehicle and pedestrian interaction modeling</h3>
+      <p>
+        A transformer-based trajectory prediction model trained on more than 1,500 hours of nuPlan
+        driving data, reducing displacement error to 2.07 m against a 5.89 m baseline. A companion
+        multi-agent inverse reinforcement learning platform simulates vehicle-pedestrian conflict
+        resolution across Boston, Las Vegas, Pittsburgh, and Singapore, predicting evasive maneuvers
+        including swerving and braking at 81 to 84 percent accuracy. Cross-city comparison
+        identified Las Vegas as the most adversarial interaction environment and Singapore the most
+        cooperative.
+      </p>
+      <!-- figure slot: trajectory prediction / four-city comparison -->
+    </li>
+    <li>
+      <h3>Interactive traffic prediction platform</h3>
+      <p class="meta">Doctoral research, University of Missouri</p>
+      <p>
+        A graph convolutional gated recurrent unit architecture for network-level traffic forecasting
+        from connected vehicle data, with GPU-accelerated ETL pipelines built on RAPIDS achieving a
+        50-fold throughput improvement on Missouri's statewide dataset. The platform includes
+        <a href="https://www.youtube.com/watch?v=uGxRNU_t8_w">NOCONS</a>, a speech-driven web
+        application through which planners visualize and query predicted congestion states by voice.
+      </p>
+    </li>
+    <li>
+      <h3>Transportation network companies and urban mobility</h3>
+      <p class="meta">Master's research, Technical University of Munich</p>
+      <p>
+        Quantifying the effect of ride-hailing services on mode choice in Munich, using a
+        stated-preference survey of 500 respondents and agent-based simulation in MATSim. Larger
+        fleet sizes reduced passenger wait times without a corresponding increase in trip duration,
+        while smaller fleets operated more efficiently under peak demand.
+      </p>
+      <!-- figure slot: MATSim simulation output -->
+    </li>
+  </ul>
+</section>
+
+</main>
+
+</body>
+</html>
