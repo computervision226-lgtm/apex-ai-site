@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maged Shoman · ApexAI</title>
+<meta name="description" content="Maged Shoman, Ph.D., founder and CEO of ApexAI and Research Assistant Professor in Intelligent Transportation Systems at the University of Tennessee-Oak Ridge Innovation Institute.">
+<meta name="author" content="Maged Shoman">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Maged Shoman · ApexAI">
+<meta property="og:url" content="https://apex-ai.site/maged/apexai/">
+<link rel="canonical" href="https://apex-ai.site/maged/apexai/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D4EA6'/%3E%3Cpath d='M14 50 L32 12 L50 50 H41 L32 29 L23 50 Z' fill='%23FFFFFF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <h1><a href="../" class="namelink">Maged Shoman</a></h1>
+
+  <nav aria-label="Primary">
+    <ul>
+        <li><a href="../">About</a></li>
+        <li><a href="../research/">Research</a></li>
+        <li><a href="../apexai/" aria-current="page">ApexAI</a></li>
+        <li><a href="../publications/">Publications</a></li>
+        <li><a href="../talks/">Talks</a></li>
+        <li><a href="../awards/">Awards and service</a></li>
+        <li><a href="../education/">Education</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<section id="apexai">
+  <h2>ApexAI</h2>
+  <p>
+    ApexAI develops real-time navigation software that runs on a standard smartphone, requiring no
+    beacons, survey crews, or fixed infrastructure installed in the environment. I founded the
+    company in 2025 and serve as CEO. Two products are in development.
+  </p>
+
+  <figure>
+    <img src="../../assets/event-apexai-pitch.webp" width="1400" height="933" loading="lazy"
+         alt="Maged Shoman presenting ApexAI on stage to a seated panel, beside a slide headed The Problem setting out the cost, privacy, latency and stigma barriers in existing assistive vision tools.">
+    <figcaption>
+      Presenting ApexAI during a conversation on building Tennessee's innovation ecosystem and
+      turning advances in AI, quantum and mobility into real-world impact through entrepreneurship,
+      research and cross-sector collaboration. Panelists included Randy Boyd, president of the
+      University of Tennessee System; Victoria Hirschberg, assistant vice president and chief
+      economic development director, UT System; and Jermaine Freeman, executive director of
+      economic and workforce development, UTC.
+    </figcaption>
+  </figure>
+
+  <h3 class="pubgroup">ApexVision</h3>
+  <p>
+    ApexVision addresses outdoor pedestrian navigation for blind and low-vision users. The governing
+    constraint is latency: a scene description delivered two seconds after capture describes a state
+    the user has already left. The system therefore executes its full perception stack on the
+    handset, achieving end-to-end latency from camera frame to audio cue of under 200 milliseconds,
+    with guidance delivered through synthesized speech and haptics. Four transformer models run in
+    sequence, performing semantic segmentation of the walkable surface, monocular depth estimation,
+    object detection and localization, and vision-language scene description. Because inference is
+    entirely local, the system operates without Wi-Fi or cellular service and no imagery is
+    transmitted off the device.
+  </p>
+
+  <figure>
+    <img src="../../assets/event-its-america-demo.webp" width="1400" height="1050" loading="lazy"
+         alt="Maged Shoman demonstrating ApexVision at ITS America. A laptop shows the perception output on a street scene, with the walkable surface shaded, objects outlined and a person detected with a confidence score, while the application runs alongside on a phone.">
+    <figcaption>Demonstrating the perception stack at ITS America.</figcaption>
+  </figure>
+  <p>
+    Three operating modes are exposed. Finder localizes a requested object and guides the user to
+    within arm's reach. Safety segments the walkable path and identifies obstacles on it and hazards
+    approaching it. Describe generates a scene description covering layout, people, and signage, and
+    accepts follow-up queries. The application is in free beta on iOS, with Android support planned.
+  </p>
+  <div class="shots">
+    <figure>
+      <img src="../../assets/apexvision-finder.webp" width="750" height="1000" loading="lazy"
+           alt="ApexVision Finder mode: the app locating a requested object and guiding the user to it.">
+      <figcaption>Finder</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/apexvision-safety.webp" width="750" height="1000" loading="lazy"
+           alt="ApexVision Safety mode: the walkable path segmented, with obstacles and approaching hazards identified.">
+      <figcaption>Safety</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/apexvision-describe.webp" width="750" height="1000" loading="lazy"
+           alt="ApexVision Describe mode: a generated description of the surrounding scene.">
+      <figcaption>Describe</figcaption>
+    </figure>
+  </div>
+
+  <h3 class="pubgroup">Whereabout</h3>
+  <p>
+    Whereabout addresses indoor navigation. A single iPhone scan produces a measured floor plan and
+    a labeled 3D model, with object extent, height, and position captured by LiDAR. Queries are
+    issued by voice and resolved to a pin on the floor plan with a routed path to the target. The
+    Spaces edition maps venues and events one floor at a time and supports partial rescanning when a
+    layout changes. The Rooms edition maps domestic interiors, cataloguing the contents of drawers
+    and cabinets, with a tactile description read aloud on arrival to confirm the item.
+  </p>
+  <div class="shots">
+    <figure>
+      <img src="../../assets/whereabouts-plan.webp" width="640" height="1391" loading="lazy"
+           alt="Whereabout floor plan view, showing a scanned room with items placed and a routed path to the target.">
+      <figcaption>Measured floor plan</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/whereabouts-3d.webp" width="640" height="1391" loading="lazy"
+           alt="Whereabout 3D editor, showing the labeled model generated from a single iPhone scan.">
+      <figcaption>Labeled 3D model</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/whereabouts-item.webp" width="640" height="1391" loading="lazy"
+           alt="Whereabout item sheet, showing a catalogued object with its measured size, height and tactile description.">
+      <figcaption>Item sheet</figcaption>
+    </figure>
+  </div>
+
+  <p>
+    Patent applications covering the navigation architecture are pending in the United States
+    (19/760,891) and Canada (3,319,882).
+  </p>
+</section>
+
+</main>
+
+</body>
+</html>
