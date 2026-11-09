@@ -107,3 +107,12 @@ nav a[aria-current="page"]{color:var(--text);font-weight:600;text-decoration:non
 nav a[aria-current="page"]:hover{text-decoration:none}
 section{margin-bottom:2.75rem}
 section:last-child{margin-bottom:0}
+
+/* ---- news thumbnails ---- */
+.news-item{display:grid;grid-template-columns:116px 1fr;gap:1rem;align-items:start}
+.news-item.no-thumb{display:block}
+.news-thumb{width:116px;height:auto;display:block;border:1px solid var(--rule)}
+@media (max-width:30rem){
+  .news-item{display:block}
+  .news-thumb{width:100%;max-width:280px;margin-bottom:.5rem}
+}
