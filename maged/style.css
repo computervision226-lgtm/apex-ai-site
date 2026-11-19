@@ -77,10 +77,6 @@ figure img{
 .shots figure img{width:100%;max-height:none}
 figcaption{margin-top:.45rem;color:var(--soft);font-size:.9rem}
 
-.portrait{
-  display:block;width:320px;max-width:100%;height:auto;
-  margin:0 0 1.5rem;
-}
 .shots{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
   gap:.7rem;margin:1.3rem 0 1.5rem;
@@ -88,8 +84,7 @@ figcaption{margin-top:.45rem;color:var(--soft);font-size:.9rem}
 .shots figure{margin:0}
 .shots figcaption{margin-top:.4rem;font-size:.85rem}
 @media (max-width:30rem){
-  .portrait{width:100%;margin:0 0 1.2rem}
-}
+  }
 
 /* education */
 .edu li{margin-bottom:.7rem}
