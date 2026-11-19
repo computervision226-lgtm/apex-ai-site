@@ -78,8 +78,8 @@ figure img{
 figcaption{margin-top:.45rem;color:var(--soft);font-size:.9rem}
 
 .portrait{
-  float:right;width:140px;height:auto;display:block;
-  margin:.25rem 0 1rem 1.6rem;
+  display:block;width:320px;max-width:100%;height:auto;
+  margin:0 0 1.5rem;
 }
 .shots{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
@@ -88,7 +88,7 @@ figcaption{margin-top:.45rem;color:var(--soft);font-size:.9rem}
 .shots figure{margin:0}
 .shots figcaption{margin-top:.4rem;font-size:.85rem}
 @media (max-width:30rem){
-  .portrait{float:none;width:120px;margin:0 0 1.1rem}
+  .portrait{width:100%;margin:0 0 1.2rem}
 }
 
 /* education */
@@ -115,10 +115,11 @@ section{margin-bottom:2.75rem}
 section:last-child{margin-bottom:0}
 
 /* ---- news thumbnails ---- */
-.news-item{display:grid;grid-template-columns:116px 1fr;gap:1rem;align-items:start}
-.news-item.no-thumb{display:block}
-.news-thumb{width:116px;height:auto;display:block;border:1px solid var(--rule)}
+.news-item{display:block}
+.news-thumb{
+  display:block;width:348px;max-width:100%;height:auto;
+  margin-bottom:.65rem;border:1px solid var(--rule);
+}
 @media (max-width:30rem){
-  .news-item{display:block}
-  .news-thumb{width:100%;max-width:280px;margin-bottom:.5rem}
+  .news-thumb{width:100%;margin-bottom:.5rem}
 }
