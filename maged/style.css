@@ -45,7 +45,7 @@ ul{margin:0;padding:0;list-style:none}
 /* ---- header ---- */
 header{padding:3rem 0 0}
 nav{margin-bottom:2.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--rule)}
-nav ul{display:flex;flex-wrap:wrap;gap:1.1rem}
+nav ul{display:flex;flex-wrap:wrap;gap:.95rem}
 nav a{color:var(--link);text-decoration:none}
 nav a:hover{text-decoration:underline}
 
